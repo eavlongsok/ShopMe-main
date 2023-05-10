@@ -1,6 +1,10 @@
 require('./bootstrap')
 import { createApp } from 'vue'
-import Test from './components/Test'
+import App from './App.vue'
 
-const app = createApp(Test)
+
+const app = createApp(App)
 app.mount("#app")
+
+
+
