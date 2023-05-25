@@ -44,7 +44,7 @@
                     <p>Quantity: {{ promotions.length }}</p>
                 </div>
                 <div>
-                    <p>Total: $ {{ (promotions.length)*buy.discount }}</p>
+                    <p>Total: $ {{ Totals((promotions.length)*buy.discount) }}</p>
                 </div>
                 
             </div>
@@ -54,10 +54,17 @@
     <div>
         
     </div>
+    <div class="w-full border-2 rounded-md flex justify-center my-2">
+        <div class="py-8">
+            <h1 class="text-3xl">Total: $ {{ total }} </h1>
+        </div>
+    </div>
 
     <div class="w-full flex justify-center my-2">
         <div>
-            <button class="border-2 bg-yellow-300 hover:bg-yellow-400 hover:text-white rounded-lg border-inherit py-1 px-4 text-gray-600 text-lg py-2 px-14">Payment</button>
+            <button class="border-2 bg-yellow-300 hover:bg-yellow-400 hover:text-white
+             rounded-lg border-inherit py-1 px-4 text-gray-600 
+             text-lg py-2 px-18" @click="passID(30)">Payment</button>
         </div>
         
     </div>
@@ -75,6 +82,7 @@
        },
        data(){
             return{
+                total: 0,
                 promotions: [
                     {
                         name: 'Black T-Shirt',
@@ -98,6 +106,15 @@
                 
             };
         },
+        methods: {
+            passID(tabID){
+                this.$emit('changetab',tabID)
+            },
+            Totals(subtotal){
+                this.total= this.total+subtotal;
+                return subtotal;
+            }
+        }
         
         
     }

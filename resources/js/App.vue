@@ -1,11 +1,16 @@
 <template>
-    
-    <Navbar :active="active" @changetab="changeTab"/>
+    <!-- :active="active" -->
+    <Navbar  @changetab="changeTab"/>
     <div class="w-full flex justify-center">
         <div class="w-[1100px]">
             <Home v-if="active === 1" />
             <Watchlist v-else-if="active === 5"/>
-            <Cart v-else-if="active === 6"/>
+            <Cart v-else-if="active === 6" @changetab="changeTab"/> 
+            <Payment v-else-if="active === 30" @changetab="changeTab"/>
+            <Transaction v-else-if="active === 31" @changetab="changeTab"/>
+            <History v-else-if="active === 4" @changetab="changeTab"/>
+            <Sell v-else-if="active === 3"/>
+            <Login v-else-if="active === 7"/>
 
             <Shirt v-else-if="active === 10"/>
             <Pant v-else-if="active === 11"/>
@@ -30,7 +35,12 @@ import Navbar from './components/Navbar.vue'
 import Home from './components/Home.vue'
 import Cart from './components/Cart.vue'
 import Watchlist from './components/Watchlist.vue'
+import Login from './components/Login.vue'
 import Foot from './components/Foot.vue'
+import Payment from './components/Payment.vue'
+import Transaction from './components/Transaction.vue'
+import History from './components/History.vue'
+import Sell from './components/Sell.vue'
 
 import Shirt from './Items/Shirt.vue'
 import Pant from './Items/Pant.vue'
@@ -50,17 +60,24 @@ export default {
     data(){
         return {
             active: 1,
+
         }
     },
     components:{
-        Navbar,Home,Cart,Watchlist,Foot,Shirt,Pant,Shoes,
-        PC,Camera,Device,Tables,Chair,Bed,Promotions,Toy,
-        Beauty
+        Navbar,Home,Cart,Watchlist,Foot,
+
+        Shirt,Pant,Shoes,
+        PC,Camera,Device,Tables,Chair
+        ,Bed,Promotions,Toy,
+        Beauty,
+
+        Login,Payment,Transaction,History,
+        Sell
     },
     methods:{
         changeTab(tabID){
             this.active = tabID
-        }
+        },
     }
     
 }
