@@ -20029,12 +20029,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Login',
+  data: function data() {
+    return {
+      email: '',
+      password: '',
+      confirmPassword: '',
+      userType: 1
+    };
+  },
   props: ['active'],
   methods: {
     showPassword: function showPassword() {
-      console.log("hi");
-      var target = this.$refs.password;
-      if (target.type === 'password') target.type = 'text';else target.type = 'password';
+      var target1 = this.$refs.password;
+      var target2 = this.$refs.confirmPassword;
+      if (target1.type === 'password') target1.type = 'text';else target1.type = 'password';
+      if (target2.type === 'password') target2.type = 'text';else target2.type = 'password';
     }
   },
   mounted: function mounted() {
@@ -20057,6 +20066,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Navbar',
+  date: function date() {
+    return {
+      query: ''
+    };
+  },
   props: ['active'],
   data: function data() {
     return {
@@ -20068,9 +20082,6 @@ __webpack_require__.r(__webpack_exports__);
     emitTabEvent: function emitTabEvent(tabID) {
       this.$emit('changetab', tabID);
     }
-  },
-  mounted: function mounted() {
-    console.log('hello');
   }
 });
 
@@ -21343,65 +21354,42 @@ var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "for": "email",
     "class": "block my-1"
-  }, "Username:", -1 /* HOISTED */);
-});
-var _hoisted_6 = {
-  ref: "email",
-  type: "text",
-  name: "email",
-  "class": "input-box"
-};
-var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-    "for": "email",
-    "class": "block my-1"
   }, "Email:", -1 /* HOISTED */);
 });
-var _hoisted_8 = {
-  ref: "email",
-  type: "email",
-  name: "email",
-  "class": "input-box"
-};
-var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_6 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "for": "password",
     "class": "block my-1 mt-4",
     name: "password"
   }, "Password:", -1 /* HOISTED */);
 });
-var _hoisted_10 = {
-  ref: "password",
-  type: "password",
-  "class": "input-box"
-};
-var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
 });
-var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_8 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "for": "password",
     "class": "block my-1 mt-4",
     name: "password"
   }, "Confirm Password:", -1 /* HOISTED */);
 });
-var _hoisted_13 = {
-  ref: "password",
-  type: "password",
-  "class": "input-box"
-};
-var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1 /* HOISTED */);
 });
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex justify-between mt-4 mb-2\" data-v-6bdc8b8e><div class=\"mx-2\" data-v-6bdc8b8e><input type=\"radio\" name=\"type\" value=\"customer\" data-v-6bdc8b8e><label class=\"mx-2\" data-v-6bdc8b8e>Customer</label></div><div class=\"mx-2\" data-v-6bdc8b8e><input type=\"radio\" name=\"type\" value=\"seller\" data-v-6bdc8b8e><label class=\"mx-2\" data-v-6bdc8b8e>Seller</label></div></div><button type=\"submit\" class=\"border-2 border-gray-500 w-full rounded-md block bg-blue-500 text-white leading-loose text-xl mt-5 hover:bg-blue-600\" data-v-6bdc8b8e>Sign Up</button>", 2);
-var _hoisted_17 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_10 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "submit",
+    "class": "border-2 border-gray-500 w-full rounded-md block bg-blue-500 text-white leading-loose text-xl mt-5 hover:bg-blue-600"
+  }, "Sign Up", -1 /* HOISTED */);
+});
+var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "flex justify-center"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "mt-4"
   }, "or")], -1 /* HOISTED */);
 });
-var _hoisted_18 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "mb-5"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
@@ -21411,7 +21399,50 @@ var _hoisted_18 = /*#__PURE__*/_withScopeId(function () {
 });
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", _hoisted_6, null, 512 /* NEED_PATCH */), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", _hoisted_8, null, 512 /* NEED_PATCH */), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", _hoisted_10, null, 512 /* NEED_PATCH */), _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <span class=\"cursor-pointer hover:font-bold leading-loose\" @click=\"showPassword()\">Show password</span> "), _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", _hoisted_13, null, 512 /* NEED_PATCH */), _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <span class=\"cursor-pointer hover:font-bold leading-loose\" @click=\"showPassword()\">Show password</span> "), _hoisted_15]), _hoisted_17, _hoisted_18])])]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["w-1/2 h-12 inline-block border-2 border-gray-300 font-bold", {
+      'bg-blue-500 text-white': $data.userType === 1,
+      'hover:bg-red-500': $data.userType !== 1
+    }]),
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return $data.userType = 1;
+    })
+  }, "Buyer", 2 /* CLASS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["w-1/2 h-12 inline-block border-2 border-l-0 border-gray-300 font-bold", {
+      'bg-blue-500 text-white': $data.userType === 2,
+      'hover:bg-red-500': $data.userType !== 2
+    }]),
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return $data.userType = 2;
+    })
+  }, "Seller", 2 /* CLASS */), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    ref: "email",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $data.email = $event;
+    }),
+    type: "email",
+    name: "email",
+    "class": "input-box"
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.email]]), _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    ref: "password",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $data.password = $event;
+    }),
+    type: "password",
+    "class": "input-box"
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.password]]), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <span class=\"cursor-pointer hover:font-bold leading-loose\" @click=\"showPassword()\">Show password</span> "), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    ref: "confirmPassword",
+    type: "password",
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $data.confirmPassword = $event;
+    }),
+    "class": "input-box"
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.confirmPassword]]), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+    "class": "cursor-pointer hover:font-bold leading-loose underline",
+    onClick: _cache[5] || (_cache[5] = function ($event) {
+      return $options.showPassword();
+    })
+  }, "Show password"), _hoisted_10]), _hoisted_11, _hoisted_12])])]);
 }
 
 /***/ }),
@@ -21430,7 +21461,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "md:flex bg-sky-400 justify-between py-2.5 md:items-center"
+  "class": "md:flex bg-sky-400 justify-evenly py-2.5 md:items-center"
 };
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex mx-3"
@@ -21452,48 +21483,56 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 })], -1 /* HOISTED */);
 var _hoisted_4 = [_hoisted_3];
 var _hoisted_5 = {
-  "class": "w-6/12 mx-2.5"
+  "class": "w-6/12 mx-2.5 relative"
 };
-var _hoisted_6 = {
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  type: "button",
+  "class": "inline-block absolute right-[-8px] outline-none top-0 h-10 w-10 border-2 bg-sky-400"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: "searchicon.svg",
+  width: "25",
+  "class": "mx-auto"
+})], -1 /* HOISTED */);
+var _hoisted_7 = {
   "class": "mx-3"
 };
-var _hoisted_7 = {
+var _hoisted_8 = {
   "class": "mx-2.5 group"
 };
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "hover:text-white"
 }, " Category ", -1 /* HOISTED */);
-var _hoisted_9 = {
+var _hoisted_10 = {
   "class": "absolute top-0 right-52 transition group-hover:translate-y-12 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 transform"
 };
-var _hoisted_10 = {
+var _hoisted_11 = {
   "class": "relative top-4 right-3 p-6 bg-white rounded-xl shadow-xl w-full grid grid-cols-2"
 };
-var _hoisted_11 = {
+var _hoisted_12 = {
   "class": "mx-4 my-2"
 };
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "text-purple-600 underline"
 }, "Fashion", -1 /* HOISTED */);
-var _hoisted_13 = {
+var _hoisted_14 = {
   "class": "mx-4 my-2"
 };
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "text-purple-600 underline"
 }, "Electronic", -1 /* HOISTED */);
-var _hoisted_15 = {
+var _hoisted_16 = {
   "class": "mx-4 my-2"
 };
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "text-purple-600 underline"
 }, "Furniture", -1 /* HOISTED */);
-var _hoisted_17 = {
+var _hoisted_18 = {
   "class": "mx-4 my-2"
 };
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "text-purple-600 underline"
 }, "Other", -1 /* HOISTED */);
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   fill: "none",
   viewBox: "0 0 24 24",
@@ -21505,7 +21544,7 @@ var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "stroke-linejoin": "round",
   d: "M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
 })], -1 /* HOISTED */);
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   fill: "none",
   viewBox: "0 0 24 24",
@@ -21517,111 +21556,114 @@ var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "stroke-linejoin": "round",
   d: "M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z"
 })], -1 /* HOISTED */);
-var _hoisted_21 = [_hoisted_20];
+var _hoisted_22 = [_hoisted_21];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $data.showMenu = !$data.showMenu;
     }),
     "class": "absolute md:hidden right-6 top-5"
-  }, _hoisted_4), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, _hoisted_4), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     tpye: "search",
     placeholder: "Search Product",
     "aria-label": "Search Product",
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$data.showMenu ? 'flex' : 'hidden', "w-full mx-2.5 mt-4 mb-4 space-y-4 md:mt-0 md:mb-0 md:space-y-0 md:flex flex-col md:flex-row rounded-md px-3 py-2 placeholder-gray-500 border-none ring-2 ring-gray-300 focus:ring-gray-500 focus:ring-2 text-black"])
-  }, null, 2 /* CLASS */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$data.showMenu ? 'flex' : 'hidden', "w-full mx-2.5 mt-4 mb-4 space-y-4 md:mt-0 md:mb-0 md:space-y-0 md:flex flex-col md:flex-row rounded-md px-3 py-2 placeholder-gray-500 border-none ring-2 ring-gray-300 focus:ring-gray-500 focus:ring-2 text-black focus:outline-none"]),
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return _ctx.query = $event;
+    })
+  }, null, 2 /* CLASS */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.query]]), _hoisted_6]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$data.showMenu ? 'flex' : 'hidden', "flex-col mt-1 space-y-4 md:flex md:flex-row md:items-center md:space-y-0"])
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "mx-2.5 cursor-pointer hover:text-white",
-    onClick: _cache[1] || (_cache[1] = function ($event) {
+    onClick: _cache[2] || (_cache[2] = function ($event) {
       return $options.emitTabEvent(1);
     })
-  }, "Home"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  }, "Home"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
-    onClick: _cache[2] || (_cache[2] = function ($event) {
+    onClick: _cache[3] || (_cache[3] = function ($event) {
       return $options.emitTabEvent(10);
     })
   }, "Shirt"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
-    onClick: _cache[3] || (_cache[3] = function ($event) {
+    onClick: _cache[4] || (_cache[4] = function ($event) {
       return $options.emitTabEvent(11);
     })
   }, "Pant"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
-    onClick: _cache[4] || (_cache[4] = function ($event) {
+    onClick: _cache[5] || (_cache[5] = function ($event) {
       return $options.emitTabEvent(12);
     })
-  }, "Shoes")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  }, "Shoes")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
-    onClick: _cache[5] || (_cache[5] = function ($event) {
+    onClick: _cache[6] || (_cache[6] = function ($event) {
       return $options.emitTabEvent(13);
     })
   }, "PC"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
-    onClick: _cache[6] || (_cache[6] = function ($event) {
+    onClick: _cache[7] || (_cache[7] = function ($event) {
       return $options.emitTabEvent(14);
     })
   }, "Camera"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
-    onClick: _cache[7] || (_cache[7] = function ($event) {
+    onClick: _cache[8] || (_cache[8] = function ($event) {
       return $options.emitTabEvent(15);
     })
-  }, "Devices")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  }, "Devices")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
-    onClick: _cache[8] || (_cache[8] = function ($event) {
+    onClick: _cache[9] || (_cache[9] = function ($event) {
       return $options.emitTabEvent(16);
     })
   }, "Table"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
-    onClick: _cache[9] || (_cache[9] = function ($event) {
+    onClick: _cache[10] || (_cache[10] = function ($event) {
       return $options.emitTabEvent(17);
     })
   }, "Chair"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
-    onClick: _cache[10] || (_cache[10] = function ($event) {
+    onClick: _cache[11] || (_cache[11] = function ($event) {
       return $options.emitTabEvent(18);
     })
-  }, "Bed")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"mx-4 my-2\">\r\n                            <ul>\r\n                                <li class=\"text-purple-600 underline\">Tool</li>\r\n                                <li><a href=\"#\" class=\"hover:text-emerald-400\">Sport</a></li>\r\n                                <li><a href=\"#\" class=\"hover:text-emerald-400\">Home</a></li>\r\n                                <li><a href=\"#\" class=\"hover:text-emerald-400\">Science</a></li>\r\n\r\n                            </ul>\r\n                        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  }, "Bed")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"mx-4 my-2\">\r\n                            <ul>\r\n                                <li class=\"text-purple-600 underline\">Tool</li>\r\n                                <li><a href=\"#\" class=\"hover:text-emerald-400\">Sport</a></li>\r\n                                <li><a href=\"#\" class=\"hover:text-emerald-400\">Home</a></li>\r\n                                <li><a href=\"#\" class=\"hover:text-emerald-400\">Science</a></li>\r\n\r\n                            </ul>\r\n                        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
-    onClick: _cache[11] || (_cache[11] = function ($event) {
+    onClick: _cache[12] || (_cache[12] = function ($event) {
       return $options.emitTabEvent(19);
     })
   }, "Promotion"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
-    onClick: _cache[12] || (_cache[12] = function ($event) {
+    onClick: _cache[13] || (_cache[13] = function ($event) {
       return $options.emitTabEvent(20);
     })
   }, "Toy"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
-    onClick: _cache[13] || (_cache[13] = function ($event) {
+    onClick: _cache[14] || (_cache[14] = function ($event) {
       return $options.emitTabEvent(21);
     })
   }, "Beauty")])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "mx-2.5 cursor-pointer hover:text-white",
-    onClick: _cache[14] || (_cache[14] = function ($event) {
+    onClick: _cache[15] || (_cache[15] = function ($event) {
       return $options.emitTabEvent(3);
     })
   }, "Sell"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "mx-2.5 cursor-pointer hover:text-white",
-    onClick: _cache[15] || (_cache[15] = function ($event) {
+    onClick: _cache[16] || (_cache[16] = function ($event) {
       return $options.emitTabEvent(4);
     })
   }, "History"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "mx-2.5 cursor-pointer hover:text-white",
-    onClick: _cache[16] || (_cache[16] = function ($event) {
+    onClick: _cache[17] || (_cache[17] = function ($event) {
       return $options.emitTabEvent(5);
     })
   }, "Watchlist"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" list use for link to cart "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "mx-3 cursor-pointer",
-    onClick: _cache[17] || (_cache[17] = function ($event) {
+    onClick: _cache[18] || (_cache[18] = function ($event) {
       return $options.emitTabEvent(6);
     })
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" cart image "), _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" cart image ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" list use for link to cart "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" cart image "), _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" cart image ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" list use for link to cart "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "mx-3 cursor-pointer",
-    onClick: _cache[18] || (_cache[18] = function ($event) {
+    onClick: _cache[19] || (_cache[19] = function ($event) {
       return $options.emitTabEvent(7);
     })
-  }, _hoisted_21)], 2 /* CLASS */)])]);
+  }, _hoisted_22)], 2 /* CLASS */)])]);
 }
 
 /***/ }),
@@ -39731,13 +39773,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _App_vue_vue_type_template_id_f348271a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=f348271a */ "./resources/js/App.vue?vue&type=template&id=f348271a");
 /* harmony import */ var _App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js */ "./resources/js/App.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_App_vue_vue_type_template_id_f348271a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/App.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_App_vue_vue_type_template_id_f348271a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/App.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -39759,13 +39801,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Beauty_vue_vue_type_template_id_16d9082e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Beauty.vue?vue&type=template&id=16d9082e */ "./resources/js/Items/Beauty.vue?vue&type=template&id=16d9082e");
 /* harmony import */ var _Beauty_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Beauty.vue?vue&type=script&lang=js */ "./resources/js/Items/Beauty.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Beauty_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Beauty_vue_vue_type_template_id_16d9082e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Beauty.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Beauty_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Beauty_vue_vue_type_template_id_16d9082e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Beauty.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -39787,13 +39829,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Bed_vue_vue_type_template_id_9545b038__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bed.vue?vue&type=template&id=9545b038 */ "./resources/js/Items/Bed.vue?vue&type=template&id=9545b038");
 /* harmony import */ var _Bed_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bed.vue?vue&type=script&lang=js */ "./resources/js/Items/Bed.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Bed_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Bed_vue_vue_type_template_id_9545b038__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Bed.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Bed_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Bed_vue_vue_type_template_id_9545b038__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Bed.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -39815,13 +39857,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Camera_vue_vue_type_template_id_2339b212__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Camera.vue?vue&type=template&id=2339b212 */ "./resources/js/Items/Camera.vue?vue&type=template&id=2339b212");
 /* harmony import */ var _Camera_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Camera.vue?vue&type=script&lang=js */ "./resources/js/Items/Camera.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Camera_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Camera_vue_vue_type_template_id_2339b212__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Camera.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Camera_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Camera_vue_vue_type_template_id_2339b212__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Camera.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -39843,13 +39885,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Chair_vue_vue_type_template_id_643d9968__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Chair.vue?vue&type=template&id=643d9968 */ "./resources/js/Items/Chair.vue?vue&type=template&id=643d9968");
 /* harmony import */ var _Chair_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Chair.vue?vue&type=script&lang=js */ "./resources/js/Items/Chair.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Chair_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Chair_vue_vue_type_template_id_643d9968__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Chair.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Chair_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Chair_vue_vue_type_template_id_643d9968__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Chair.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -39871,13 +39913,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Device_vue_vue_type_template_id_6c8fe67a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Device.vue?vue&type=template&id=6c8fe67a */ "./resources/js/Items/Device.vue?vue&type=template&id=6c8fe67a");
 /* harmony import */ var _Device_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Device.vue?vue&type=script&lang=js */ "./resources/js/Items/Device.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Device_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Device_vue_vue_type_template_id_6c8fe67a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Device.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Device_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Device_vue_vue_type_template_id_6c8fe67a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Device.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -39899,13 +39941,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _PC_vue_vue_type_template_id_769da840__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PC.vue?vue&type=template&id=769da840 */ "./resources/js/Items/PC.vue?vue&type=template&id=769da840");
 /* harmony import */ var _PC_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PC.vue?vue&type=script&lang=js */ "./resources/js/Items/PC.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PC_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PC_vue_vue_type_template_id_769da840__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/PC.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PC_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PC_vue_vue_type_template_id_769da840__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/PC.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -39927,13 +39969,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Pant_vue_vue_type_template_id_346ceab8__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Pant.vue?vue&type=template&id=346ceab8 */ "./resources/js/Items/Pant.vue?vue&type=template&id=346ceab8");
 /* harmony import */ var _Pant_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Pant.vue?vue&type=script&lang=js */ "./resources/js/Items/Pant.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Pant_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Pant_vue_vue_type_template_id_346ceab8__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Pant.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Pant_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Pant_vue_vue_type_template_id_346ceab8__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Pant.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -39955,13 +39997,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Promotions_vue_vue_type_template_id_4949971d__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Promotions.vue?vue&type=template&id=4949971d */ "./resources/js/Items/Promotions.vue?vue&type=template&id=4949971d");
 /* harmony import */ var _Promotions_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Promotions.vue?vue&type=script&lang=js */ "./resources/js/Items/Promotions.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Promotions_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Promotions_vue_vue_type_template_id_4949971d__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Promotions.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Promotions_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Promotions_vue_vue_type_template_id_4949971d__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Promotions.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -39983,13 +40025,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Shirt_vue_vue_type_template_id_5f2e3019__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Shirt.vue?vue&type=template&id=5f2e3019 */ "./resources/js/Items/Shirt.vue?vue&type=template&id=5f2e3019");
 /* harmony import */ var _Shirt_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Shirt.vue?vue&type=script&lang=js */ "./resources/js/Items/Shirt.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Shirt_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Shirt_vue_vue_type_template_id_5f2e3019__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Shirt.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Shirt_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Shirt_vue_vue_type_template_id_5f2e3019__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Shirt.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -40011,13 +40053,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Shoes_vue_vue_type_template_id_f35307ea__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Shoes.vue?vue&type=template&id=f35307ea */ "./resources/js/Items/Shoes.vue?vue&type=template&id=f35307ea");
 /* harmony import */ var _Shoes_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Shoes.vue?vue&type=script&lang=js */ "./resources/js/Items/Shoes.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Shoes_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Shoes_vue_vue_type_template_id_f35307ea__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Shoes.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Shoes_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Shoes_vue_vue_type_template_id_f35307ea__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Shoes.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -40039,13 +40081,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Tables_vue_vue_type_template_id_42878d52__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Tables.vue?vue&type=template&id=42878d52 */ "./resources/js/Items/Tables.vue?vue&type=template&id=42878d52");
 /* harmony import */ var _Tables_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tables.vue?vue&type=script&lang=js */ "./resources/js/Items/Tables.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Tables_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Tables_vue_vue_type_template_id_42878d52__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Tables.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Tables_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Tables_vue_vue_type_template_id_42878d52__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Tables.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -40067,13 +40109,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Toy_vue_vue_type_template_id_7fc5b641__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Toy.vue?vue&type=template&id=7fc5b641 */ "./resources/js/Items/Toy.vue?vue&type=template&id=7fc5b641");
 /* harmony import */ var _Toy_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Toy.vue?vue&type=script&lang=js */ "./resources/js/Items/Toy.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Toy_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Toy_vue_vue_type_template_id_7fc5b641__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Toy.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Toy_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Toy_vue_vue_type_template_id_7fc5b641__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Items/Toy.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -40095,13 +40137,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Cart_vue_vue_type_template_id_b7f93bea__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Cart.vue?vue&type=template&id=b7f93bea */ "./resources/js/components/Cart.vue?vue&type=template&id=b7f93bea");
 /* harmony import */ var _Cart_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Cart.vue?vue&type=script&lang=js */ "./resources/js/components/Cart.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Cart_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Cart_vue_vue_type_template_id_b7f93bea__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Cart.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Cart_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Cart_vue_vue_type_template_id_b7f93bea__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Cart.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -40123,13 +40165,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Foot_vue_vue_type_template_id_89c0c74e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Foot.vue?vue&type=template&id=89c0c74e */ "./resources/js/components/Foot.vue?vue&type=template&id=89c0c74e");
 /* harmony import */ var _Foot_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Foot.vue?vue&type=script&lang=js */ "./resources/js/components/Foot.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Foot_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Foot_vue_vue_type_template_id_89c0c74e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Foot.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Foot_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Foot_vue_vue_type_template_id_89c0c74e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Foot.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -40151,13 +40193,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _History_vue_vue_type_template_id_270eb80e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./History.vue?vue&type=template&id=270eb80e */ "./resources/js/components/History.vue?vue&type=template&id=270eb80e");
 /* harmony import */ var _History_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./History.vue?vue&type=script&lang=js */ "./resources/js/components/History.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_History_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_History_vue_vue_type_template_id_270eb80e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/History.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_History_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_History_vue_vue_type_template_id_270eb80e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/History.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -40179,13 +40221,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Home_vue_vue_type_template_id_f2b6376c__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.vue?vue&type=template&id=f2b6376c */ "./resources/js/components/Home.vue?vue&type=template&id=f2b6376c");
 /* harmony import */ var _Home_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home.vue?vue&type=script&lang=js */ "./resources/js/components/Home.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Home_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Home_vue_vue_type_template_id_f2b6376c__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Home.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Home_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Home_vue_vue_type_template_id_f2b6376c__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Home.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -40208,7 +40250,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Login_vue_vue_type_template_id_6bdc8b8e_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Login.vue?vue&type=template&id=6bdc8b8e&scoped=true */ "./resources/js/components/Login.vue?vue&type=template&id=6bdc8b8e&scoped=true");
 /* harmony import */ var _Login_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Login.vue?vue&type=script&lang=js */ "./resources/js/components/Login.vue?vue&type=script&lang=js");
 /* harmony import */ var _Login_vue_vue_type_style_index_0_id_6bdc8b8e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Login.vue?vue&type=style&index=0&id=6bdc8b8e&scoped=true&lang=css */ "./resources/js/components/Login.vue?vue&type=style&index=0&id=6bdc8b8e&scoped=true&lang=css");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -40216,7 +40258,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Login_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Login_vue_vue_type_template_id_6bdc8b8e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-6bdc8b8e"],['__file',"resources/js/components/Login.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Login_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Login_vue_vue_type_template_id_6bdc8b8e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-6bdc8b8e"],['__file',"resources/js/components/Login.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -40238,13 +40280,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Navbar_vue_vue_type_template_id_6dde423b__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Navbar.vue?vue&type=template&id=6dde423b */ "./resources/js/components/Navbar.vue?vue&type=template&id=6dde423b");
 /* harmony import */ var _Navbar_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Navbar.vue?vue&type=script&lang=js */ "./resources/js/components/Navbar.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Navbar_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Navbar_vue_vue_type_template_id_6dde423b__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Navbar.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Navbar_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Navbar_vue_vue_type_template_id_6dde423b__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Navbar.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -40266,13 +40308,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Payment_vue_vue_type_template_id_7bace86b__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Payment.vue?vue&type=template&id=7bace86b */ "./resources/js/components/Payment.vue?vue&type=template&id=7bace86b");
 /* harmony import */ var _Payment_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Payment.vue?vue&type=script&lang=js */ "./resources/js/components/Payment.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Payment_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Payment_vue_vue_type_template_id_7bace86b__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Payment.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Payment_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Payment_vue_vue_type_template_id_7bace86b__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Payment.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -40294,13 +40336,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Sell_vue_vue_type_template_id_29fd6586__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Sell.vue?vue&type=template&id=29fd6586 */ "./resources/js/components/Sell.vue?vue&type=template&id=29fd6586");
 /* harmony import */ var _Sell_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sell.vue?vue&type=script&lang=js */ "./resources/js/components/Sell.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Sell_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Sell_vue_vue_type_template_id_29fd6586__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Sell.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Sell_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Sell_vue_vue_type_template_id_29fd6586__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Sell.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -40322,13 +40364,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Transaction_vue_vue_type_template_id_35e32ec3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Transaction.vue?vue&type=template&id=35e32ec3 */ "./resources/js/components/Transaction.vue?vue&type=template&id=35e32ec3");
 /* harmony import */ var _Transaction_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Transaction.vue?vue&type=script&lang=js */ "./resources/js/components/Transaction.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Transaction_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Transaction_vue_vue_type_template_id_35e32ec3__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Transaction.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Transaction_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Transaction_vue_vue_type_template_id_35e32ec3__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Transaction.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -40350,13 +40392,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Watchlist_vue_vue_type_template_id_72fc6192__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Watchlist.vue?vue&type=template&id=72fc6192 */ "./resources/js/components/Watchlist.vue?vue&type=template&id=72fc6192");
 /* harmony import */ var _Watchlist_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Watchlist.vue?vue&type=script&lang=js */ "./resources/js/components/Watchlist.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_clone_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Watchlist_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Watchlist_vue_vue_type_template_id_72fc6192__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Watchlist.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Long_OneDrive_Desktop_ParagonIU_sem4_cs262_ShopMe_main_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Watchlist_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Watchlist_vue_vue_type_template_id_72fc6192__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/Watchlist.vue"]])
 /* hot reload */
 if (false) {}
 
