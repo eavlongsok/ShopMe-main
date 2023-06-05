@@ -22,6 +22,6 @@
     </head>
 
     <body>
-        <div id="buyer"></div>
+        <div id="seller"></div>
     </body>
 </html>

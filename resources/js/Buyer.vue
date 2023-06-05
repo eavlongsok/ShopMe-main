@@ -1,6 +1,6 @@
 <template>
     <!-- :active="active" -->
-    <Navbar  @changetab="changeTab"/>
+    <NavBuyer  @changetab="changeTab"/>
     <div class="w-full flex justify-center">
         <div class="w-[1100px]">
             <Home v-if="active === 1" />
@@ -9,7 +9,7 @@
             <Payment v-else-if="active === 30" @changetab="changeTab"/>
             <Transaction v-else-if="active === 31" @changetab="changeTab"/>
             <History v-else-if="active === 4" @changetab="changeTab"/>
-            <Sell v-else-if="active === 3"/>
+            <!-- <Sell v-else-if="active === 3"/> -->
             <!-- <Login v-else-if="active === 7"/> -->
 
             <Shirt v-else-if="active === 10"/>
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import Navbar from './components/Navbar.vue'
+import NavBuyer from './components/NavBuyer.vue'
 import Home from './components/Home.vue'
 import Cart from './components/Cart.vue'
 import Watchlist from './components/Watchlist.vue'
@@ -56,6 +56,7 @@ import Beauty from './Items/Beauty.vue'
 
 
 export default {
+    name:'Buyer',
     data(){
         return {
             active: 1,
@@ -63,7 +64,7 @@ export default {
         }
     },
     components:{
-        Navbar,Home,Cart,Watchlist,Foot,
+        NavBuyer,Home,Cart,Watchlist,Foot,
 
         Shirt,Pant,Shoes,
         PC,Camera,Device,Tables,Chair

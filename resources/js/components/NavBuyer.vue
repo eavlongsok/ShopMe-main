@@ -86,7 +86,9 @@
 
 
             </li>
-            <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(3)">Sell</li>
+
+            <!-- <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(3)">Sell</li> -->
+
             <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(4)">History</li>
             <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(5)">Watchlist</li>
             <!-- list use for link to cart -->
@@ -115,7 +117,7 @@
 
 <script>
     export default{
-        name: 'Navbar',
+        name: 'NavBuyer',
         date() {
             return {
                 query: '',

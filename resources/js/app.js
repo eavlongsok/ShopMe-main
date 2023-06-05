@@ -1,12 +1,16 @@
 require('./bootstrap')
 import { createApp } from 'vue'
-import App from './App.vue'
+import Buyer from './Buyer.vue'
+import Seller from './Seller.vue'
 import SignUp from './components/SignUp.vue'
 import Login from './components/Login.vue'
 
 
-const app = createApp(App)
-app.mount("#app")
+const buyer = createApp(Buyer)
+buyer.mount("#buyer")
+
+const seller = createApp(Seller)
+seller.mount("#seller")
 
 const signup = createApp(SignUp)
 signup.mount("#signup")

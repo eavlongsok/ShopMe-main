@@ -111,8 +111,8 @@ class AuthController extends Controller
             return view('buyerhomepage');
         }
         else if (auth()->guard('seller')->check()) {
-            // return view('sellerhomepage');
-            return view('buyerhomepage');
+            return view('sellerhomepage');
+            // return view('buyerhomepage');
         }
         else return redirect('/login');
     }

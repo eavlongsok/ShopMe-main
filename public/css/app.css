@@ -580,6 +580,9 @@ video {
 .mb-5 {
   margin-bottom: 1.25rem;
 }
+.mb-7 {
+  margin-bottom: 1.75rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -597,9 +600,6 @@ video {
 }
 .mt-6 {
   margin-top: 1.5rem;
-}
-.mb-7 {
-  margin-bottom: 1.75rem;
 }
 .block {
   display: block;
