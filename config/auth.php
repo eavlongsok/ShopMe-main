@@ -46,6 +46,16 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'buyer' => [
+            'driver' => 'session',
+            'provider' => 'buyer',
+        ],
+
+        'seller' => [
+            'driver' => 'session',
+            'provider' => 'seller',
+        ],
     ],
 
     /*
@@ -69,6 +79,16 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        'buyer' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Buyer::class,
+        ],
+
+        'seller' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Seller::class,
         ],
 
         // 'users' => [
