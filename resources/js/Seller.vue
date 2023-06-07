@@ -3,7 +3,7 @@
     <NavSeller  @changetab="changeTab"/>
     <div class="w-full flex justify-center">
         <div class="w-[1100px]">
-            <Home v-if="active === 1" />
+            <SellerHome v-if="active === 1" />
             <!-- <Watchlist v-else-if="active === 5"/>
             <Cart v-else-if="active === 6" @changetab="changeTab"/> -->
             <Payment v-else-if="active === 30" @changetab="changeTab"/>
@@ -53,6 +53,7 @@ import Bed from './Items/Bed.vue'
 import Promotions from './Items/Promotions.vue'
 import Toy from './Items/Toy.vue'
 import Beauty from './Items/Beauty.vue'
+import SellerHome from './sellerComponents/SellerHome.vue'
 
 
 export default {
@@ -64,14 +65,28 @@ export default {
         }
     },
     components:{
-        NavSeller,Home,Cart,Watchlist,Foot,
-
-        Shirt,Pant,Shoes,
-        PC,Camera,Device,Tables,Chair
-        ,Bed,Promotions,Toy,
-        Beauty,Payment,Transaction,History,
-        Sell
-    },
+    NavSeller,
+    Cart,
+    Watchlist,
+    Foot,
+    Shirt,
+    Pant,
+    Shoes,
+    PC,
+    Camera,
+    Device,
+    Tables,
+    Chair,
+    Bed,
+    Promotions,
+    Toy,
+    Beauty,
+    Payment,
+    Transaction,
+    History,
+    Sell,
+    SellerHome
+},
     methods:{
         changeTab(tabID){
             this.active = tabID

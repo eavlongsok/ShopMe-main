@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [AuthController::class, 'home']);
+Route::get('/', [AuthController::class, 'home'])->middleware('homepage');
 
 Route::get('/signup', function() {
     return view('signup');
@@ -24,7 +24,9 @@ Route::post('/sign-up', [AuthController::class, 'signUp']);
 
 Route::get('/login', function() {
     return view('login');
-});
+})->middleware('loginpage');
 
-Route::post('log-in', [AuthController::class, 'logIn']);
+Route::post('log-in', [AuthController::class, 'logIn'])->middleware('loginpage');
+
+Route::post('/logout', [AuthController::class, 'logOut']);
 

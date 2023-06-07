@@ -30,8 +30,9 @@
                     <label for='remember' class="ml-3">Remember me</label>
                 </div>
 
-                <button @click="handleSubmit" class="border-2 border-gray-500 w-full rounded-md block bg-blue-500 text-white leading-loose text-xl mt-5 hover:bg-blue-600 mb-7">Log In</button>
+                <button @click="handleSubmit" class="border-2 border-gray-500 w-full rounded-md block bg-blue-500 text-white leading-loose text-xl mt-5 hover:bg-blue-600 mb-2">Log In</button>
 
+                <p class="text-center text-[0.95rem] mb-7">No account? <a href="/signup"><span class="font-bold hover:underline hover:cursor-pointer">Sign up</span></a> now!</p>
            </div>
        </div>
     </div>

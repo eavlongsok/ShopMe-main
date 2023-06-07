@@ -112,8 +112,16 @@ class AuthController extends Controller
         }
         else if (auth()->guard('seller')->check()) {
             return view('sellerhomepage');
-            // return view('buyerhomepage');
         }
-        else return redirect('/login');
+    }
+
+    public function logOut() {
+        if (auth()->guard('buyer')->check()) {
+            auth()->guard('buyer')->logout();
+        }
+        if (auth()->guard('seller')->check()) {
+            auth()->guard('seller')->logout();
+        }
+        return redirect('/login');
     }
 }

@@ -24,7 +24,7 @@
 
             <ul :class="showMenu ? 'flex': 'hidden'" class="flex-col mt-1 space-y-4 md:flex md:flex-row md:items-center md:space-y-0 ">
             <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(1)">Home</li>
-            <li class="mx-2.5 group">
+            <!-- <li class="mx-2.5 group">
 
                 <button class="hover:text-white" >
                     Category
@@ -61,15 +61,14 @@
                             </ul>
                         </div>
 
-                        <!-- <div class="mx-4 my-2">
+                        <div class="mx-4 my-2">
                             <ul>
                                 <li class="text-purple-600 underline">Tool</li>
                                 <li><a href="#" class="hover:text-emerald-400">Sport</a></li>
                                 <li><a href="#" class="hover:text-emerald-400">Home</a></li>
                                 <li><a href="#" class="hover:text-emerald-400">Science</a></li>
-
                             </ul>
-                        </div> -->
+                        </div>
 
                         <div class="mx-4 my-2">
                             <ul>
@@ -85,20 +84,22 @@
                 </div>
 
 
-            </li>
+            </li> -->
 
             <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(3)">Sell</li>
 
             <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(4)">History</li>
+
+            <li class="mx-2.5 cursor-pointer"><button @click="logout" class="bg-red-500 p-2 rounded">Log Out</button></li>
             <!-- <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(5)">Watchlist</li> -->
             <!-- list use for link to cart -->
             <!-- <li class="mx-3 cursor-pointer" @click="emitTabEvent(6)">
 
-               
+
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hover:text-white">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                     </svg>
-                
+
 
             </li> -->
             <!-- list use for link to cart -->
@@ -134,6 +135,11 @@
             emitTabEvent(tabID){
                 this.$emit('changetab',tabID)
             },
+            logout() {
+                axios.post('/logout').then(() => {
+                    window.location.href = '/'
+                })
+            }
        }
     }
 

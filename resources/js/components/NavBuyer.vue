@@ -101,6 +101,8 @@
                 <!-- cart image -->
 
             </li>
+
+            <li class="mx-2.5 cursor-pointer"><button @click="logout" class="bg-red-500 p-2 rounded">Log Out</button></li>
             <!-- list use for link to cart -->
 
             <!-- login icon -->
@@ -134,6 +136,11 @@
             emitTabEvent(tabID){
                 this.$emit('changetab',tabID)
             },
+            logout() {
+                axios.post('/logout').then(() => {
+                    window.location.href = '/'
+                })
+            }
        }
     }
 
