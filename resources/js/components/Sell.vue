@@ -1,12 +1,42 @@
 <template>
-    <div class="flex justify-center my-20">
+    <p class="text-2xl text-center font-bold mt-5">Enter Product Information</p>
+    <div class="flex justify-center mt-7 mb-20">
         <div class="border-2 rounded-md min-w-[400px]">
             <div class="m-3">
                 <div>
                     <label class="block my-2">Product Name</label>
-                    <input type="text" class="border-2 rounded-md py-1 focus:outline w-full"/>
-                    <label class="block my-2">Price</label>
-                    <input type="text" class="border-2 rounded-md py-1 focus:outline w-full"/>
+                    <input type="text" class="border-2 pl-2 rounded-md py-1 focus:outline w-full"/>
+
+                    <label class="my-2">Product Category</label>
+                    <select class="border-2 mt-4 px-2 rounded-sm focus:outline ml-5">
+                        <option>category 1</option>
+                        <option>category 2</option>
+                        <option>category 3</option>
+                    </select>
+
+                    <br/>
+
+                    <label class="my-2">Product Condition</label>
+                    <select class="border-2 mt-4 px-2 rounded-sm focus:outline ml-5">
+                        <option>New</option>
+                        <option>Used</option>
+                    </select>
+
+                    <div class="flex justify-between mt-4">
+                        <div>
+                            <label class="block my-2">Price</label>
+                            <input type="number" class="border-2 pl-2 rounded-md py-1 focus:outline"/>
+                        </div>
+
+                        <div class="mr-8">
+                            <label class="block my-2">Quantity</label>
+                            <input type="number" class="border-2 pl-2 rounded-md py-1 focus:outline"/>
+                        </div>
+
+                    </div>
+
+                    <label class="block my-2 mt-4">Description</label>
+                    <textarea class="border-2 pl-2 rounded-md py-1 focus:outline w-full h-[8rem]"></textarea>
                 </div>
 
                 <div class="my-4">
@@ -54,14 +84,14 @@
 
                     <div>
                         <button class="border-2 bg-sky-400 hover:bg-sky-500 hover:text-white
-                        rounded-md border-inherit py-1 px-6 text-white 
+                        rounded-md border-inherit py-1 px-6 text-white
                         ">Submit</button>
                     </div>
                 </div>
-                
 
-               
-                
+
+
+
             </div>
         </div>
     </div>
