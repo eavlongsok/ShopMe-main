@@ -99,7 +99,7 @@
                         <div class="group absolute top-10 right-20 hidden group-hover:block">
                             <div class="flex flex-col my-6">
                                 <button><a href="#" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-blue-500">Profile</a></button>
-                                <button><a href="" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-red-500">Logout</a></button>
+                                <button @click="logout" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-red-500">Logout</button>
                             </div>
                         </div>
                     </div>

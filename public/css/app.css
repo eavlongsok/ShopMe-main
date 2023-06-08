@@ -485,6 +485,9 @@ video {
 .relative {
   position: relative;
 }
+.right-10 {
+  right: 2.5rem;
+}
 .right-20 {
   right: 5rem;
 }
@@ -514,9 +517,6 @@ video {
 }
 .top-full {
   top: 100%;
-}
-.right-10 {
-  right: 2.5rem;
 }
 .z-50 {
   z-index: 50;
