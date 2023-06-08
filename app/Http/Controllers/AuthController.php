@@ -122,6 +122,5 @@ class AuthController extends Controller
         if (auth()->guard('seller')->check()) {
             auth()->guard('seller')->logout();
         }
-        return redirect('/login');
     }
 }

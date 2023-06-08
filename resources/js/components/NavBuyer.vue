@@ -101,8 +101,24 @@
                 <!-- cart image -->
 
             </li>
+            
+            <li>
+                <div class="mx-2.5 cursor-pointer group">
+                    <div class="rounded-full h-9 w-9 border-2 flex justify-center bg-red-400">
+                       <div class="flex items-center text-white">
+                            
 
-            <li class="mx-2.5 cursor-pointer"><button @click="logout" class="bg-red-500 p-2 rounded">Log Out</button></li>
+                            <h1>H</h1>
+                            <div class="group absolute top-10 right-10 hidden group-hover:block">
+                                <div class="flex flex-col my-6">
+                                    <button><a href="#" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-blue-500">Profile</a></button>
+                                    <button @click="logout" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-red-500">Logout</button>
+                                </div>
+                            </div>
+                       </div> 
+                    </div>
+                </div>
+            </li>
             <!-- list use for link to cart -->
 
             <!-- login icon -->
