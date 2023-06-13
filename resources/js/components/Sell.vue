@@ -4,39 +4,39 @@
         <div class="border-2 rounded-md min-w-[400px]">
             <div class="m-3">
                 <div>
-                    <label class="block my-2">Product Name</label>
-                    <input type="text" class="border-2 pl-2 rounded-md py-1 focus:outline w-full"/>
+                    <label class="block my-2">Name:</label>
+                    <input type="text" class="border-2 pl-2 rounded-md py-1 focus:outline w-full" v-model="name"/>
 
-                    <label class="my-2">Product Category</label>
-                    <select class="border-2 mt-4 px-2 rounded-sm focus:outline ml-5">
-                        <option>category 1</option>
-                        <option>category 2</option>
-                        <option>category 3</option>
+                    <label class="my-2">Category:</label>
+                    <select v-model="category" class="border-2 mt-4 px-2 rounded-sm focus:outline ml-5">
+                        <option disabled selected>--Choose Category--</option>
+                        <option v-for="category in categories" :value="category.category_id">{{ category.category_name }}</option>
                     </select>
 
                     <br/>
 
-                    <label class="my-2">Product Condition</label>
-                    <select class="border-2 mt-4 px-2 rounded-sm focus:outline ml-5">
-                        <option>New</option>
-                        <option>Used</option>
+                    <label class="my-2">Condition:</label>
+                    <select v-model="condition" class="border-2 mt-4 px-2 rounded-sm focus:outline ml-5">
+                        <option selected disabled>--Choose Condition--</option>
+                        <option value=1>New</option>
+                        <option value=0>Used</option>
                     </select>
 
                     <div class="flex justify-between mt-4">
                         <div>
                             <label class="block my-2">Price</label>
-                            <input type="number" class="border-2 pl-2 rounded-md py-1 focus:outline"/>
+                            <input type="number" v-model="price" class="border-2 pl-2 rounded-md py-1 focus:outline"/>
                         </div>
 
                         <div class="mr-8">
                             <label class="block my-2">Quantity</label>
-                            <input type="number" class="border-2 pl-2 rounded-md py-1 focus:outline"/>
+                            <input type="number" v-model="quantity" class="border-2 pl-2 rounded-md py-1 focus:outline"/>
                         </div>
 
                     </div>
 
                     <label class="block my-2 mt-4">Description</label>
-                    <textarea class="border-2 pl-2 rounded-md py-1 focus:outline w-full h-[8rem]"></textarea>
+                    <textarea class="border-2 pl-2 rounded-md py-1 focus:outline w-full h-[8rem]" v-model="description"></textarea>
                 </div>
 
                 <div class="my-4">
@@ -49,14 +49,14 @@
                                 d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                         </svg>
                         <p class="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
-                            Attach an Images</p>
+                            Attach an image</p>
                     </div>
-                    <input type="file" class="opacity-0" />
+                    <input type="file" ref="image" @change="handleFileInput()" accept="image/jpeg, image/jpg, image/png" class="opacity-0" />
                     </label>
                 </div>
 
-                <div class="flex justify-between">
-                    <div>
+                <div class="flex justify-end">
+                    <!-- <div>
                     <button class="relative flex justify-center items-center border rounded group">
                         <p class="px-3">Category</p>
                         <span class="p-1">
@@ -80,12 +80,12 @@
                             </ul>
                         </div>
                     </button>
-                    </div>
+                    </div> -->
 
                     <div>
                         <button class="border-2 bg-sky-400 hover:bg-sky-500 hover:text-white
                         rounded-md border-inherit py-1 px-6 text-white
-                        ">Submit</button>
+                        " @click="submit">Submit</button>
                     </div>
                 </div>
 
@@ -100,5 +100,61 @@
 <script>
     export default{
         name: 'Sell',
+        data() {
+            return {
+                categories: [],
+                name: '',
+                category: null,
+                condition: null,
+                price: null,
+                quantity: null,
+                description: '',
+                image: null,
+                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            }
+        },
+        methods: {
+            handleFileInput() {
+                if (window.File && window.FileReader && window.FileList && window.Blob) {
+                    const image = this.$refs.image
+                    // console.log(files.files)
+                    this.image = image.files
+                }
+                else alert('Your window doesn\'t support file uploading')
+            },
+            async submit() {
+                console.log(this.image)
+                try {
+                    // const response = await axios.post('api/test', {
+                    //     name: this.name,
+                    //     category: this.category,
+                    //     condition: this.condition,
+                    //     price: this.price,
+                    //     quantity: this.quantity,
+                    //     description: this.description,
+                    //     image: this.image,
+                    // }, )
+                    // console.log(response.data)
+                    let formData = new FormData();
+                    formData.append("name", this.name)
+                    formData.append("category", this.category)
+                    formData.append("condition", this.condition)
+                    formData.append("price", this.price)
+                    formData.append("quantity", this.quantity)
+                    formData.append("description", this.description)
+                    formData.append("image", this.image[0]);
+                    const response = await axios.post('/api/registerProduct', formData)
+                    if (response.data?.success) {
+                        window.location.href = '/'
+                    }
+                } catch (err) {
+                    alert('Failed to register product. Please try again')
+                }
+            },
+        },
+        async mounted() {
+            const response = await axios.get('/api/categories')
+            this.categories = response.data.categories
+        }
     }
 </script>

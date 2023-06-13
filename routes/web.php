@@ -18,15 +18,15 @@ Route::get('/', [AuthController::class, 'home'])->middleware('homepage');
 
 Route::get('/signup', function() {
     return view('signup');
-});
+})->middleware('restrictLogin');
 
-Route::post('/sign-up', [AuthController::class, 'signUp']);
+Route::post('/sign-up', [AuthController::class, 'signUp'])->middleware('restrictLogin');
 
 Route::get('/login', function() {
     return view('login');
-})->middleware('loginpage');
+})->middleware('restrictLogin');
 
-Route::post('log-in', [AuthController::class, 'logIn'])->middleware('loginpage');
+Route::post('log-in', [AuthController::class, 'logIn'])->middleware('restrictLogin');
 
 Route::post('/logout', [AuthController::class, 'logOut']);
 

@@ -61,7 +61,6 @@ export default {
     data(){
         return {
             active: 1,
-
         }
     },
     components:{
@@ -90,7 +89,11 @@ export default {
     methods:{
         changeTab(tabID){
             this.active = tabID
+            window.scrollTo(0,0);
         },
+    },
+    mounted() {
+
     }
 
 }

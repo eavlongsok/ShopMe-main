@@ -24,6 +24,9 @@
                         </div>
                     </div>
 
+                    <label for="dob" class="block my-1 my4">Date of Birth:</label>
+                    <input type="date" name="dob" class="input-box uppercase" v-model="dob" />
+
                     <label for="email" class="block my-1 my4">Email:</label>
 
                     <input v-model="email" type="email" name="email" class="input-box"/>
@@ -86,6 +89,7 @@
                 lastName: '',
                 email: '',
                 password: '',
+                dob: null,
                 confirmPassword: '',
                 userType: 1,
                 remember: false,
@@ -110,11 +114,11 @@
             },
             async handleSubmit() {
                 try {
-                    const req = await axios.post('/sign-up', {userType: this.userType, firstName: this.firstName, lastName: this.lastName, email: this.email, password: this.password, confirmPassword: this.confirmPassword, remember: this.remember})
+                    const req = await axios.post('/sign-up', {userType: this.userType, firstName: this.firstName, lastName: this.lastName, dob: this.dob, email: this.email, password: this.password, confirmPassword: this.confirmPassword, remember: this.remember})
 
-                    // if (req.data?.success) {
-                    //     window.location.href = '/'
-                    // }
+                    if (req.data?.success) {
+                        window.location.href = '/'
+                    }
                 }
                 catch (err) {
                     console.log(err.response.data)

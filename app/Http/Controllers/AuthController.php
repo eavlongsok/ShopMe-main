@@ -16,6 +16,8 @@ class AuthController extends Controller
         $userType = $request->input('userType');
         $firstName = $request->input('firstName');
         $lastName = $request->input('lastName');
+        $dateOfBirth = $request->input('dob');
+        $dateOfBirth=date("Y-m-d H:i:s",strtotime($dateOfBirth));
         $email = $request->input('email');
         $password = $request->input('password');
         $confirmPassword = $request->input('confirmPassword');
@@ -32,14 +34,16 @@ class AuthController extends Controller
             if ($validation->fails()) {
                 return response()->json(['errors' => $validation->errors()], 422);
             }
-
             $buyer = new Buyer();
             $buyer->first_name = $firstName;
             $buyer->last_name = $lastName;
             $buyer->email = $email;
             $buyer->password = Hash::make($password);
-            $buyer->date_of_birth = "2000-01-01";
+            $buyer->date_of_birth = $dateOfBirth;
             $buyer->save();
+            $this->logIn($request);
+
+            return response()->json(['success' => ['message' => 'Sign up successfully']], 200);
         }
         else if ($userType === 2) {
             $validation = Validator::make($request->all(), [
@@ -58,9 +62,13 @@ class AuthController extends Controller
             $seller->last_name = $lastName;
             $seller->email = $email;
             $seller->password = Hash::make($password);
-            $seller->date_of_birth = "2000-01-01";
+            $seller->date_of_birth = $dateOfBirth;
             $seller->save();
+            $this->logIn($request);
+
+            return response()->json(['success' => ['message' => 'Sign up successfully']], 200);
         }
+
     }
 
     public function logIn(Request $request) {
