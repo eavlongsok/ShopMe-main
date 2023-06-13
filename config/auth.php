@@ -52,8 +52,18 @@ return [
             'provider' => 'buyer',
         ],
 
+        'buyer_token' => [
+            'driver' => 'token',
+            'provider' => 'buyer',
+        ],
+
         'seller' => [
             'driver' => 'session',
+            'provider' => 'seller',
+        ],
+
+        'seller_token' => [
+            'driver' => 'token',
             'provider' => 'seller',
         ],
     ],

@@ -143,18 +143,32 @@
                     formData.append("quantity", this.quantity)
                     formData.append("description", this.description)
                     formData.append("image", this.image[0]);
-                    const response = await axios.post('/api/registerProduct', formData)
+                    const response = await axios.post('/api/registerProduct', formData, {
+                        headers: {
+                            "Authorization": "Bearer " + localStorage.getItem("token")
+                        }
+                    })
                     if (response.data?.success) {
                         window.location.href = '/'
                     }
                 } catch (err) {
+                    console.log(err.response.data)
                     alert('Failed to register product. Please try again')
                 }
             },
         },
         async mounted() {
-            const response = await axios.get('/api/categories')
-            this.categories = response.data.categories
+            try {
+                const response = await axios.get('/api/categories', {
+                    headers: {
+                        "Authorization": "Bearer " + localStorage.getItem("token")
+                    }
+                })
+                this.categories = response.data.categories
+            }
+            catch(err) {
+                console.log(err.response.data)
+            }
         }
     }
 </script>

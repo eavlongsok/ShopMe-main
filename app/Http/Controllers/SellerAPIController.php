@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -34,7 +35,10 @@ class SellerAPIController extends Controller
             return response()->json(['errors' => $validation->errors(), 'dataSent' => $request->all()], 422);
         }
 
+        $seller_id = Auth::guard('seller_token')->user()->seller_id;
+
         $registerID = DB::table('product')->insertGetId([
+            'seller_id' => $seller_id,
             'product_name' => $request->input('name'),
             'category_id' => $request->input('category'),
             'price' => $request->input('price'),

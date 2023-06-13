@@ -24,7 +24,7 @@ Route::post('/sign-up', [AuthController::class, 'signUp'])->middleware('restrict
 
 Route::get('/login', function() {
     return view('login');
-})->middleware('restrictLogin');
+})->middleware('restrictLogin')->name('login');
 
 Route::post('log-in', [AuthController::class, 'logIn'])->middleware('restrictLogin');
 

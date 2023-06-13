@@ -93,8 +93,12 @@ class AuthController extends Controller
             }
 
             if (Auth::guard('buyer') -> attempt(['email' => $email, 'password' => $password], $remember)) {
+                $buyer = Buyer::where('email', $email)->first();
+                $token = $buyer->createToken(time())->plainTextToken;
+                $buyer->api_token = $token;
+                $buyer->save();
                 $request->session()->regenerate();
-                return response()->json(['success' => ['message' => 'Login successfully']], 200);
+                return response()->json(['success' => ['message' => 'Login successfully'], 'token' => $token], 200);
             } else {
                 return response()->json(['errors' => ['message' => 'Email and password were not matched']], 401);
             }
@@ -106,8 +110,12 @@ class AuthController extends Controller
                 return response()->json(['errors' => ['message' => 'User Not Found']], 404);
             }
             if (Auth::guard('seller') -> attempt(['email' => $email, 'password' => $password], $remember)) {
+                $seller = Seller::where('email', $email)->first();
+                $token = $seller->createToken(time())->plainTextToken;
+                $seller->api_token = $token;
+                $seller->save();
                 $request->session()->regenerate();
-                return response()->json(['success' => ['message' => 'Login successfully']], 200);
+            return response()->json(['success' => ['message' => 'Login successfully'], 'token' => $token], 200);
             } else {
                 return response()->json(['errors' => ['message' => 'Email and password were not matched']], 401);
             }

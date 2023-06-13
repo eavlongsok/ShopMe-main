@@ -69,6 +69,7 @@
                    const req = await axios.post('/log-in', {userType: this.userType, email: this.email, password: this.password, remember: this.remember})
 
                    if (req.data?.success) {
+                        localStorage.setItem('token', req.data.token)
                        window.location.href = '/'
                    }
                }

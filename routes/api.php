@@ -21,8 +21,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/categories', [SellerAPIController::class, 'getCategories']);
+Route::group(['middleware' => 'auth:sanctum'], function () {
 
-Route::post('/registerProduct', [SellerAPIController::class, 'registerProduct']);
+    Route::post('/registerProduct', [SellerAPIController::class, 'registerProduct']);
 
-Route::post('/test', [SellerAPIController::class, 'test']);
+    Route::post('/test', [SellerAPIController::class, 'test']);
+});
+
+Route::get('/categories', [SellerAPIController::class, 'getCategories'])->middleware('auth:sanctum');
+
