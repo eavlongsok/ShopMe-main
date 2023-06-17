@@ -127,9 +127,9 @@
                     const req = await axios.post('/sign-up', formData)
 
                     if (req.data?.success) {
-                        if (userType === 1)
+                        if (this.userType === 1)
                             localStorage.setItem('buyer_token',req.response.data.token)
-                        else if (userType === 2)
+                        else if (this.userType === 2)
                             localStorage.setItem('seller_token',req.response.data.token)
                         window.location.href = '/'
                     }

@@ -23,7 +23,7 @@ class AuthController extends Controller
         $confirmPassword = $request->input('confirmPassword');
         $remember = $request->input('remember');
 
-        if ($userType === 1) {
+        if ($userType == 1) {
             $validation = Validator::make($request->all(), [
                 'firstName' => 'required',
                 'lastName' => 'required',
@@ -45,7 +45,7 @@ class AuthController extends Controller
 
             return response()->json(['success' => ['message' => 'Sign up successfully']], 200);
         }
-        else if ($userType === 2) {
+        else if ($userType == 2) {
             $validation = Validator::make($request->all(), [
                 'firstName' => 'required',
                 'lastName' => 'required',
