@@ -86,7 +86,9 @@ class AuthController extends Controller
         $password = $request->input('password');
         $remember = $request->input('remember');
 
-        if ($userType === 1) {
+        // return response()->json(['userType' => $userType, 'email' => $email, 'password' => $password, 'remember' => $remember], 200);
+
+        if ($userType == 1) {
             $buyer = Buyer::where('email', $email)->first();
             if (!isset($buyer)) {
                 return response()->json(['errors' => ['message' => 'User Not Found']], 404);
@@ -104,7 +106,7 @@ class AuthController extends Controller
             }
         }
 
-        if ($userType === 2) {
+        if ($userType == 2) {
             $seller = Seller::where('email', $email)->first();
             if (!isset($seller)) {
                 return response()->json(['errors' => ['message' => 'User Not Found']], 404);
