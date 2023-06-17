@@ -128,9 +128,9 @@
 
                     if (req.data?.success) {
                         if (this.userType === 1)
-                            localStorage.setItem('buyer_token',req.response.data.token)
+                            localStorage.setItem('buyer_token',req.data.token)
                         else if (this.userType === 2)
-                            localStorage.setItem('seller_token',req.response.data.token)
+                            localStorage.setItem('seller_token',req.data.token)
                         window.location.href = '/'
                     }
                 }

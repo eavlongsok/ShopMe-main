@@ -20631,7 +20631,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 12:
               req = _context.sent;
               if ((_req$data = req.data) !== null && _req$data !== void 0 && _req$data.success) {
-                if (_this.userType === 1) localStorage.setItem('buyer_token', req.response.data.token);else if (_this.userType === 2) localStorage.setItem('seller_token', req.response.data.token);
+                if (_this.userType === 1) localStorage.setItem('buyer_token', req.data.token);else if (_this.userType === 2) localStorage.setItem('seller_token', req.data.token);
                 window.location.href = '/';
               }
               _context.next = 20;
@@ -20639,7 +20639,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 16:
               _context.prev = 16;
               _context.t0 = _context["catch"](0);
-              /* eslint-disable */(_console = console).log.apply(_console, _toConsumableArray(oo_oo("ae376776_0", _context.t0.response.data)));
+              /* eslint-disable */(_console = console).log.apply(_console, _toConsumableArray(oo_oo("5c577c7b_0", _context.t0.response.data)));
               if (_context.t0.response.status === 422) {
                 _this.errors = _context.t0.response.data.errors;
               } else {
