@@ -101,12 +101,12 @@
                 <!-- cart image -->
 
             </li>
-            
+
             <li>
                 <div class="mx-2.5 cursor-pointer group">
                     <div class="rounded-full h-9 w-9 border-2 flex justify-center bg-red-400">
                        <div class="flex items-center text-white">
-                            
+
 
                             <h1>H</h1>
                             <div class="group absolute top-10 right-10 hidden group-hover:block">
@@ -115,7 +115,7 @@
                                     <button @click="logout" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-red-500">Logout</button>
                                 </div>
                             </div>
-                       </div> 
+                       </div>
                     </div>
                 </div>
             </li>
@@ -154,6 +154,7 @@
             },
             logout() {
                 axios.post('/logout').then(() => {
+                    localStorage.removeItem('buyer_token')
                     window.location.href = '/'
                 })
             }

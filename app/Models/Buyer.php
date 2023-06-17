@@ -9,7 +9,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class Buyer extends Model implements Authenticatable
 {
-    use HasApiTokens;
+    use HasFactory, HasApiTokens;
     protected $table = 'buyer';
     protected $primaryKey = 'buyer_id';
 
@@ -39,5 +39,4 @@ class Buyer extends Model implements Authenticatable
     {
         return 'remember_token';
     }
-    use HasFactory;
 }

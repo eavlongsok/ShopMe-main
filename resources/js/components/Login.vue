@@ -66,11 +66,19 @@
             },
            async handleSubmit() {
                try {
-                   const req = await axios.post('/log-in', {userType: this.userType, email: this.email, password: this.password, remember: this.remember})
+                    let formData = new FormData()
+                    formData.append('userType', this.userType)
+                    formData.append('email', this.email)
+                    formData.append('password', this.password)
+                    formData.append('remember', this.remember)
+                   const req = await axios.post('/log-in', formData)
 
                    if (req.data?.success) {
-                        localStorage.setItem('token', req.data.token)
-                       window.location.href = '/'
+                        if (userType === 1)
+                            localStorage.setItem('buyer_token', req.data.token)
+                        else if (userType === 2)
+                            localStorage.setItem('seller_token', req.data.token)
+                        window.location.href = '/'
                    }
                }
                catch (err) {

@@ -145,10 +145,11 @@
                     formData.append("image", this.image[0]);
                     const response = await axios.post('/api/registerProduct', formData, {
                         headers: {
-                            "Authorization": "Bearer " + localStorage.getItem("token")
+                            "Authorization": "Bearer " + localStorage.getItem("seller_token")
                         }
                     })
                     if (response.data?.success) {
+                        // return to another page to see all the pending requests
                         window.location.href = '/'
                     }
                 } catch (err) {
