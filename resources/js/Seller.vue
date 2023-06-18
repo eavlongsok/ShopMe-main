@@ -10,6 +10,7 @@
             <Transaction v-else-if="active === 31" @changetab="changeTab"/>
             <History v-else-if="active === 4" @changetab="changeTab"/>
             <Sell v-else-if="active === 3"/>
+            <Verify v-else-if="active === 5"/>
             <!-- <Login v-else-if="active === 7"/> -->
 
             <Shirt v-else-if="active === 10"/>
@@ -40,6 +41,7 @@ import Payment from './components/Payment.vue'
 import Transaction from './components/Transaction.vue'
 import History from './components/History.vue'
 import Sell from './components/Sell.vue'
+import Verify from './components/Verify.vue'
 
 import Shirt from './Items/Shirt.vue'
 import Pant from './Items/Pant.vue'
@@ -68,6 +70,7 @@ export default {
     Cart,
     Watchlist,
     Foot,
+    Verify,
     Shirt,
     Pant,
     Shoes,

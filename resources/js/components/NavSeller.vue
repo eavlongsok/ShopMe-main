@@ -90,14 +90,16 @@
 
             <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(4)">History</li>
 
+            <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(5)">Verify</li>
+
             <!-- <li class="mx-2.5 cursor-pointer"><button @click="logout" class="bg-red-500 p-2 rounded">Log Out</button></li> -->
 
-            <div class="mx-2.5 cursor-pointer group">
+            <div class="mx-2.5 cursor-pointer group relative">
                 <div class="rounded-full h-9 w-9 border-2 flex justify-center bg-red-400">
                     <div class="flex items-center text-white">
                         <h1>H</h1>
-                        <div class="group absolute top-10 right-20 hidden group-hover:block">
-                            <div class="flex flex-col my-6">
+                        <div class="absolute top-9 left-[-1.125rem] hidden group-hover:block pointer-events-auto">
+                            <div class="flex flex-col my-2 z-10">
                                 <button><a href="#" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-blue-500">Profile</a></button>
                                 <button @click="logout" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-red-500">Logout</button>
                             </div>

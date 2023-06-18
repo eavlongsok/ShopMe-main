@@ -476,6 +476,9 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.pointer-events-auto {
+  pointer-events: auto;
+}
 .invisible {
   visibility: hidden;
 }
@@ -518,8 +521,17 @@ video {
 .top-full {
   top: 100%;
 }
+.left-\[-1\.125rem\] {
+  left: -1.125rem;
+}
+.top-9 {
+  top: 2.25rem;
+}
 .z-50 {
   z-index: 50;
+}
+.z-10 {
+  z-index: 10;
 }
 .m-3 {
   margin: 0.75rem;
@@ -634,6 +646,9 @@ video {
 }
 .mt-7 {
   margin-top: 1.75rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
 }
 .block {
   display: block;
@@ -767,8 +782,17 @@ video {
 .min-w-full {
   min-width: 100%;
 }
+.min-w-\[300px\] {
+  min-width: 300px;
+}
 .max-w-\[400px\] {
   max-width: 400px;
+}
+.max-w-\[500px\] {
+  max-width: 500px;
+}
+.max-w-\[450px\] {
+  max-width: 450px;
 }
 .border-separate {
   border-collapse: separate;

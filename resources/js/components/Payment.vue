@@ -4,11 +4,11 @@
             <div class="m-3">
                 <div>
                     <label class="block my-2">Zip or Postal Code</label>
-                    <input tpye="text" class="border-2 rounded-md py-1 focus:outline w-full"/>
+                    <input tpye="text" class="border-2 rounded-md py-1 focus:outline w-full pl-2"/>
                     <label class="block my-2">City</label>
-                    <input tpye="text" class="border-2 rounded-md py-1 focus:outline w-full"/>
+                    <input tpye="text" class="border-2 rounded-md py-1 focus:outline w-full pl-2"/>
                     <label class="block my-2">Address</label>
-                    <input tpye="text" class="border-2 rounded-md py-1 focus:outline w-full"/>
+                    <input tpye="text" class="border-2 rounded-md py-1 focus:outline w-full pl-2"/>
                 </div>
                 <div class="flex justify-between mt-4 mb-2">
                         <div class="mx-2">
@@ -20,7 +20,7 @@
                             <label class="mx-2">Card</label>
                         </div>   
                 </div>
-                <input tpye="text" placeholder="Bank or Card ID" class="border-2 rounded-md py-1 focus:outline w-full"/>
+                <input tpye="text" placeholder="Bank or Card ID" class="border-2 rounded-md py-1 focus:outline w-full pl-2"/>
                 <div class="flex justify-center pt-6">
                     <div>
                         <h1 class="text-2xl">Total: $ 2343</h1>

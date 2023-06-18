@@ -1,5 +1,5 @@
 <template>
-    <p class="text-2xl text-center font-bold mt-5">Enter Product Information</p>
+    <p class="text-2xl text-center font-bold mt-7">Enter Product Information</p>
     <div class="flex justify-center mt-7 mb-20">
         <div class="border-2 rounded-md min-w-[400px]">
             <div class="m-3">
