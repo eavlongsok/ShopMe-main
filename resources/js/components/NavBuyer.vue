@@ -104,17 +104,17 @@
 
             <li>
                 <div class="mx-2.5 cursor-pointer group relative">
-                <div class="rounded-full h-9 w-9 border-2 flex justify-center bg-red-400">
-                    <div class="flex items-center text-white">
-                        <h1>H</h1>
-                        <div class="absolute top-9 left-[-1.125rem] hidden group-hover:block pointer-events-auto">
-                            <div class="flex flex-col my-2 z-10">
-                                <button><a href="#" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-blue-500">Profile</a></button>
-                                <button @click="logout" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-red-500">Logout</button>
+                    <div class="rounded-full h-9 w-9 border-2 flex justify-center bg-red-400">
+                        <div class="flex items-center text-white">
+                            <h1>H</h1>
+                            <div class="absolute top-9 left-[-1.125rem] hidden group-hover:block pointer-events-auto">
+                                <div class="flex flex-col my-2 z-10">
+                                    <button><a href="#" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-blue-500">Profile</a></button>
+                                    <button @click="logout" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-red-500">Logout</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </li>
             <!-- list use for link to cart -->
