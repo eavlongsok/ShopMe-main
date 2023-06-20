@@ -26,7 +26,9 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/registerProduct', [SellerAPIController::class, 'registerProduct']);
 
     Route::post('/test', [SellerAPIController::class, 'test']);
-});
 
-Route::get('/categories', [SellerAPIController::class, 'getCategories'])->middleware('auth:sanctum');
+    Route::get('/categories', [SellerAPIController::class, 'getCategories']);
+
+    Route::get('seller/info', [SellerAPIController::class, 'getSellerInfo']);
+});
 

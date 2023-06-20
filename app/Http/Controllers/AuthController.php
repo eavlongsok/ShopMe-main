@@ -102,7 +102,7 @@ class AuthController extends Controller
                 $request->session()->regenerate();
                 return response()->json(['success' => ['message' => 'Login successfully'], 'token' => $token], 200);
             } else {
-                return response()->json(['errors' => ['message' => 'Email and password were not matched']], 401);
+                return response()->json(['errors' => ['unmatched' => 'Email and password were not matched']], 401);
             }
         }
 
@@ -119,7 +119,7 @@ class AuthController extends Controller
                 $request->session()->regenerate();
             return response()->json(['success' => ['message' => 'Login successfully'], 'token' => $token], 200);
             } else {
-                return response()->json(['errors' => ['message' => 'Email and password were not matched']], 401);
+                return response()->json(['errors' => ['unmatched' => 'Email and password were not matched']], 401);
             }
         }
     }

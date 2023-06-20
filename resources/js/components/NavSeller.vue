@@ -97,7 +97,7 @@
             <div class="mx-2.5 cursor-pointer group relative">
                 <div class="rounded-full h-9 w-9 border-2 flex justify-center bg-red-400">
                     <div class="flex items-center text-white">
-                        <h1>H</h1>
+                        <h1> {{initial}} </h1>
                         <div class="absolute top-9 left-[-1.125rem] hidden group-hover:block pointer-events-auto">
                             <div class="flex flex-col my-2 z-10">
                                 <button><a href="#" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-blue-500">Profile</a></button>
@@ -136,18 +136,15 @@
 <script>
     export default{
         name: 'NavSeller',
-        date() {
+        data() {
             return {
                 query: '',
+                seller: {},
+                showMenu: false,
+                initial: ''
             }
         },
         props: ['active'],
-       data(){
-        return {
-            // active: 1,
-            showMenu: false,
-        }
-       },
        methods:{
             emitTabEvent(tabID){
                 this.$emit('changetab',tabID)
@@ -157,7 +154,24 @@
                     localStorage.removeItem('seller_token')
                     window.location.href = '/'
                 })
+            },
+            async getSeller() {
+                try {
+                    const response = await axios('/api/seller/info', {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem('seller_token')}`
+                        }
+                    })
+                    this.seller = response.data
+                    this.initial = this.seller.first_name.charAt(0)
+                }
+                catch(err) {
+                    console.log(err)
+                }
             }
+       },
+       async beforeMount() {
+            await this.getSeller()
        }
     }
 

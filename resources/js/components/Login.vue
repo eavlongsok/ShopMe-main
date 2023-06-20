@@ -3,15 +3,22 @@
         <div class=" w-[500px] shadow-lg border-2 rounded-md border-gray-200">
            <button class="w-1/2 h-12 inline-block border-2 border-gray-300 font-bold" :class="{'bg-blue-500 text-white': userType === 1, 'hover:bg-red-500': userType !== 1}" @click="changeUserType(1)">Buyer</button>
            <button class="w-1/2 h-12 inline-block border-2 border-l-0 border-gray-300 font-bold" :class="{'bg-blue-500 text-white': userType === 2, 'hover:bg-red-500': userType !== 2}" @click="changeUserType(2)">Seller</button>
-           <h1 class="text-center text-4xl mt-5 font-bold">Log In</h1>
+            <div class="flex align-center justify-center">
+           <h1 class="text-4xl mt-5 font-bold inline-block align-middle">Log In</h1>
+           <Loader class="self-end ml-5" :size="2.5" v-if="spinning==true"/>
+           </div>
            <div class="text-lg mt-5 w-5/6 mx-auto">
                 <label for="email" class="block my-1 my4">Email:</label>
 
                 <input ref="email" v-model="email" type="email" name="email" class="input-box"/>
 
                 <div v-if="errors !== null && errors.hasOwnProperty('email')" class="text-red-600 font-bold text-sm">
-                            <span>{{ errors.email[0] }}</span>
-                        </div>
+                    <span>{{ errors.email[0] }}</span>
+                </div>
+
+                <div v-else-if="errors !== null && errors.hasOwnProperty('unmatched')" class="text-red-600 font-bold text-sm">
+                    <span>{{ errors.unmatched }}</span>
+                </div>
 
                 <label for="password" class="block my-1 mt-4" >Password:</label>
 
@@ -30,7 +37,8 @@
                     <label for='remember' class="ml-3">Remember me</label>
                 </div>
 
-                <button @click="handleSubmit" class="border-2 border-gray-500 w-full rounded-md block bg-blue-500 text-white leading-loose text-xl mt-5 hover:bg-blue-600 mb-2">Log In</button>
+                <button @click="handleSubmit" class="border-2 border-gray-500 w-full rounded-md block bg-blue-500 text-white leading-loose text-xl mt-5 hover:bg-blue-600 mb-2">Log In
+                </button>
 
                 <p class="text-center text-[0.95rem] mb-7">No account? <a href="/signup"><span class="font-bold hover:underline hover:cursor-pointer">Sign up</span></a> now!</p>
            </div>
@@ -41,6 +49,7 @@
 </template>
 
 <script>
+    import Loader from './Loader.vue'
    export default {
        name: 'Login',
        data() {
@@ -49,10 +58,12 @@
                password: '',
                userType: 1,
                remember: false,
-               errors: null
+               errors: null,
+               spinning: false,
            }
        },
        props: ['active'],
+       components: {Loader},
        methods: {
            showPassword() {
                let target = this.$refs.password
@@ -65,6 +76,7 @@
                 this.errors = null
             },
            async handleSubmit() {
+                this.spinning = true
                try {
                     let formData = new FormData()
                     formData.append('userType', this.userType)
@@ -99,6 +111,7 @@
                    }
 
                }
+               this.spinning = false
            },
        },
        mounted() {

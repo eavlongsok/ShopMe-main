@@ -95,5 +95,24 @@ class SellerAPIController extends Controller
             ]);
         return json_decode($response->getBody()->getContents())->data->link;
     }
+
+    public function getSellerInfo (Request $request) {
+        $seller_id = $request->user()->seller_id;
+        $seller = DB::table('seller')->where('seller_id', $seller_id)->first();
+        if (isset($seller)) {
+            $seller = [
+                'seller_id' => $seller->seller_id,
+                'first_name' => $seller->first_name,
+                'last_name' => $seller->last_name,
+                'email' => $seller->email,
+                'date_of_birth' => $seller->date_of_birth,
+                'created_at' => $seller->created_at,
+            ];
+            return response()->json($seller, 200);
+        }
+        else {
+            return response()->json(['seller' => 'No seller found'], 404);
+        }
+    }
 }
 
