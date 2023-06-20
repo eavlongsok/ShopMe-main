@@ -31,4 +31,3 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::get('seller/info', [SellerAPIController::class, 'getSellerInfo']);
 });
-

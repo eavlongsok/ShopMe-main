@@ -27,7 +27,7 @@ class AuthController extends Controller
             $validation = Validator::make($request->all(), [
                 'firstName' => 'required',
                 'lastName' => 'required',
-                'email' => 'required|email|unique:buyer',
+                'email' => 'required|email|unique:buyer,email',
                 'password' => 'required|min:8',
                 'confirmPassword' => 'required|min:8|same:password',
             ]);
@@ -35,9 +35,9 @@ class AuthController extends Controller
                 return response()->json(['errors' => $validation->errors()], 422);
             }
             $buyer = new Buyer();
-            $buyer->first_name = $firstName;
-            $buyer->last_name = $lastName;
-            $buyer->email = $email;
+            $buyer->first_name = trim($firstName);
+            $buyer->last_name = trim($lastName);
+            $buyer->email = strtolower(trim($email));
             $buyer->password = Hash::make($password);
             $buyer->date_of_birth = $dateOfBirth;
             $buyer->save();
@@ -49,7 +49,7 @@ class AuthController extends Controller
             $validation = Validator::make($request->all(), [
                 'firstName' => 'required',
                 'lastName' => 'required',
-                'email' => 'required|email|unique:seller',
+                'email' => 'required|email|unique:seller,email',
                 'password' => 'required|min:8',
                 'confirmPassword' => 'required|min:8|same:password',
             ]);
@@ -58,9 +58,9 @@ class AuthController extends Controller
             }
 
             $seller = new Seller();
-            $seller->first_name = $firstName;
-            $seller->last_name = $lastName;
-            $seller->email = $email;
+            $seller->first_name = trim($firstName);
+            $seller->last_name = trim($lastName);
+            $seller->email = strtolower(trim($email));
             $seller->password = Hash::make($password);
             $seller->date_of_birth = $dateOfBirth;
             $seller->save();
@@ -82,7 +82,7 @@ class AuthController extends Controller
         }
 
         $userType = $request->input('userType');
-        $email = $request->input('email');
+        $email = trim($request->input('email'));
         $password = $request->input('password');
         $remember = $request->input('remember');
 
@@ -96,6 +96,9 @@ class AuthController extends Controller
 
             if (Auth::guard('buyer') -> attempt(['email' => $email, 'password' => $password], $remember)) {
                 $buyer = Buyer::where('email', $email)->first();
+                if ($buyer->status == 0) {
+                    return response()->json(['errors' => ['message' => 'Your account is banned']], 403); // 403: Forbidden
+                }
                 $token = $buyer->createToken(time())->plainTextToken;
                 $buyer->api_token = $token;
                 $buyer->save();
@@ -108,6 +111,9 @@ class AuthController extends Controller
 
         if ($userType == 2) {
             $seller = Seller::where('email', $email)->first();
+            if ($seller->status == 0) {
+                return response()->json(['errors' => ['message' => 'Your account is banned']], 403); // 403: Forbidden
+            }
             if (!isset($seller)) {
                 return response()->json(['errors' => ['message' => 'User Not Found']], 404);
             }

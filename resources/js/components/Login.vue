@@ -103,8 +103,13 @@
                    }
                    else if (err.response.status === 404) {
                         alert(err.response.data.errors.message)
+                        this.errors = null
                         this.email = ''
                         this.password = ''
+                   }
+                   else if (err.response.status === 403) {
+                        alert(err.response.data.errors.message)
+                        window.location.href = '/'
                    }
                    else {
                        this.errors = 'Something went wrong. Please try again later.'
