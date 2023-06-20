@@ -106,7 +106,7 @@
                 <div class="mx-2.5 cursor-pointer group relative">
                     <div class="rounded-full h-9 w-9 border-2 flex justify-center bg-red-400">
                         <div class="flex items-center text-white">
-                            <h1>H</h1>
+                            <h1>{{initial}}</h1>
                             <div class="absolute top-9 left-[-1.125rem] hidden group-hover:block pointer-events-auto">
                                 <div class="flex flex-col my-2 z-10">
                                     <button><a href="#" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-blue-500">Profile</a></button>
@@ -134,28 +134,43 @@
 <script>
     export default{
         name: 'NavBuyer',
-        date() {
+        data() {
             return {
                 query: '',
+                seller: {},
+                showMenu: false,
+                initial: ''
             }
         },
         props: ['active'],
-       data(){
-        return {
-            // active: 1,
-            showMenu: false,
-        }
-       },
-       methods:{
+        methods:{
             emitTabEvent(tabID){
                 this.$emit('changetab',tabID)
             },
             logout() {
                 axios.post('/logout').then(() => {
-                    localStorage.removeItem('buyer_token')
+                    localStorage.removeItem('seller_token')
                     window.location.href = '/'
                 })
+            },
+            async getBuyer() {
+                console.log('method')
+                try {
+                    const response = await axios('/api/buyer/info', {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem('buyer_token')}`
+                        }
+                    })
+                    this.buyer = response.data
+                    this.initial = this.buyer.first_name.charAt(0)
+                }
+                catch(err) {
+                    console.log(err)
+                }
             }
+        },
+       async mounted() {
+            await this.getBuyer()
        }
     }
 

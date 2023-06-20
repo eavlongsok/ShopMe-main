@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BuyerAPIController;
 use App\Http\Controllers\SellerAPIController;
 use App\Http\Middleware\Cors;
 use App\Models\Seller;
@@ -22,7 +23,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
+    // buyer
+    Route::get('buyer/info', [BuyerAPIController::class, 'getBuyerInfo']);
 
+    // seller
     Route::post('/registerProduct', [SellerAPIController::class, 'registerProduct']);
 
     Route::post('/test', [SellerAPIController::class, 'test']);
