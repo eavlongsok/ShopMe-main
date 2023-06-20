@@ -29,6 +29,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     // seller
     Route::post('/registerProduct', [SellerAPIController::class, 'registerProduct']);
 
+    Route::post('/verify', [SellerAPIController::class, 'verify']);
+
     Route::post('/test', [SellerAPIController::class, 'test']);
 
     Route::get('/categories', [SellerAPIController::class, 'getCategories']);

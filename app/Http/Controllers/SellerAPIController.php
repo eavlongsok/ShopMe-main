@@ -114,5 +114,9 @@ class SellerAPIController extends Controller
             return response()->json(['seller' => 'No seller found'], 404);
         }
     }
+
+    public function verify(Request $request){
+        return response()->json($request);
+    }
 }
 
