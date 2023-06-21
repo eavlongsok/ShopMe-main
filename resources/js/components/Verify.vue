@@ -16,7 +16,11 @@
                 <input name="city" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="city">
 
                 <label>Province</label>
-                <input name="province" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="province">
+                <select name="province" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="province">
+                    <option disabled selected>--Choose Province--</option>
+                    <option v-for="pro in province" :value="pro.region_id">{{ pro.region_name }}</option>
+                </select>
+                <!-- <input name="province" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="province"> -->
 
                 <label>ZIP Code</label>
                 <input name="zip_code" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="zipCode">
@@ -45,7 +49,7 @@
                 buildingNumber: '',
                 streetNumber: '',
                 city: '',
-                province: '',
+                province: [],
                 zipCode: '',
                 businessInfo: '',
             }
@@ -73,6 +77,19 @@
                 catch(err){
                     console.log(err.response.data)
                 }
+            }
+        },
+        async mounted(){
+            try{
+                const response = await axios.get('/api/region', {
+                    headers: {
+                        "Authorization": "Bearer " + localStorage.getItem("seller_token")
+                    }
+                })
+                this.province = response.data.province
+            }
+            catch(err){
+                console.log(err.response.data)
             }
         }
     }

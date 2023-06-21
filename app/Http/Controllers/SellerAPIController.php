@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Seller;
+use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +21,17 @@ class SellerAPIController extends Controller
         else {
             return response()->json(['categories' => 'No categories found'], 404);
         }
+    }
+
+    public function getRegion(){
+        $province = DB::table('region')->get();
+        if(isset($province)){
+            return response()->json(['province' => $province], 200);
+        }
+        else{
+            return response()->json(['province' => 'No province found'], 404);
+        }
+        
     }
 
     public function registerProduct(Request $request) {
@@ -116,7 +129,55 @@ class SellerAPIController extends Controller
     }
 
     public function verify(Request $request){
+        $validation = Validator::make($request->all(), [
+            'business_name' => 'required',
+            'building_number' => 'required',
+            'street_number' => 'required',
+            'city' => 'required',
+            // 'province' => 'required',
+            'zip_code' => 'required|numeric',
+            'business_info' => 'required',
+        ]);
+        if($validation->fails()){
+            
+            return response()->json(['errors' => $validation->errors()],422);
+        }
+
+        $seller_id = $request->user()->seller_id;
+
+        $business_name = trim($request->input('business_name'));        
+        $building_number = trim($request->input('building_number'));        
+        $street_number = trim($request->input('street_number'));        
+        $city = trim($request->input('city'));        
+        $province = trim($request->input('province'));        
+        $zip_code = trim($request->input('zip_code')); 
+        $business_info = trim($request->input('business_info')); 
+              
+        $verification = DB::table('verification')->insert([
+            'seller_id' => $seller_id,
+            'store_name' => $business_name,
+            'business_info' => $business_info,
+            'created_at' => Carbon::now()
+        ]);
+        
+        if ($verification) {
+            $address = DB::table('address')->insert([
+                'seller_id' => $seller_id,
+                'region_id' => intval($province),
+                'building_number' => $building_number,
+                'street_number' => $street_number,
+                'city' => $city,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);
+            if ($address) {
+                return response()->json(['success', 'successfully request for verification']);
+            }
+        }
+
         return response()->json($request);
     }
+
+    
 }
 

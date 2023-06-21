@@ -162,7 +162,7 @@
             try {
                 const response = await axios.get('/api/categories', {
                     headers: {
-                        "Authorization": "Bearer " + localStorage.getItem("token")
+                        "Authorization": "Bearer " + localStorage.getItem("seller_token")
                     }
                 })
                 this.categories = response.data.categories
