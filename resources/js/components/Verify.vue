@@ -28,6 +28,10 @@
 
                 <label class="block my-2 mt-4">Business Description</label>
                 <textarea name="business_info" class="border-2 pl-2 rounded-md py-1 focus:outline w-full h-[8rem]" v-model="businessInfo"></textarea>
+
+                <label class="block my-2 mt-4 font-bold">Logo</label>
+                <input type="file" name="logo" ref="logo" @change="addLogo()" accept="image/png, image/jpeg" />
+
                 <div class="flex justify-end">
                     <div>
                         <button class="border-2 bg-sky-400 hover:bg-sky-500 hover:text-white
@@ -53,10 +57,14 @@
                 province: [],
                 zipCode: '',
                 businessInfo: '',
-                chosenProvince: null
+                chosenProvince: null,
+                logo: null,
             }
         },
         methods: {
+            addLogo() {
+                this.logo = this.$refs.logo.files[0]
+            },
             async submit(){
                 try{
                     let verifyData = new FormData()
@@ -67,6 +75,7 @@
                     verifyData.append('province', this.chosenProvince)
                     verifyData.append('zip_code', this.zipCode)
                     verifyData.append('business_info', this.businessInfo)
+                    verifyData.append('logo', this.logo)
 
                     const response = await axios.post('/api/verify', verifyData,
                     {
@@ -75,6 +84,7 @@
                         }
                     })
 
+                    console.log(response.data)
                     window.location.href = '/'
                 }
                 catch(err){
@@ -85,7 +95,6 @@
                 if (event.target.value.length >= limit) {
                     event.target.value = event.target.value.substring(0, limit);
                 }
-                console.log(event.target.value)
             }
         },
         async mounted(){

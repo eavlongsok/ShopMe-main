@@ -90,7 +90,7 @@
 
             <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(4)">History</li>
 
-            <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(5)">Verify</li>
+            <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(5)" v-if="!isVerified">Verify</li>
 
             <!-- <li class="mx-2.5 cursor-pointer"><button @click="logout" class="bg-red-500 p-2 rounded">Log Out</button></li> -->
 
@@ -143,7 +143,8 @@
                 query: '',
                 seller: {},
                 showMenu: false,
-                initial: ''
+                initial: '',
+                isVerified: false
             }
         },
         props: ['active'],
@@ -165,12 +166,13 @@
                         }
                     })
                     this.seller = response.data
+                    this.isVerified = this.seller.verification_requested
                     this.initial = this.seller.first_name.charAt(0)
                 }
                 catch(err) {
                     console.log(err)
                 }
-            }
+            },
        },
        async mounted() {
             await this.getSeller()
