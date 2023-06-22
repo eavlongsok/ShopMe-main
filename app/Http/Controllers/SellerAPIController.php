@@ -24,14 +24,14 @@ class SellerAPIController extends Controller
     }
 
     public function getRegion(){
-        $province = DB::table('region')->get();
+        $province = DB::table('region')->orderBy('region_name', 'asc')->get();
         if(isset($province)){
             return response()->json(['province' => $province], 200);
         }
         else{
             return response()->json(['province' => 'No province found'], 404);
         }
-        
+
     }
 
     public function registerProduct(Request $request) {
@@ -139,27 +139,30 @@ class SellerAPIController extends Controller
             'business_info' => 'required',
         ]);
         if($validation->fails()){
-            
+
             return response()->json(['errors' => $validation->errors()],422);
         }
 
         $seller_id = $request->user()->seller_id;
 
-        $business_name = trim($request->input('business_name'));        
-        $building_number = trim($request->input('building_number'));        
-        $street_number = trim($request->input('street_number'));        
-        $city = trim($request->input('city'));        
-        $province = trim($request->input('province'));        
-        $zip_code = trim($request->input('zip_code')); 
-        $business_info = trim($request->input('business_info')); 
-              
+        $business_name = trim($request->input('business_name'));
+        $building_number = trim($request->input('building_number'));
+        $street_number = trim($request->input('street_number'));
+        $city = trim($request->input('city'));
+        $province = trim($request->input('province'));
+        $zip_code = trim($request->input('zip_code'));
+        $business_info = trim($request->input('business_info'));
+
+        // return response()->json(['store_name' => $business_name, 'business_info' => $business_info, 'typeName' => gettype($business_name), 'typeInfo' => gettype($business_info)]);
+
         $verification = DB::table('verification')->insert([
             'seller_id' => $seller_id,
             'store_name' => $business_name,
             'business_info' => $business_info,
             'created_at' => Carbon::now()
         ]);
-        
+
+
         if ($verification) {
             $address = DB::table('address')->insert([
                 'seller_id' => $seller_id,
@@ -167,6 +170,7 @@ class SellerAPIController extends Controller
                 'building_number' => $building_number,
                 'street_number' => $street_number,
                 'city' => $city,
+                'zipcode' => $zip_code,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -178,6 +182,6 @@ class SellerAPIController extends Controller
         return response()->json($request);
     }
 
-    
+
 }
 

@@ -12,18 +12,19 @@
                 <label>Street Number</label>
                 <input name="street_number" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="streetNumber">
 
-                <label>City</label>
-                <input name="city" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="city">
 
                 <label>Province</label>
-                <select name="province" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="province">
+                <select name="province" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="chosenProvince">
                     <option disabled selected>--Choose Province--</option>
                     <option v-for="pro in province" :value="pro.region_id">{{ pro.region_name }}</option>
                 </select>
+
+                <label>City</label>
+                <input name="city" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="city">
                 <!-- <input name="province" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="province"> -->
 
                 <label>ZIP Code</label>
-                <input name="zip_code" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="zipCode">
+                <input name="zip_code" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="zipCode" @keyup="limitStringLength($event, 6)">
 
                 <label class="block my-2 mt-4">Business Description</label>
                 <textarea name="business_info" class="border-2 pl-2 rounded-md py-1 focus:outline w-full h-[8rem]" v-model="businessInfo"></textarea>
@@ -52,6 +53,7 @@
                 province: [],
                 zipCode: '',
                 businessInfo: '',
+                chosenProvince: null
             }
         },
         methods: {
@@ -62,7 +64,7 @@
                     verifyData.append('building_number', this.buildingNumber)
                     verifyData.append('street_number', this.streetNumber)
                     verifyData.append('city', this.city)
-                    verifyData.append('province', this.province)
+                    verifyData.append('province', this.chosenProvince)
                     verifyData.append('zip_code', this.zipCode)
                     verifyData.append('business_info', this.businessInfo)
 
@@ -72,11 +74,18 @@
                             Authorization: `Bearer ${localStorage.getItem('seller_token')}`
                         }
                     })
-                    console.log(response.data)
+
+                    window.location.href = '/'
                 }
                 catch(err){
                     console.log(err.response.data)
                 }
+            },
+            limitStringLength(event, limit) {
+                if (event.target.value.length >= limit) {
+                    event.target.value = event.target.value.substring(0, limit);
+                }
+                console.log(event.target.value)
             }
         },
         async mounted(){
