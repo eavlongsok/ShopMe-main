@@ -11,6 +11,7 @@
             <History v-else-if="active === 4" @changetab="changeTab"/>
             <Sell v-else-if="active === 3"/>
             <Verify v-else-if="active === 5"/>
+            <Profile v-else-if="active === 8" />
             <!-- <Login v-else-if="active === 7"/> -->
 
             <Shirt v-else-if="active === 10"/>
@@ -42,6 +43,7 @@ import Transaction from './components/Transaction.vue'
 import History from './components/History.vue'
 import Sell from './components/Sell.vue'
 import Verify from './components/Verify.vue'
+import Profile from './components/Profile.vue'
 
 import Shirt from './Items/Shirt.vue'
 import Pant from './Items/Pant.vue'
@@ -87,7 +89,8 @@ export default {
     Transaction,
     History,
     Sell,
-    SellerHome
+    SellerHome,
+    Profile,
 },
     methods:{
         changeTab(tabID){
