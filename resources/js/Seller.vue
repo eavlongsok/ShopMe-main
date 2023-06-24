@@ -8,7 +8,7 @@
             <Cart v-else-if="active === 6" @changetab="changeTab"/> -->
             <Payment v-else-if="active === 30" @changetab="changeTab"/>
             <Transaction v-else-if="active === 31" @changetab="changeTab"/>
-            <History v-else-if="active === 4" @changetab="changeTab"/>
+            <Sales v-else-if="active === 4" @changetab="changeTab"/>
             <Sell v-else-if="active === 3"/>
             <Verify v-else-if="active === 5"/>
             <Profile v-else-if="active === 8" @changetab="changeTab"/>
@@ -46,6 +46,7 @@ import Sell from './components/Sell.vue'
 import Verify from './components/Verify.vue'
 import Profile from './components/Profile.vue'
 import EditProfile from './components/EditProfile.vue'
+import Sales from './components/Sales.vue'
 
 import Shirt from './Items/Shirt.vue'
 import Pant from './Items/Pant.vue'
@@ -93,7 +94,8 @@ export default {
         Sell,
         SellerHome,
         Profile,
-        EditProfile
+        EditProfile,
+        Sales,
     },
     methods:{
         changeTab(tabID){
