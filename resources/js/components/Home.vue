@@ -5,13 +5,13 @@
                 <h1 class="text-2xl">Promotion</h1>
             </div>
             <div  class="w-full grid grid-cols-3 my-3">
-                
+
                 <div v-for="promo in promotions" class="border-2 rounded-lg w-[350px] h-[450px] mx-2 my-5 bg-sky-50">
-                    
+
                     <div class="flex justify-center my-2">
                         <img :src="promo.image" class="object-cover w-[300px] h-[290px]" />
                     </div>
-                    
+
                     <div class="mx-4 my-3">
                         <h2 class="font-bold my-2">{{ promo.name }}</h2>
                         <p class="line-through text-red-500 my-1">$ {{ promo.cost }}</p>
@@ -25,11 +25,11 @@
                         <div>
                             <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white">Cart</button>
                         </div>
-                        
-                        
+
+
                     </div>
-                   
-                </div> 
+
+                </div>
             </div>
 
             <!-- Fashion -->
@@ -37,13 +37,13 @@
                 <h1 class="text-2xl">Fashion</h1>
             </div>
             <div  class="w-full grid grid-cols-3 my-3">
-                
+
                 <div v-for="promo in fashion" class="border-2 rounded-lg w-[350px] h-[450px] mx-2 my-5 bg-sky-50">
-                    
+
                     <div class="flex justify-center my-2">
                         <img :src="promo.image" class="object-cover w-[300px] h-[290px]" />
                     </div>
-                    
+
                     <div class="mx-4 my-3 py-2">
                         <h2 class="font-bold my-2">{{ promo.name }}</h2>
                         <p class="my-1">$ {{ promo.cost }}</p>
@@ -57,7 +57,7 @@
                             <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white">Cart</button>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
 
             <!-- Electronic -->
@@ -65,13 +65,13 @@
                 <h1 class="text-2xl">Electronic</h1>
             </div>
             <div  class="w-full grid grid-cols-3 my-3">
-                
+
                 <div v-for="promo in electronic" class="border-2 rounded-lg w-[350px] h-[450px] mx-2 my-5 bg-sky-50">
-                    
+
                     <div class="flex justify-center my-2">
                         <img :src="promo.image" class="object-cover w-[300px] h-[290px]" />
                     </div>
-                    
+
                     <div class="mx-4 my-3 py-2">
                         <h2 class="font-bold my-2">{{ promo.name }}</h2>
                         <p class="my-1">$ {{ promo.cost }}</p>
@@ -84,11 +84,11 @@
                         <div>
                             <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white">Cart</button>
                         </div>
-                        
-                        
+
+
                     </div>
-                   
-                </div> 
+
+                </div>
             </div>
 
             <!-- Furniture -->
@@ -96,13 +96,13 @@
                 <h1 class="text-2xl">Furniture</h1>
             </div>
             <div  class="w-full grid grid-cols-3 my-3">
-                
+
                 <div v-for="promo in furniture" class="border-2 rounded-lg w-[350px] h-[450px] mx-2 my-5 bg-sky-50">
-                    
+
                     <div class="flex justify-center my-2">
                         <img :src="promo.image" class="object-cover w-[300px] h-[290px]" />
                     </div>
-                    
+
                     <div class="mx-4 my-3 py-2">
                         <h2 class="font-bold my-2">{{ promo.name }}</h2>
                         <p class="my-1">$ {{ promo.cost }}</p>
@@ -115,24 +115,24 @@
                         <div>
                             <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white">Cart</button>
                         </div>
-                        
-                        
+
+
                     </div>
-                   
-                </div> 
+
+                </div>
             </div>
              <!-- Tool -->
              <!-- <div class="w-full mx-2 my-3">
                 <h1 class="text-2xl">Tool</h1>
             </div>
             <div  class="w-full grid grid-cols-3 my-3">
-                
+
                 <div v-for="promo in tool" class="border-2 rounded-lg w-[350px] h-[450px] mx-2 my-5 bg-sky-50">
-                    
+
                     <div class="flex justify-center my-2">
                         <img :src="promo.image" class="object-cover w-[300px] h-[290px]" />
                     </div>
-                    
+
                     <div class="mx-4 my-3 py-2">
                         <h2 class="font-bold my-2">{{ promo.name }}</h2>
                         <p class="my-1">$ {{ promo.cost }}</p>
@@ -145,24 +145,24 @@
                         <div>
                             <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white">Cart</button>
                         </div>
-                        
-                        
+
+
                     </div>
-                   
-                </div> 
+
+                </div>
             </div> -->
              <!-- Other -->
              <div class="w-full mx-2 my-3">
                 <h1 class="text-2xl">Other</h1>
             </div>
             <div  class="w-full grid grid-cols-3 my-3">
-                
+
                 <div v-for="promo in other" class="border-2 rounded-lg w-[350px] h-[450px] mx-2 my-5 bg-sky-50">
-                    
+
                     <div class="flex justify-center my-2">
                         <img :src="promo.image" class="object-cover w-[300px] h-[290px]" />
                     </div>
-                    
+
                     <div class="mx-4 my-3 py-2">
                         <h2 class="font-bold my-2">{{ promo.name }}</h2>
                         <p class="my-1">$ {{ promo.cost }}</p>
@@ -175,13 +175,13 @@
                         <div>
                             <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white">Cart</button>
                         </div>
-                        
-                        
+
+
                     </div>
-                   
-                </div> 
+
+                </div>
             </div>
-        
+
 </template>
 
 <script>
@@ -294,7 +294,7 @@
                         image: 'Images/Beauty/chanel.jpg'
                     },
                 ],
-                
+
             };
         },
     }

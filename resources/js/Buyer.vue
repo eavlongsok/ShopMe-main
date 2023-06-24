@@ -39,7 +39,7 @@ import Foot from './components/Foot.vue'
 import Payment from './components/Payment.vue'
 import Transaction from './components/Transaction.vue'
 import History from './components/History.vue'
-import Sell from './components/Sell.vue'
+import Sell from './sellerComponents/Sell.vue'
 
 import Shirt from './Items/Shirt.vue'
 import Pant from './Items/Pant.vue'

@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import NavSeller from './components/NavSeller.vue'
+import NavSeller from './sellerComponents/NavSeller.vue'
 import Home from './components/Home.vue'
 import Cart from './components/Cart.vue'
 import Watchlist from './components/Watchlist.vue'
@@ -42,11 +42,11 @@ import Foot from './components/Foot.vue'
 import Payment from './components/Payment.vue'
 import Transaction from './components/Transaction.vue'
 import History from './components/History.vue'
-import Sell from './components/Sell.vue'
+import Sell from './sellerComponents/Sell.vue'
 import Verify from './components/Verify.vue'
 import Profile from './components/Profile.vue'
 import EditProfile from './components/EditProfile.vue'
-import Sales from './components/Sales.vue'
+import Sales from './sellerComponents/Sales.vue'
 
 import Shirt from './Items/Shirt.vue'
 import Pant from './Items/Pant.vue'
