@@ -90,7 +90,7 @@
 
             <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(4)">Sales</li>
 
-            <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(5)" v-if="!isVerified">Verify</li>
+            <li v-if="!isVerified" class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(5)">Verify</li>
 
             <!-- <li class="mx-2.5 cursor-pointer"><button @click="logout" class="bg-red-500 p-2 rounded">Log Out</button></li> -->
 
@@ -101,7 +101,7 @@
                             <h1>{{initial}}</h1>
                             <div class="absolute top-9 left-[-1.125rem] hidden group-hover:block pointer-events-auto">
                                 <div class="flex flex-col my-2 z-10">
-                                    <button @click="emitTabEvent(8)"><a href="#" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-blue-500">Profile</a></button>
+                                    <button @click="emitTabEvent(8)" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-blue-500" @editProfile="emitTabEvent(9)">Profile</button>
                                     <button @click="logout" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-red-500">Logout</button>
                                 </div>
                             </div>
@@ -144,7 +144,7 @@
                 seller: {},
                 showMenu: false,
                 initial: '',
-                isVerified: false
+                isVerified: true
             }
         },
         props: ['active'],

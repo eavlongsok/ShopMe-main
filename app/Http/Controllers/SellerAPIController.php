@@ -8,6 +8,7 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class SellerAPIController extends Controller
@@ -194,6 +195,53 @@ class SellerAPIController extends Controller
         }
 
         return response()->json($request);
+    }
+
+    public function editAccount(Request $request) {
+        $seller = $request->user();
+        $email = $request->input('email');
+        $password = $request->input('password');
+
+        if ($email == $seller->email) {
+            $rules = [
+                'password' => 'required|min:8',
+                'confirmPassword' => 'same:password',
+            ];
+        }
+        else {
+            if (isset($password)) {
+                $rules = [
+                    'email' => 'required|email|unique:seller,email',
+                    'password' => 'required|min:8',
+                    'confirmPassword' => 'same:password',
+                ];
+            }
+            else {
+                $rules = [
+                    'email' => 'required|email|unique:seller,email',
+                ];
+            }
+        }
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        $seller->email = $email;
+        if (isset($password)) {
+            if (Hash::check($password, $seller->password)) {
+                return response()->json(['errors' => ['password' => ['password cannot be the same as the old one']]], 422);
+            }
+            else {
+                $seller->password = Hash::make($password);
+            }
+        }
+        $seller->save();
+
+        return response()->json(['success' => 'successfully updated'], 200);
+
     }
 
     public function uploadImage(Request $request, $name) {

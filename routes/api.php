@@ -37,5 +37,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::get('/region', [SellerAPIController::class, 'getRegion']);
 
+    Route::post('/editAccount', [SellerAPIController::class, 'editAccount']);
+
     Route::get('/seller/info', [SellerAPIController::class, 'getSellerInfo']);
 });
