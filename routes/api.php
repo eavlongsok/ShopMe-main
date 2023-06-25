@@ -28,6 +28,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::get('buyer/product', [BuyerAPIController::class, 'getProduct']);
 
+    Route::post('/buyer/editAccount', [BuyerAPIController::class, 'editAccount']);
+
     // seller
     Route::post('/registerProduct', [SellerAPIController::class, 'registerProduct']);
 
@@ -39,7 +41,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::get('/region', [SellerAPIController::class, 'getRegion']);
 
-    Route::post('/editAccount', [SellerAPIController::class, 'editAccount']);
+    Route::post('/seller/editAccount', [SellerAPIController::class, 'editAccount']);
 
     Route::get('/seller/info', [SellerAPIController::class, 'getSellerInfo']);
 });

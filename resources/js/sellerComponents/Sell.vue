@@ -5,10 +5,10 @@
             <div class="m-3">
                 <div>
                     <label class="block my-2">Name:</label>
-                    <input type="text" class="border-2 pl-2 rounded-md py-1 focus:outline w-full" v-model="name"/>
+                    <input type="text" class="border-2 pl-2 rounded-md py-1 focus:outline w-full" v-model="name" :disabled="!isVerified"/>
 
                     <label class="my-2">Category:</label>
-                    <select v-model="category" class="border-2 mt-4 px-2 rounded-sm focus:outline ml-5">
+                    <select v-model="category" class="border-2 mt-4 px-2 rounded-sm focus:outline ml-5" :disabled="!isVerified">
                         <option disabled selected>--Choose Category--</option>
                         <option v-for="category in categories" :value="category.category_id">{{ category.category_name }}</option>
                     </select>
@@ -16,7 +16,7 @@
                     <br/>
 
                     <label class="my-2">Condition:</label>
-                    <select v-model="condition" class="border-2 mt-4 px-2 rounded-sm focus:outline ml-5">
+                    <select v-model="condition" class="border-2 mt-4 px-2 rounded-sm focus:outline ml-5" :disabled="!isVerified">
                         <option selected disabled>--Choose Condition--</option>
                         <option value=1>New</option>
                         <option value=0>Used</option>
@@ -25,18 +25,18 @@
                     <div class="flex justify-between mt-4">
                         <div>
                             <label class="block my-2">Price</label>
-                            <input type="number" v-model="price" class="border-2 pl-2 rounded-md py-1 focus:outline"/>
+                            <input type="number" v-model="price" class="border-2 pl-2 rounded-md py-1 focus:outline" :disabled="!isVerified"/>
                         </div>
 
                         <div class="mr-8">
                             <label class="block my-2">Quantity</label>
-                            <input type="number" v-model="quantity" class="border-2 pl-2 rounded-md py-1 focus:outline"/>
+                            <input type="number" v-model="quantity" class="border-2 pl-2 rounded-md py-1 focus:outline" :disabled="!isVerified"/>
                         </div>
 
                     </div>
 
                     <label class="block my-2 mt-4">Description</label>
-                    <textarea class="border-2 pl-2 rounded-md py-1 focus:outline w-full h-[8rem]" v-model="description"></textarea>
+                    <textarea class="border-2 pl-2 rounded-md py-1 focus:outline w-full h-[8rem]" v-model="description" :disabled="!isVerified"></textarea>
                 </div>
 
                 <div class="my-4">
@@ -51,7 +51,7 @@
                         <p class="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
                             Attach an image</p>
                     </div>
-                    <input type="file" ref="image" @change="handleFileInput()" accept="image/jpeg, image/jpg, image/png" class="opacity-0" />
+                    <input type="file" ref="image" @change="handleFileInput()" accept="image/jpeg, image/jpg, image/png" class="opacity-0" :disabled="!isVerified"/>
                     </label>
                 </div>
 
@@ -110,7 +110,8 @@
                 quantity: null,
                 description: '',
                 image: null,
-                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                isVerified: false
             }
         },
         methods: {
@@ -157,19 +158,48 @@
                     alert('Failed to register product. Please try again')
                 }
             },
-        },
-        async mounted() {
-            try {
-                const response = await axios.get('/api/categories', {
-                    headers: {
-                        "Authorization": "Bearer " + localStorage.getItem("seller_token")
+            async getCategories() {
+                try {
+                    const response = await axios.get('/api/categories', {
+                        headers: {
+                            "Authorization": "Bearer " + localStorage.getItem("seller_token")
+                        }
+                    })
+                    this.categories = response.data.categories
+                }
+                catch(err) {
+                    console.log(err.response.data)
+                }
+            },
+
+            async checkIfVerified() {
+                try {
+                    const response = await axios.get('/api/seller/info', {
+                        headers: {
+                            'Authorization': 'Bearer ' + localStorage.getItem('seller_token')
+                        }
+                    })
+
+                    if (response.data.verified_by === null) {
+                        if (response.data.ver_id === null) {
+                            alert('You are not verified yet, please fill the request form first, and wait for the admin to verify your request')
+                        }
+                        else
+                            alert('You are not verified yet, please wait for the admin to verify your request')
                     }
-                })
-                this.categories = response.data.categories
-            }
-            catch(err) {
-                console.log(err.response.data)
-            }
+                    else {
+                        this.isVerified = true
+                    }
+                }
+                catch(err) {
+                    console.log(err.response.data)
+                }
+            },
+        },
+
+        async mounted() {
+            await this.getCategories()
+            await this.checkIfVerified()
         }
     }
 </script>

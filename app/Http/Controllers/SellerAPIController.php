@@ -102,39 +102,42 @@ class SellerAPIController extends Controller
 
     public function getSellerInfo (Request $request) {
         $seller_id = $request->user()->seller_id;
-        $seller = DB::table('seller')->where('seller.seller_id', $seller_id)->first();
-        $verification = DB::table('verification')->where('seller_id', $seller_id)->first();
+        $seller = DB::table('seller')->where('seller.seller_id', $seller_id)->leftJoin('verification', 'seller.seller_id', '=', 'verification.seller_id')->take(1)->get(['seller.seller_id', 'seller.first_name', 'seller.last_name', 'seller.email', 'seller.date_of_birth', 'seller.created_at', 'verification.ver_id', 'verification.store_name', 'verification.business_info', 'verification.verified_by', 'verification.verified_at']);
 
-        if (isset($verification)) $verificationRequested = true;
-        else $verificationRequested = false;
+        $seller = $seller[0];
 
-        if (isset($seller)) {
-            $seller = [
-                'seller_id' => $seller->seller_id,
-                'first_name' => $seller->first_name,
-                'last_name' => $seller->last_name,
-                'email' => $seller->email,
-                'date_of_birth' => $seller->date_of_birth,
-                'created_at' => $seller->created_at,
-                'verification_requested' => $verificationRequested,
-            ];
+        // $verification = DB::table('verification')->where('seller_id', $seller_id)->first();
 
-            if ($verificationRequested) {
-                $seller['verification'] = [
-                    'ver_id' => $verification->ver_id,
-                    'store_name' => $verification->store_name,
-                    'business_info' => $verification->business_info,
-                    'verified_by' => $verification->verified_by,
-                    'verified_at' => $verification->verified_at,
-                    'created_at' => $verification->created_at,
-                ];
-            }
+        // if (isset($verification)) $verificationRequested = true;
+        // else $verificationRequested = false;
+
+        // if (isset($seller)) {
+        //     $seller = [
+        //         'seller_id' => $seller->seller_id,
+        //         'first_name' => $seller->first_name,
+        //         'last_name' => $seller->last_name,
+        //         'email' => $seller->email,
+        //         'date_of_birth' => $seller->date_of_birth,
+        //         'created_at' => $seller->created_at,
+        //         'verification_requested' => $verificationRequested,
+        //     ];
+
+        //     if ($verificationRequested) {
+        //         $seller['verification'] = [
+        //             'ver_id' => $verification->ver_id,
+        //             'store_name' => $verification->store_name,
+        //             'business_info' => $verification->business_info,
+        //             'verified_by' => $verification->verified_by,
+        //             'verified_at' => $verification->verified_at,
+        //             'created_at' => $verification->created_at,
+        //         ];
+        //     }
 
             return response()->json($seller, 200);
-        }
-        else {
-            return response()->json(['seller' => 'No seller found'], 404);
-        }
+        // }
+        // else {
+        //     return response()->json(['seller' => 'No seller found'], 404);
+        // }
     }
 
     public function verify(Request $request){

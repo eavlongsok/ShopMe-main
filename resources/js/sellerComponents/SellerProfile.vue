@@ -12,16 +12,16 @@
             <p><span class="font-bold capitalize">Name: </span>{{ seller.first_name }} {{ seller.last_name }}</p>
             <p><span class="font-bold capitalize">Email: </span>{{seller.email}}</p>
             <p><span class="font-bold capitalize">Date Of Birth: </span>{{ seller.date_of_birth }}</p>
-            <p><span class="font-bold capitalize">Verified: </span>{{seller.verification_requested && seller.verification.verified_by != null ? 'Yes' : 'No'}}</p>
-            <p v-if="seller.verification_requested && seller.verification.verified_by == null"><span class="font-bold capitalize">Verification Requested: </span>{{seller.verification_requested ? 'Yes' : 'No'}}</p>
-            <p><span class="font-bold capitalize">Store Name: </span>{{seller.verification_requested ? seller.verification.store_name : 'Information Not Available'}}</p>
-            <p><span class="font-bold capitalize">Store Information: </span>{{seller.verification_requested ? seller.verification.business_info : 'Information Not Available'}}</p>
+            <p><span class="font-bold capitalize">Verified: </span>{{seller.verified_by != null ? 'Yes' : 'No'}}</p>
+            <p v-if="seller.verified_by === null"><span class="font-bold capitalize">Verification Requested: </span>{{seller.ver_id !== null ? 'Yes' : 'No'}}</p>
+            <p v-if="seller.ver_id !== null"><span class="font-bold capitalize">Store Name: </span>{{seller.store_name}}</p>
+            <p v-if="seller.ver_id !== null"><span class="font-bold capitalize">Store Information: </span>{{seller.business_info}}</p>
         </div>
     </div>
 </template>
 
 <script>
-    import Loader from './Loader.vue'
+    import Loader from '../components/Loader.vue'
     export default {
         data() {
             return {

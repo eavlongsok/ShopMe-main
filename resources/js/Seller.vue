@@ -11,8 +11,8 @@
             <Sales v-else-if="active === 4" @changetab="changeTab"/>
             <Sell v-else-if="active === 3"/>
             <Verify v-else-if="active === 5"/>
-            <Profile v-else-if="active === 8" @changetab="changeTab"/>
-            <EditProfile v-else-if="active === 9" @changetab="changeTab"/>
+            <SellerProfile v-else-if="active === 8" @changetab="changeTab"/>
+            <EditSellerProfile v-else-if="active === 9" @changetab="changeTab"/>
             <!-- <Login v-else-if="active === 7"/> -->
 
             <Shirt v-else-if="active === 10"/>
@@ -44,8 +44,8 @@ import Transaction from './components/Transaction.vue'
 import History from './components/History.vue'
 import Sell from './sellerComponents/Sell.vue'
 import Verify from './components/Verify.vue'
-import Profile from './components/Profile.vue'
-import EditProfile from './components/EditProfile.vue'
+import SellerProfile from './sellerComponents/SellerProfile.vue'
+import EditSellerProfile from './sellerComponents/EditSellerProfile.vue'
 import Sales from './sellerComponents/Sales.vue'
 
 import Shirt from './Items/Shirt.vue'
@@ -93,8 +93,8 @@ export default {
         History,
         Sell,
         SellerHome,
-        Profile,
-        EditProfile,
+        SellerProfile,
+        EditSellerProfile,
         Sales,
     },
     methods:{

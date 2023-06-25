@@ -60,15 +60,14 @@
 
             async editAccount() {
                 this.errors = null;
-                // console.log(this.email, this.password, this.confirmPassword)
                 let formData = new FormData();
                 formData.append('email', this.email);
                 formData.append('password', this.password);
                 formData.append('confirmPassword', this.confirmPassword);
                 try {
-                    const response = await axios.post('/api/editAccount', formData, {
+                    const response = await axios.post('/api/buyer/editAccount', formData, {
                         headers: {
-                            'Authorization': 'Bearer ' + localStorage.getItem('seller_token'),
+                            'Authorization': 'Bearer ' + localStorage.getItem('buyer_token'),
                         }
                     });
 
@@ -78,7 +77,6 @@
                     }
                 }
                 catch(err) {
-                    console.log(err.response)
                     if (err.response.status) {
                         this.errors = err.response.data.errors;
                     }
@@ -87,8 +85,8 @@
         },
         async mounted() {
             try {
-                const response = await axios.get('/api/seller/info', {headers: {
-                    'Authorization': 'Bearer ' + localStorage.getItem('seller_token'),
+                const response = await axios.get('/api/buyer/info', {headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('buyer_token'),
                 }})
 
                 this.email = response.data.email;

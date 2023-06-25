@@ -110,7 +110,7 @@
                             <h1>{{initial}}</h1>
                             <div class="absolute top-9 left-[-1.125rem] hidden group-hover:block pointer-events-auto">
                                 <div class="flex flex-col my-2 z-10">
-                                    <button><a href="#" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-blue-500">Profile</a></button>
+                                    <button @click="emitTabEvent(8)" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-blue-500" @editProfile="emitTabEvent(9)">Profile</button>
                                     <button @click="logout" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-red-500">Logout</button>
                                 </div>
                             </div>
@@ -150,12 +150,11 @@
             },
             logout() {
                 axios.post('/logout').then(() => {
-                    localStorage.removeItem('seller_token')
+                    localStorage.removeItem('buyer_token')
                     window.location.href = '/'
                 })
             },
             async getBuyer() {
-                console.log('method')
                 try {
                     const response = await axios('/api/buyer/info', {
                         headers: {
@@ -163,6 +162,7 @@
                         }
                     })
                     this.buyer = response.data
+                    console.log(response.data)
                     this.initial = this.buyer.first_name.charAt(0)
                 }
                 catch(err) {

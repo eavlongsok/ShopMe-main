@@ -10,6 +10,8 @@
             <Transaction v-else-if="active === 31" @changetab="changeTab"/>
             <History v-else-if="active === 4" @changetab="changeTab"/>
             <SearchResult v-else-if="active === 7"/>
+            <BuyerProfile v-else-if="active === 8" @changetab="changeTab"/>
+            <EditBuyerProfile v-else-if="active === 9" @changetab="changeTab"/>
             <!-- <Sell v-else-if="active === 3"/> -->
             <!-- <Login v-else-if="active === 7"/> -->
 
@@ -42,6 +44,8 @@ import Transaction from './components/Transaction.vue'
 import History from './components/History.vue'
 import Sell from './sellerComponents/Sell.vue'
 import SearchResult from './components/SearchResult.vue'
+import EditBuyerProfile from './components/EditBuyerProfile.vue'
+import BuyerProfile from './components/BuyerProfile.vue'
 
 import Shirt from './Items/Shirt.vue'
 import Pant from './Items/Pant.vue'
@@ -66,15 +70,31 @@ export default {
         }
     },
     components:{
-        NavBuyer,Home,Cart,Watchlist,Foot,
-        SearchResult,
-
-        Shirt,Pant,Shoes,
-        PC,Camera,Device,Tables,Chair
-        ,Bed,Promotions,Toy,
-        Beauty,Payment,Transaction,History,
-        Sell
-    },
+    NavBuyer,
+    Home,
+    Cart,
+    Watchlist,
+    Foot,
+    SearchResult,
+    Shirt,
+    Pant,
+    Shoes,
+    PC,
+    Camera,
+    Device,
+    Tables,
+    Chair,
+    Bed,
+    Promotions,
+    Toy,
+    Beauty,
+    Payment,
+    Transaction,
+    History,
+    Sell,
+    BuyerProfile,
+    EditBuyerProfile
+},
     methods:{
         changeTab(tabID){
             this.active = tabID

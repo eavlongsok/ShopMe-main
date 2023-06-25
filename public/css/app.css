@@ -482,6 +482,9 @@ video {
 .invisible {
   visibility: hidden;
 }
+.static {
+  position: static;
+}
 .fixed {
   position: fixed;
 }
@@ -711,9 +714,6 @@ video {
 }
 .h-full {
   height: 100%;
-}
-.h-\[300px\] {
-  height: 300px;
 }
 .max-h-36 {
   max-height: 9rem;

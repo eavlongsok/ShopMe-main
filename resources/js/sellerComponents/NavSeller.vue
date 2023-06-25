@@ -166,7 +166,7 @@
                         }
                     })
                     this.seller = response.data
-                    this.isVerified = this.seller.verification_requested
+                    this.isVerified = this.seller.ver_id !== null
                     this.initial = this.seller.first_name.charAt(0)
                 }
                 catch(err) {
