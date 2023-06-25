@@ -26,4 +26,14 @@ class BuyerAPIController extends Controller
             return response()->json(['buyer' => 'No buyer found'], 404);
         }
     }
+
+    public function getProduct(){
+        $product = DB::table('product')->join('product_img','product_img.product_id',"=",'product.product_id')->get();
+        if(isset($product)){
+            return response()->json(['product' => $product], 200);
+        }
+        else{
+            return response()->json(['product' => 'No product found'], 404);
+        }
+    }
 }

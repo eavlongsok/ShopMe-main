@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     // buyer
     Route::get('buyer/info', [BuyerAPIController::class, 'getBuyerInfo']);
 
+    Route::get('buyer/product', [BuyerAPIController::class, 'getProduct']);
+
     // seller
     Route::post('/registerProduct', [SellerAPIController::class, 'registerProduct']);
 

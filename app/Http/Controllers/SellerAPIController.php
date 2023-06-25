@@ -35,6 +35,7 @@ class SellerAPIController extends Controller
 
     }
 
+
     public function registerProduct(Request $request) {
         $validation = Validator::make($request->all(), [
             "name" => "required",
