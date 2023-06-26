@@ -44,6 +44,7 @@ class SellerAPIController extends Controller
             "price" => "required|numeric",
             "quantity" => "required|numeric",
             "description" => "required|max:255",
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120'
         ]);
 
         if ($validation->fails()) {
@@ -102,7 +103,7 @@ class SellerAPIController extends Controller
 
     public function getSellerInfo (Request $request) {
         $seller_id = $request->user()->seller_id;
-        $seller = DB::table('seller')->where('seller.seller_id', $seller_id)->leftJoin('verification', 'seller.seller_id', '=', 'verification.seller_id')->take(1)->get(['seller.seller_id', 'seller.first_name', 'seller.last_name', 'seller.email', 'seller.date_of_birth', 'seller.created_at', 'verification.ver_id', 'verification.store_name', 'verification.business_info', 'verification.verified_by', 'verification.verified_at']);
+        $seller = DB::table('seller')->where('seller.seller_id', $seller_id)->leftJoin('verification', 'seller.seller_id', '=', 'verification.seller_id')->take(1)->get(['seller.seller_id', 'seller.first_name', 'seller.last_name', 'seller.email', 'seller.img_url', 'seller.date_of_birth', 'seller.created_at', 'verification.ver_id', 'verification.store_name', 'verification.business_info', 'verification.verified_by', 'verification.verified_at']);
 
         $seller = $seller[0];
 
@@ -246,6 +247,29 @@ class SellerAPIController extends Controller
 
         return response()->json(['success' => 'successfully updated'], 200);
 
+    }
+
+    public function editLogo(Request $request) {
+        $seller = $request->user();
+
+        $validator = Validator::make($request->all(), [
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        $logo = $this->uploadImage($request, 'logo');
+
+        if (empty($logo)) {
+            return response()->json(['errors' => ['logo' => ['failed to upload logo']]], 500);
+        }
+
+        $seller->img_url = $logo;
+        $seller->save();
+
+        return response()->json(['success' => 'successfully updated', 'img_url' => $logo], 200);
     }
 
     public function uploadImage(Request $request, $name) {

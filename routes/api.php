@@ -30,6 +30,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::post('/buyer/editAccount', [BuyerAPIController::class, 'editAccount']);
 
+    Route::post('/buyer/editLogo', [BuyerAPIController::class, 'editLogo']);
+
     // seller
     Route::post('/registerProduct', [SellerAPIController::class, 'registerProduct']);
 
@@ -43,5 +45,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::post('/seller/editAccount', [SellerAPIController::class, 'editAccount']);
 
+    Route::post('/seller/editLogo', [SellerAPIController::class, 'editLogo']);
+
     Route::get('/seller/info', [SellerAPIController::class, 'getSellerInfo']);
+
 });
