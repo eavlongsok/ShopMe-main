@@ -1,6 +1,8 @@
 <template>
     <!-- :active="active" -->
-    <NavBuyer  @changetab="changeTab"/>
+    <NavBuyer  @changetab="changeTab" @category="(chosenCategory) => {
+        category = chosenCategory
+    }"/>
     <div class="w-full flex justify-center">
         <div class="w-[1100px]">
             <Home v-if="active === 1" />
@@ -12,6 +14,7 @@
             <SearchResult v-else-if="active === 7"/>
             <BuyerProfile v-else-if="active === 8" @changetab="changeTab"/>
             <EditBuyerProfile v-else-if="active === 9" @changetab="changeTab"/>
+            <Category v-else-if="active === 2" :category="category"/>
             <!-- <Sell v-else-if="active === 3"/> -->
             <!-- <Login v-else-if="active === 7"/> -->
 
@@ -46,6 +49,7 @@ import Sell from './sellerComponents/Sell.vue'
 import SearchResult from './components/SearchResult.vue'
 import EditBuyerProfile from './components/EditBuyerProfile.vue'
 import BuyerProfile from './components/BuyerProfile.vue'
+import Category from './components/Category.vue'
 
 import Shirt from './Items/Shirt.vue'
 import Pant from './Items/Pant.vue'
@@ -66,34 +70,19 @@ export default {
     data(){
         return {
             active: 1,
+            category: 1,
 
         }
     },
     components:{
-    NavBuyer,
-    Home,
-    Cart,
-    Watchlist,
-    Foot,
-    SearchResult,
-    Shirt,
-    Pant,
-    Shoes,
-    PC,
-    Camera,
-    Device,
-    Tables,
-    Chair,
-    Bed,
-    Promotions,
-    Toy,
-    Beauty,
-    Payment,
-    Transaction,
-    History,
-    Sell,
-    BuyerProfile,
-    EditBuyerProfile
+    NavBuyer,Home,Cart,Watchlist,
+    Foot,SearchResult,Category,
+
+    Shirt,Pant,Shoes,PC,
+    Camera,Device,Tables,Chair,
+    Bed,Promotions,Toy,Beauty,
+    Payment,Transaction,History,Sell,
+    BuyerProfile,EditBuyerProfile
 },
     methods:{
         changeTab(tabID){

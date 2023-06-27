@@ -31,14 +31,14 @@
                 </div>
             </div>
 
-            <div class="flex justify-between">
+            <!-- <div class="flex justify-between">
                 <div class="mx-2">
                     <h1>To:</h1>
                 </div>
                 <div class="mx-2">
                     <h1>James (00342)</h1>
                 </div>
-            </div>
+            </div> -->
             
             <div class="flex justify-between">
                 <div class="mx-2">

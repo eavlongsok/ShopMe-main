@@ -34,9 +34,9 @@
                         <div class="mx-4 my-2">
                             <ul>
                                 <li class="text-purple-600 underline">Fashion</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(10)">Shirt</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(11)">Pant</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(12)">Shoes</li>
+                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 1)">Shirt</li>
+                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 2)">Pant</li>
+                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 3)">Shoes</li>
 
                             </ul>
                         </div>
@@ -144,6 +144,7 @@
             }
         },
         props: ['active'],
+        emits: ['changetab', 'category'],
         methods:{
             emitTabEvent(tabID){
                 this.$emit('changetab',tabID)
@@ -155,6 +156,7 @@
                 })
             },
             async getBuyer() {
+                
                 try {
                     const response = await axios('/api/buyer/info', {
                         headers: {
