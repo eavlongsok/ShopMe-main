@@ -272,6 +272,13 @@ class SellerAPIController extends Controller
         return response()->json(['success' => 'successfully updated', 'img_url' => $logo], 200);
     }
 
+    public function getProducts(Request $request) {
+        $seller_id = $request->user()->seller_id;
+        $products = DB::table('product')->join('product_img', 'product_img.product_id', 'product.product_id')->join('category', 'category.category_id', 'product.category_id')->where('product.seller_id', $seller_id)->where('product.is_approved', 1)->get();
+
+        return response()->json(['products' => $products], 200);
+    }
+
     public function uploadImage(Request $request, $name) {
         $image = $request->file($name);
             $client = new Client();

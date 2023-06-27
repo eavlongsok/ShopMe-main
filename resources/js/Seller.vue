@@ -1,7 +1,7 @@
 <template>
     <!-- :active="active" -->
     <NavSeller  @changetab="changeTab"/>
-    <div class="w-full flex justify-center">
+    <div class="w-full flex justify-center min-h-[500px]">
         <div class="w-[1100px]">
             <SellerHome v-if="active === 1" />
             <!-- <Watchlist v-else-if="active === 5"/>

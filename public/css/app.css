@@ -649,6 +649,9 @@ video {
 .mt-7 {
   margin-top: 1.75rem;
 }
+.mt-auto {
+  margin-top: auto;
+}
 .block {
   display: block;
 }
@@ -724,8 +727,14 @@ video {
 .min-h-\[500px\] {
   min-height: 500px;
 }
+.min-h-\[80\%\] {
+  min-height: 80%;
+}
 .min-h-\[95vh\] {
   min-height: 95vh;
+}
+.min-h-\[700px\] {
+  min-height: 700px;
 }
 .w-1\/12 {
   width: 8.333333%;
