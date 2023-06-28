@@ -30,53 +30,43 @@
                     Category
                 </button>
                 <div class="absolute top-0 right-52 transition group-hover:translate-y-12 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 transform ">
-                    <div class="relative top-4 right-3 p-6 bg-white rounded-xl shadow-xl w-full grid grid-cols-2 ">
+                    <div class="relative top-4 right-2 p-6 bg-white rounded-xl shadow-xl w-full grid grid-cols-2 ">
                         <div class="mx-4 my-2">
                             <ul>
-                                <li class="text-purple-600 underline">Fashion</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 1)">Shirt</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 2)">Pant</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 3)">Shoes</li>
+        
+                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 1)">Art</li>
+                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 2)">Baby Essentials</li>
+                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 3)">Books And Movies</li>
 
                             </ul>
                         </div>
 
                         <div class="mx-4 my-2">
                             <ul>
-                                <li class="text-purple-600 underline">Electronic</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(13)">PC</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(14)">Camera</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(15)">Devices</li>
+                                
+                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(13)">Clothing</li>
+                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(14)">Electronics</li>
+                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(15)">Furniture</li>
 
                             </ul>
                         </div>
 
                         <div class="mx-4 my-2">
                             <ul>
-                                <li class="text-purple-600 underline">Furniture</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(16)">Table</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(17)">Chair</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(18)">Bed</li>
+                                
+                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(16)">Health And Beauty</li>
+                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(17)">Industrial And Scientific</li>
+                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(18)">Pet Supplies</li>
 
                             </ul>
                         </div>
 
-                        <!-- <div class="mx-4 my-2">
-                            <ul>
-                                <li class="text-purple-600 underline">Tool</li>
-                                <li><a href="#" class="hover:text-emerald-400">Sport</a></li>
-                                <li><a href="#" class="hover:text-emerald-400">Home</a></li>
-                                <li><a href="#" class="hover:text-emerald-400">Science</a></li>
-
-                            </ul>
-                        </div> -->
-
                         <div class="mx-4 my-2">
                             <ul>
-                                <li class="text-purple-600 underline">Other</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(19)">Promotion</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(20)">Toy</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(21)">Beauty</li>
+                                
+                                <li><a href="#" class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(16)">Sports And Outdoors</a></li>
+                                <li><a href="#" class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(16)">Tools And Home Appliances</a></li>
+                                <li><a href="#" class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(16)">Toys And Games</a></li>
 
                             </ul>
                         </div>
