@@ -3,7 +3,6 @@
 use App\Http\Controllers\BuyerAPIController;
 use App\Http\Controllers\SellerAPIController;
 use App\Http\Middleware\Cors;
-use App\Models\Seller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +25,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     // buyer
     Route::get('buyer/info', [BuyerAPIController::class, 'getBuyerInfo']);
 
-    Route::get('buyer/product', [BuyerAPIController::class, 'getProduct']);
+    Route::get('buyer/products', [BuyerAPIController::class, 'getProducts']);
 
     Route::post('/buyer/editAccount', [BuyerAPIController::class, 'editAccount']);
 
@@ -50,4 +49,14 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/seller/info', [SellerAPIController::class, 'getSellerInfo']);
 
     Route::get('/seller/products', [SellerAPIController::class, 'getProducts']);
+
+    Route::get('/seller/products/pendingApproval', [SellerAPIController::class, 'getPendingApprovalProducts']);
+
+    Route::post('/seller/product/editImage', [SellerAPIController::class, 'editProductImage']);
+
+    Route::post('/seller/editProductInfo', [SellerAPIController::class, 'editProductInfo']);
+
+    Route::post('/seller/addProduct', [SellerAPIController::class, 'addProductQuantity']);
+
+    Route::post('/seller/removeProduct', [SellerAPIController::class, 'removeProduct']);
 });

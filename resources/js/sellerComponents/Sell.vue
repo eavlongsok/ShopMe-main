@@ -8,7 +8,7 @@
                     <input type="text" class="border-2 pl-2 rounded-md py-1 focus:outline w-full" v-model="name" :disabled="!isVerified"/>
 
                     <label class="my-2">Category:</label>
-                    <select v-model="category" class="border-2 mt-4 px-2 rounded-sm focus:outline ml-5" :disabled="!isVerified">
+                    <select v-model="category" class="border-2 mt-4 px-2 py-1 rounded-sm focus:outline ml-5" :disabled="!isVerified">
                         <option disabled selected>--Choose Category--</option>
                         <option v-for="category in categories" :value="category.category_id">{{ category.category_name }}</option>
                     </select>
@@ -24,13 +24,13 @@
 
                     <div class="flex justify-between mt-4">
                         <div>
-                            <label class="block my-2">Price</label>
-                            <input type="number" v-model="price" class="border-2 pl-2 rounded-md py-1 focus:outline" :disabled="!isVerified"/>
+                            <label class="block my-2">Price:</label>
+                            <input type="number" v-model="price" class="border-2 pl-2 rounded-md py-1 focus:outline" min="1" :disabled="!isVerified"/>
                         </div>
 
                         <div class="mr-8">
                             <label class="block my-2">Quantity</label>
-                            <input type="number" v-model="quantity" class="border-2 pl-2 rounded-md py-1 focus:outline" :disabled="!isVerified"/>
+                            <input type="number" v-model="quantity" class="border-2 pl-2 rounded-md py-1 focus:outline" min="1" :disabled="!isVerified"/>
                         </div>
 
                     </div>

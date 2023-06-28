@@ -1,7 +1,7 @@
 <template>
     <div class="md:flex bg-sky-400 justify-evenly py-2.5 md:items-center">
 
-        <div class="flex mx-3">
+        <div class="flex mx-3 cursor-pointer" @click="emitTabEvent(1)">
             <img src="Logo/logo-no-background.svg" alt="logo"/>
         </div>
 
@@ -24,73 +24,12 @@
 
             <ul :class="showMenu ? 'flex': 'hidden'" class="flex-col mt-1 space-y-4 md:flex md:flex-row md:items-center md:space-y-0 ">
             <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(1)">Home</li>
-            <!-- <li class="mx-2.5 group">
 
-                <button class="hover:text-white" >
-                    Category
-                </button>
-                <div class="absolute top-0 right-52 transition group-hover:translate-y-12 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 transform ">
-                    <div class="relative top-4 right-3 p-6 bg-white rounded-xl shadow-xl w-full grid grid-cols-2 ">
-                        <div class="mx-4 my-2">
-                            <ul>
-                                <li class="text-purple-600 underline">Fashion</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(10)">Shirt</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(11)">Pant</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(12)">Shoes</li>
+            <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(2)">Sell</li>
 
-                            </ul>
-                        </div>
+            <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(3)">Sales</li>
 
-                        <div class="mx-4 my-2">
-                            <ul>
-                                <li class="text-purple-600 underline">Electronic</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(13)">PC</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(14)">Camera</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(15)">Devices</li>
-
-                            </ul>
-                        </div>
-
-                        <div class="mx-4 my-2">
-                            <ul>
-                                <li class="text-purple-600 underline">Furniture</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(16)">Table</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(17)">Chair</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(18)">Bed</li>
-
-                            </ul>
-                        </div>
-
-                        <div class="mx-4 my-2">
-                            <ul>
-                                <li class="text-purple-600 underline">Tool</li>
-                                <li><a href="#" class="hover:text-emerald-400">Sport</a></li>
-                                <li><a href="#" class="hover:text-emerald-400">Home</a></li>
-                                <li><a href="#" class="hover:text-emerald-400">Science</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="mx-4 my-2">
-                            <ul>
-                                <li class="text-purple-600 underline">Other</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(19)">Promotion</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(20)">Toy</li>
-                                <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(21)">Beauty</li>
-
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-
-
-            </li> -->
-
-            <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(3)">Sell</li>
-
-            <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(4)">Sales</li>
-
-            <li v-if="!isVerified" class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(5)">Verify</li>
+            <li v-if="!isVerified" class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(4)">Verify</li>
 
             <!-- <li class="mx-2.5 cursor-pointer"><button @click="logout" class="bg-red-500 p-2 rounded">Log Out</button></li> -->
 
@@ -101,7 +40,7 @@
                             <h1>{{initial}}</h1>
                             <div class="absolute top-9 left-[-1.125rem] hidden group-hover:block pointer-events-auto">
                                 <div class="flex flex-col my-2 z-10">
-                                    <button @click="emitTabEvent(8)" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-blue-500" @editProfile="emitTabEvent(9)">Profile</button>
+                                    <button @click="emitTabEvent(0)" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-blue-500" @editProfile="emitTabEvent(-1)">Profile</button>
                                     <button @click="logout" class="text-black inline-block px-3 py-1.5 border-b rounded-md bg-white hover:text-white hover:bg-red-500">Logout</button>
                                 </div>
                             </div>
@@ -110,26 +49,6 @@
                 </div>
             </li>
 
-            <!-- <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(5)">Watchlist</li> -->
-            <!-- list use for link to cart -->
-            <!-- <li class="mx-3 cursor-pointer" @click="emitTabEvent(6)">
-
-
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hover:text-white">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                    </svg>
-
-
-            </li> -->
-            <!-- list use for link to cart -->
-
-            <!-- login icon -->
-            <!-- <li class="mx-3 cursor-pointer" @click="emitTabEvent(7)">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hover:text-white">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
-                </svg>
-
-            </li> -->
             </ul>
         </div>
     </div>

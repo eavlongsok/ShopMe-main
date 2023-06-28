@@ -28,7 +28,7 @@ class BuyerAPIController extends Controller
             return response()->json($buyer, 200);
     }
 
-    public function getProduct(Request $request){
+    public function getProducts(Request $request){
         $category_id = $request->category;
         $product = DB::table('product')->join('product_img','product_img.product_id',"=",'product.product_id')->where('product.category_id', $category_id)->get();
         $category_name = DB::table('category')->where('category_id', $category_id)->first()->category_name;

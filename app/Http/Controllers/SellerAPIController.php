@@ -15,7 +15,7 @@ class SellerAPIController extends Controller
 {
     //
     public function getCategories() {
-        $categories = DB::table('category')->get();
+        $categories = DB::table('category')->orderBy('category_name')->get();
         if (isset($categories)) {
             return response()->json(['categories' => $categories], 200);
         }
@@ -35,13 +35,12 @@ class SellerAPIController extends Controller
 
     }
 
-
     public function registerProduct(Request $request) {
         $validation = Validator::make($request->all(), [
-            "name" => "required",
+            "name" => "required|string|max:100",
             "category" => "required|numeric",
             "condition" => "required|numeric",
-            "price" => "required|numeric",
+            "price" => "required|numeric|min:1",
             "quantity" => "required|numeric",
             "description" => "required|max:255",
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120'
@@ -243,6 +242,7 @@ class SellerAPIController extends Controller
                 $seller->password = Hash::make($password);
             }
         }
+        $seller->updated_at = Carbon::now();
         $seller->save();
 
         return response()->json(['success' => 'successfully updated'], 200);
@@ -267,14 +267,105 @@ class SellerAPIController extends Controller
         }
 
         $seller->img_url = $logo;
+        $seller->updated_at = Carbon::now();
         $seller->save();
 
         return response()->json(['success' => 'successfully updated', 'img_url' => $logo], 200);
     }
 
+    public function editProductImage(Request $request) {
+        $product_id = $request->input('product_id');
+
+        $validator = Validator::make($request->all(), [
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        $img = $this->uploadImage($request, 'img');
+
+        if (empty($img)) {
+            return response()->json(['errors' => 'failed to upload image'], 500);
+        }
+
+       DB::table('product_img')->where('product_id', $product_id)->update(['img_url' => $img]);
+
+       DB::table('product')->where('product_id', $product_id)->update(['updated_at' => Carbon::now()]);
+
+        return response()->json(['success' => 'successfully updated', 'img_url' => $img], 200);
+    }
+
+    public function editProductInfo(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'product_id' => 'required|integer',
+            'name' => 'required|string|max:100',
+            'description' => 'required|string|max:255',
+            'price' => 'required|numeric|min:1'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        $product_id = $request->input('product_id');
+        $product_name = $request->input('name');
+        $product_description = $request->input('description');
+        $product_price = $request->input('price');
+
+        $update = DB::table('product')->where('product_id', $product_id)->update(['product_name' => $product_name, 'product_description' => $product_description, 'price' => $product_price, 'updated_at' => Carbon::now()]);
+
+        if (isset($update)) {
+            return response()->json(['success' => 'successfully updated'], 200);
+        }
+    }
+
+    public function addProductQuantity(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'product_id' => 'required|integer',
+            'quantity' => 'required|integer|min:1'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        $product_id = $request->input('product_id');
+        $quantity = $request->input('quantity');
+
+        $increment = DB::table('product')->where('product_id', $product_id)->increment('quantity', $quantity);
+
+        if (isset($increment)) {
+            $update = DB::table('product')->where('product_id', $product_id)->update(['updated_at' => Carbon::now()]);
+        }
+
+        if (isset($update)) {
+            return response()->json(['success' => 'successfully updated'], 200);
+        }
+    }
+
+    public function removeProduct(Request $request) {
+        $product_id = $request->input('product_id');
+        DB::table('product')->where('product_id', $product_id)->delete();
+        DB::table('listing_request')->where('product_id', $product_id)->delete();
+        DB::table('product_img')->where('product_id', $product_id)->delete();
+
+        return response()->json(['success' => 'successfully deleted'], 200);
+    }
+
     public function getProducts(Request $request) {
         $seller_id = $request->user()->seller_id;
-        $products = DB::table('product')->join('product_img', 'product_img.product_id', 'product.product_id')->join('category', 'category.category_id', 'product.category_id')->where('product.seller_id', $seller_id)->where('product.is_approved', 1)->get();
+        $products = DB::table('product')->join('product_img', 'product_img.product_id', 'product.product_id')->join('category', 'category.category_id', 'product.category_id')->join('listing_request', 'listing_request.product_id', 'product.product_id')->where('product.seller_id', $seller_id)->where('product.is_approved', 1)->orderBy('product.product_sold', 'desc')->orderBy('product.created_at', 'asc')->get();
+
+        return response()->json(['products' => $products], 200);
+    }
+
+    public function getPendingApprovalProducts(Request $request) {
+        $seller_id = $request->user()->seller_id;
+        $products = DB::table('product')->join('product_img', 'product_img.product_id', 'product.product_id')->join('category', 'category.category_id', 'product.category_id')->join('listing_request', 'listing_request.product_id', 'product.product_id')->where('product.seller_id', $seller_id)->where('product.is_approved', 0)->orderBy('product.product_sold', 'desc')->orderBy('product.created_at', 'asc')->get();
+
+        return response()->json(['products' => $products], 200);
 
         return response()->json(['products' => $products], 200);
     }
