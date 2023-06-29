@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BuyerAPIController;
 use App\Http\Controllers\SellerAPIController;
+use App\Http\Controllers\SearchController;
 use App\Http\Middleware\Cors;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -59,4 +60,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/seller/addProduct', [SellerAPIController::class, 'addProductQuantity']);
 
     Route::post('/seller/removeProduct', [SellerAPIController::class, 'removeProduct']);
+
+    // Search for buyer
+    Route::get('/search', [BuyerAPIController::class, 'searchProduct']);
 });

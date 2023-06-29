@@ -162,6 +162,7 @@
         },
        async mounted() {
             await this.getBuyer()
+            console.log()
        }
     }
 

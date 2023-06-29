@@ -11,8 +11,6 @@
 
         <link href="{{mix("css/app.css")}}" rel="stylesheet" />
 
-
-
         <script src="{{mix("js/buyer.js")}}" defer></script>
         <style>
             body {
