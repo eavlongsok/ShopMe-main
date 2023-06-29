@@ -12,7 +12,10 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/buyer.js', 'public/js')
     .js('resources/js/seller.js', 'public/js')
+    .js('resources/js/signup.js', 'public/js')
+    .js('resources/js/login.js', 'public/js')
     .vue()
     .postCss('resources/css/app.css', 'public/css', [
         //

@@ -13,7 +13,7 @@
 
 
 
-        <script src="{{mix("js/app.js")}}" defer></script>
+        <script src="{{mix("js/buyer.js")}}" defer></script>
         <style>
             body {
                 font-family: 'Nunito';

@@ -15,7 +15,7 @@
             <input tpye="search" placeholder="Search Product" aria-label="Search Product"  :class="showMenu ? 'flex': 'hidden'"
             class="w-full mx-2.5 mt-4 mb-4 space-y-4 md:mt-0 md:mb-0 md:space-y-0 md:flex flex-col  md:flex-row rounded-md px-3 py-2
             placeholder-gray-500 border-none ring-2 ring-gray-300 focus:ring-gray-500 focus:ring-2 text-black focus:outline-none" v-model="query"/>
-            <button type="button" class="inline-block absolute right-[-8px] outline-none top-0 h-10 w-10"><img src="searchicon.svg" width="25" class="mx-auto"/></button>
+            <button type="button" class="inline-block absolute right-[-8px] outline-none top-0 h-10 w-10 bg-sky-400 rounded-lg" @click="search"><img src="searchicon.svg" width="25" class="mx-auto"/></button>
 
         </div>
 
@@ -140,6 +140,9 @@
                     localStorage.removeItem('buyer_token')
                     window.location.href = '/'
                 })
+            },
+            async search() {
+
             },
             async getBuyer() {
                 try {
