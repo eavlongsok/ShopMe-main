@@ -733,6 +733,15 @@ video {
 .h-full {
   height: 100%;
 }
+.h-\[900px\] {
+  height: 900px;
+}
+.h-\[400px\] {
+  height: 400px;
+}
+.h-\[600px\] {
+  height: 600px;
+}
 .max-h-36 {
   max-height: 9rem;
 }
@@ -750,6 +759,9 @@ video {
 }
 .min-h-\[95vh\] {
   min-height: 95vh;
+}
+.min-h-\[900px\] {
+  min-height: 900px;
 }
 .\!w-1\/4 {
   width: 25% !important;

@@ -28,8 +28,8 @@
         <h1 class="text-2xl">Pending Approval</h1>
     </div>
 
-    <div v-if="!loadedPAProducts" class="flex justify-center items-center h-[40vh]">
-            <Loader :size="4" :thickness="0.4"/>
+    <div v-if="!loadedPAProducts" class="flex justify-center items-center h-[400px]">
+        <Loader :size="4" :thickness="0.4"/>
     </div>
 
     <div v-if="loadedPAProducts && pendingApprovalProducts.length == 0" class="flex justify-center items-center h-[300px]">

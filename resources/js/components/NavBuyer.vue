@@ -33,7 +33,6 @@
                     <div class="relative top-4 right-2 p-6 bg-white rounded-xl shadow-xl w-full grid grid-cols-2 ">
                         <div class="mx-4 my-2">
                             <ul>
-        
                                 <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 23)">Art</li>
                                 <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 21)">Baby Essentials</li>
                                 <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 17)">Books And Movies</li>
@@ -43,7 +42,6 @@
 
                         <div class="mx-4 my-2">
                             <ul>
-                                
                                 <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 12)">Clothing</li>
                                 <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 22)">Electronics</li>
                                 <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 18)">Furniture</li>
@@ -53,7 +51,6 @@
 
                         <div class="mx-4 my-2">
                             <ul>
-                                
                                 <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 19)">Health And Beauty</li>
                                 <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 15)">Industrial And Scientific</li>
                                 <li class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 20)">Pet Supplies</li>
@@ -63,7 +60,6 @@
 
                         <div class="mx-4 my-2">
                             <ul>
-                                
                                 <li><a href="#" class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 13)">Sports And Outdoors</a></li>
                                 <li><a href="#" class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 16)">Tools And Home Appliances</a></li>
                                 <li><a href="#" class="hover:text-emerald-400 cursor-pointer" @click="emitTabEvent(2); $emit('category', 14)">Toys And Games</a></li>
@@ -146,7 +142,6 @@
                 })
             },
             async getBuyer() {
-                
                 try {
                     const response = await axios('/api/buyer/info', {
                         headers: {
