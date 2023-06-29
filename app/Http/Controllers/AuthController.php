@@ -132,7 +132,7 @@ class AuthController extends Controller
 
     public function home() {
         if (auth()->guard('buyer')->check()) {
-            return view('buyerhomepage');
+            return view('buyer');
         }
         else if (auth()->guard('seller')->check()) {
             return view('sellerhomepage');

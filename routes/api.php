@@ -62,5 +62,5 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/seller/removeProduct', [SellerAPIController::class, 'removeProduct']);
 
     // Search for buyer
-    Route::get('/search', [BuyerAPIController::class, 'searchProduct']);
+    Route::get('/search', [SearchController::class, 'searchProduct']);
 });

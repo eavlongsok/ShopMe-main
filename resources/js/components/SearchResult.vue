@@ -1,9 +1,9 @@
 <template>
     <div class="w-full mx-2 my-4 pt-1 flex justify-between">
         <div>
-            <p class="text-lg">Search Result for #</p>
+            <p class="text-2xl font-bold">Search Result for #</p>
         </div>
-        
+
         <div class="px-6">
             <label class="text-lg">Sort By: </label>
             <select class="rounded-md border-[1px] border-gray-700 pl-2 pr-1 leading-loose mx-1 text-lg">
@@ -12,6 +12,13 @@
             </select>
         </div>
     </div>
+    <div class="px-4 flex justify-end">
+        <label class="text-lg">Categories: </label>
+        <select class="rounded-md border-[1px] border-gray-700 pl-2 pr-1 leading-loose mx-1 text-lg">
+            <option value=1>Highest Price</option>
+            <option value=2>Lowest Price</option>
+        </select>
+        </div>
     <div  class="w-full grid grid-cols-3 my-3">
 
         <div v-for="promo in fashion" class="border-2 rounded-lg w-[350px] h-[450px] mx-2 my-5 bg-sky-50">
@@ -42,6 +49,10 @@
         name: 'Search Result',
         data(){
             return{
+                query: '',
+                category_id: 0,
+                page: 1,
+                limit: 9,
                 fashion: [
                     {
                         name: 'Man Shirt',
@@ -106,6 +117,36 @@
                 ]
             }
         },
+        methods: {
+            async search() {
+                let params = new URLSeearchParams()
+                params.append('q', this.query)
+                params.apend('category_id', this.category_id)
+                params.append('page', this.page)
+                params.append('limit', this.limit)
+
+                try {
+                    const response = await axios.get('/api/search', {
+                        params,
+                        headers: {
+                            'Authorization': 'Bearer ' + localStorage.getItem('buyer_token')
+                        }
+                    })
+                    console.log(response)
+
+                } catch(err) {
+                    console.log(err.reponse.data)
+                }
+            }
+        },
+        mounted() {
+            // add if exists
+            const params = window.location.search
+            const searchParams = new URLSearchParams(params.substring(params.indexOf('?')))
+            console.log(searchParams.get('q'))
+            this.query = searchParams.get('q')
+            this.category_id = searchParams.get('cate')
+        }
 
     }
 </script>

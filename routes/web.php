@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [AuthController::class, 'home'])->middleware('homepage');
+Route::get('/search', [SearchController::class, 'searchPage'])->middleware('homepage');
 
 Route::get('/signup', function() {
     return view('signup');
