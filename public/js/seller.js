@@ -21381,7 +21381,7 @@ var _hoisted_2 = {
 };
 var _hoisted_3 = ["onClick"];
 var _hoisted_4 = {
-  "class": "w-[200px] border-r-2"
+  "class": "w-[200px] h-[200px] border-r-2"
 };
 var _hoisted_5 = ["src"];
 var _hoisted_6 = {
@@ -21488,7 +21488,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       src: product.img_url,
-      "class": "w-[190px] cursor-pointer"
+      "class": "w-[190px] h-[200px] cursor-pointer object-fill"
     }, null, 8 /* PROPS */, _hoisted_5)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.product_name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.category_name), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.name), 1 /* TEXT */), _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_13, "Price: $" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.toUSCurrency(product.price)), 1 /* TEXT */), _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_15, "Sold: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.product_sold) + ", In Stock: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.quantity), 1 /* TEXT */), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_17, "Total Revenue: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.toUSCurrency(product.quantity * product.product_sold)), 1 /* TEXT */)]), _hoisted_18], 8 /* PROPS */, _hoisted_3);
   }), 256 /* UNKEYED_FRAGMENT */)), _hoisted_19, !$data.loadedPAProducts ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Loader, {
     size: 4,

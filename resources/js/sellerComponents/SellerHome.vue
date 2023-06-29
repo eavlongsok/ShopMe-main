@@ -8,8 +8,8 @@
     </div>
 
     <div v-for="product in products" class="border-2 hover:border-4 my-5 rounded-lg h-[200px] flex flex-row justify-around items-center cursor-pointer hover:bg-gradient-to-r from-white to-blue-100" @click="$emit('onsale', product)">
-        <div class="w-[200px] border-r-2">
-            <img :src="product.img_url" class="w-[190px] cursor-pointer"/>
+        <div class="w-[200px] h-[200px] border-r-2">
+            <img :src="product.img_url" class="w-[190px] h-[200px] cursor-pointer object-fill"/>
         </div>
         <div class="w-4/5 pl-7">
             <p class="text-2xl font-bold">{{ product.product_name }}</p>

@@ -20371,68 +20371,55 @@ __webpack_require__.r(__webpack_exports__);
       }],
       fashion: [{
         name: 'Man Shirt',
-        cost: 49.99,
-        image: 'Images/Shirt/m_s.jpg'
+        cost: 20.99,
+        image: 'Images/Clothing/m_s.jpg'
       }, {
-        name: 'Woman Top',
-        cost: 59.99,
-        image: 'Images/Shirt/w_t.jpeg'
+        name: 'Woman Shirt',
+        cost: 20.99,
+        image: 'Images/Clothing/w_t.jpeg'
       }, {
         name: 'Man Trouser',
-        cost: 39.99,
-        image: 'Images/Pant/trouser.jpg'
+        cost: 25.99,
+        image: 'Images/Clothing/trouser.jpg'
       }],
       electronic: [{
         name: 'MacBook Air M2',
-        cost: 1299.99,
-        image: 'Images/PC/macair_m2.jpeg'
+        cost: 1499.99,
+        image: 'Images/Electronic/macpro16_m1.jpg'
       }, {
-        name: 'Sony A7',
-        cost: 359.99,
-        image: 'Images/Camera/sony_a7.jpg'
+        name: 'Dji Mini 2',
+        cost: 899.99,
+        image: 'Images/Electronic/dji_mini2.jpg'
       }, {
-        name: 'Wireless Headphone',
-        cost: 239.99,
-        image: 'Images/Device/wireless.jpg'
+        name: 'GoPro Hero 11',
+        cost: 599.99,
+        image: 'Images/Electronic/goprohero11.jpg'
       }],
       furniture: [{
-        name: 'Small Table',
-        cost: 129.99,
-        image: 'Images/Table/coffee.jpeg'
+        name: 'Coffee Table',
+        cost: 30.99,
+        image: 'Images/Furniture/coffee.jpeg'
       }, {
         name: 'Dinner Chair',
-        cost: 59.99,
-        image: 'Images/Chair/din_chair.jpg'
+        cost: 10.99,
+        image: 'Images/Furniture/din_chair.jpg'
       }, {
-        name: 'Double People Bed',
-        cost: 449.99,
-        image: 'Images/Bed/double.jpg'
+        name: 'Couple Bed',
+        cost: 399.99,
+        image: 'Images/Furniture/double.jpg'
       }],
       tool: [{
-        name: 'Soccer Shoes',
-        cost: 269.99,
-        image: 'Images/Sport/football.jpg'
+        name: 'Axe',
+        cost: 30.99,
+        image: 'Images/Tool and Home Appliance/axe.jpg'
       }, {
         name: 'Hammer',
-        cost: 5.99,
-        image: 'Images/Home/hammer.jpg'
+        cost: 6.99,
+        image: 'Images/Tool and Home Appliance/hammer.jpg'
       }, {
-        name: 'Gskyer Telescope',
-        cost: 529.99,
-        image: 'Images/Science/Gskyer.jpg'
-      }],
-      other: [{
-        name: 'RC Car',
-        cost: 229.99,
-        image: 'Images/Toy/rc_car.jpg'
-      }, {
-        name: 'Water Gun',
-        cost: 19.99,
-        image: 'Images/Toy/watergun.jpg'
-      }, {
-        name: 'BLEU DE CHANEL',
-        cost: 129.99,
-        image: 'Images/Beauty/chanel.jpg'
+        name: 'Shovel',
+        cost: 10.99,
+        image: 'Images/Tool and Home Appliance/shovel.jpg'
       }]
     };
   }
@@ -23247,7 +23234,7 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "w-full mx-2 my-3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "text-2xl"
-}, "Fashion")], -1 /* HOISTED */);
+}, "Clothing")], -1 /* HOISTED */);
 var _hoisted_12 = {
   "class": "w-full grid grid-cols-3 my-3"
 };
@@ -23278,7 +23265,7 @@ var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "w-full mx-2 my-3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "text-2xl"
-}, "Electronic")], -1 /* HOISTED */);
+}, "Electronics")], -1 /* HOISTED */);
 var _hoisted_21 = {
   "class": "w-full grid grid-cols-3 my-3"
 };
@@ -23340,7 +23327,7 @@ var _hoisted_38 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "w-full mx-2 my-3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "text-2xl"
-}, "Other")], -1 /* HOISTED */);
+}, "Tools And Home Appliances")], -1 /* HOISTED */);
 var _hoisted_39 = {
   "class": "w-full grid grid-cols-3 my-3"
 };
@@ -23389,12 +23376,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       src: promo.image,
       "class": "object-cover w-[300px] h-[290px]"
     }, null, 8 /* PROPS */, _hoisted_33)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_35, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(promo.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_36, "$ " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(promo.cost), 1 /* TEXT */)]), _hoisted_37]);
-  }), 256 /* UNKEYED_FRAGMENT */))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Tool "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"w-full mx-2 my-3\">\r\n                <h1 class=\"text-2xl\">Tool</h1>\r\n            </div>\r\n            <div  class=\"w-full grid grid-cols-3 my-3\">\r\n\r\n                <div v-for=\"promo in tool\" class=\"border-2 rounded-lg w-[350px] h-[450px] mx-2 my-5 bg-sky-50\">\r\n\r\n                    <div class=\"flex justify-center my-2\">\r\n                        <img :src=\"promo.image\" class=\"object-cover w-[300px] h-[290px]\" />\r\n                    </div>\r\n\r\n                    <div class=\"mx-4 my-3 py-2\">\r\n                        <h2 class=\"font-bold my-2\">{{ promo.name }}</h2>\r\n                        <p class=\"my-1\">$ {{ promo.cost }}</p>\r\n                    </div>\r\n\r\n                    <div class=\"mx-3 my-2 flex justify-between\">\r\n                        <div>\r\n                            <button class=\"border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-3 text-white\">Watchlist</button>\r\n                        </div>\r\n                        <div>\r\n                            <button class=\"border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white\">Cart</button>\r\n                        </div>\r\n\r\n\r\n                    </div>\r\n\r\n                </div>\r\n            </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Other "), _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.other, function (promo) {
+  }), 256 /* UNKEYED_FRAGMENT */))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Tool "), _hoisted_38, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.tool, function (promo) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_40, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       src: promo.image,
       "class": "object-cover w-[300px] h-[290px]"
     }, null, 8 /* PROPS */, _hoisted_42)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_43, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_44, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(promo.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_45, "$ " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(promo.cost), 1 /* TEXT */)]), _hoisted_46]);
-  }), 256 /* UNKEYED_FRAGMENT */))])], 64 /* STABLE_FRAGMENT */);
+  }), 256 /* UNKEYED_FRAGMENT */))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Other "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"w-full mx-2 my-3\">\r\n                <h1 class=\"text-2xl\">Other</h1>\r\n            </div>\r\n            <div  class=\"w-full grid grid-cols-3 my-3\">\r\n\r\n                <div v-for=\"promo in other\" class=\"border-2 rounded-lg w-[350px] h-[450px] mx-2 my-5 bg-sky-50\">\r\n\r\n                    <div class=\"flex justify-center my-2\">\r\n                        <img :src=\"promo.image\" class=\"object-cover w-[300px] h-[290px]\" />\r\n                    </div>\r\n\r\n                    <div class=\"mx-4 my-3 py-2\">\r\n                        <h2 class=\"font-bold my-2\">{{ promo.name }}</h2>\r\n                        <p class=\"my-1\">$ {{ promo.cost }}</p>\r\n                    </div>\r\n\r\n                    <div class=\"mx-3 my-2 flex justify-between\">\r\n                        <div>\r\n                            <button class=\"border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-3 text-white\">Watchlist</button>\r\n                        </div>\r\n                        <div>\r\n                            <button class=\"border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white\">Cart</button>\r\n                        </div>\r\n\r\n\r\n                    </div>\r\n\r\n                </div>\r\n            </div> ")], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -23686,67 +23673,76 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "hover:text-emerald-400 cursor-pointer",
     onClick: _cache[3] || (_cache[3] = function ($event) {
       $options.emitTabEvent(2);
-      _ctx.$emit('category', 1);
+      _ctx.$emit('category', 23);
     })
   }, "Art"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
     onClick: _cache[4] || (_cache[4] = function ($event) {
       $options.emitTabEvent(2);
-      _ctx.$emit('category', 2);
+      _ctx.$emit('category', 21);
     })
   }, "Baby Essentials"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
     onClick: _cache[5] || (_cache[5] = function ($event) {
       $options.emitTabEvent(2);
-      _ctx.$emit('category', 3);
+      _ctx.$emit('category', 17);
     })
   }, "Books And Movies")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
     onClick: _cache[6] || (_cache[6] = function ($event) {
-      return $options.emitTabEvent(13);
+      $options.emitTabEvent(2);
+      _ctx.$emit('category', 12);
     })
   }, "Clothing"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
     onClick: _cache[7] || (_cache[7] = function ($event) {
-      return $options.emitTabEvent(14);
+      $options.emitTabEvent(2);
+      _ctx.$emit('category', 22);
     })
   }, "Electronics"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
     onClick: _cache[8] || (_cache[8] = function ($event) {
-      return $options.emitTabEvent(15);
+      $options.emitTabEvent(2);
+      _ctx.$emit('category', 18);
     })
   }, "Furniture")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
     onClick: _cache[9] || (_cache[9] = function ($event) {
-      return $options.emitTabEvent(16);
+      $options.emitTabEvent(2);
+      _ctx.$emit('category', 19);
     })
   }, "Health And Beauty"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
     onClick: _cache[10] || (_cache[10] = function ($event) {
-      return $options.emitTabEvent(17);
+      $options.emitTabEvent(2);
+      _ctx.$emit('category', 15);
     })
   }, "Industrial And Scientific"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "hover:text-emerald-400 cursor-pointer",
     onClick: _cache[11] || (_cache[11] = function ($event) {
-      return $options.emitTabEvent(18);
+      $options.emitTabEvent(2);
+      _ctx.$emit('category', 20);
     })
   }, "Pet Supplies")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "#",
     "class": "hover:text-emerald-400 cursor-pointer",
     onClick: _cache[12] || (_cache[12] = function ($event) {
-      return $options.emitTabEvent(16);
+      $options.emitTabEvent(2);
+      _ctx.$emit('category', 13);
     })
   }, "Sports And Outdoors")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "#",
     "class": "hover:text-emerald-400 cursor-pointer",
     onClick: _cache[13] || (_cache[13] = function ($event) {
-      return $options.emitTabEvent(16);
+      $options.emitTabEvent(2);
+      _ctx.$emit('category', 16);
     })
   }, "Tools And Home Appliances")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "#",
     "class": "hover:text-emerald-400 cursor-pointer",
     onClick: _cache[14] || (_cache[14] = function ($event) {
-      return $options.emitTabEvent(16);
+      $options.emitTabEvent(2);
+      _ctx.$emit('category', 14);
     })
   }, "Toys And Games")])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"mx-2.5 cursor-pointer hover:text-white\" @click=\"emitTabEvent(3)\">Sell</li> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     "class": "mx-2.5 cursor-pointer hover:text-white",
@@ -25117,7 +25113,7 @@ var _hoisted_2 = {
 };
 var _hoisted_3 = ["onClick"];
 var _hoisted_4 = {
-  "class": "w-[200px] border-r-2"
+  "class": "w-[200px] h-[200px] border-r-2"
 };
 var _hoisted_5 = ["src"];
 var _hoisted_6 = {
@@ -25224,7 +25220,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       src: product.img_url,
-      "class": "w-[190px] cursor-pointer"
+      "class": "w-[190px] h-[200px] cursor-pointer object-fill"
     }, null, 8 /* PROPS */, _hoisted_5)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.product_name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.category_name), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.name), 1 /* TEXT */), _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_13, "Price: $" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.toUSCurrency(product.price)), 1 /* TEXT */), _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_15, "Sold: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.product_sold) + ", In Stock: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.quantity), 1 /* TEXT */), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_17, "Total Revenue: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.toUSCurrency(product.quantity * product.product_sold)), 1 /* TEXT */)]), _hoisted_18], 8 /* PROPS */, _hoisted_3);
   }), 256 /* UNKEYED_FRAGMENT */)), _hoisted_19, !$data.loadedPAProducts ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Loader, {
     size: 4,

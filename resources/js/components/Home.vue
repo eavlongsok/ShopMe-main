@@ -34,7 +34,7 @@
 
             <!-- Fashion -->
             <div class="w-full mx-2 my-3">
-                <h1 class="text-2xl">Fashion</h1>
+                <h1 class="text-2xl">Clothing</h1>
             </div>
             <div  class="w-full grid grid-cols-3 my-3">
 
@@ -62,7 +62,7 @@
 
             <!-- Electronic -->
             <div class="w-full mx-2 my-3">
-                <h1 class="text-2xl">Electronic</h1>
+                <h1 class="text-2xl">Electronics</h1>
             </div>
             <div  class="w-full grid grid-cols-3 my-3">
 
@@ -122,8 +122,8 @@
                 </div>
             </div>
              <!-- Tool -->
-             <!-- <div class="w-full mx-2 my-3">
-                <h1 class="text-2xl">Tool</h1>
+             <div class="w-full mx-2 my-3">
+                <h1 class="text-2xl">Tools And Home Appliances</h1>
             </div>
             <div  class="w-full grid grid-cols-3 my-3">
 
@@ -150,9 +150,9 @@
                     </div>
 
                 </div>
-            </div> -->
+            </div>
              <!-- Other -->
-             <div class="w-full mx-2 my-3">
+             <!-- <div class="w-full mx-2 my-3">
                 <h1 class="text-2xl">Other</h1>
             </div>
             <div  class="w-full grid grid-cols-3 my-3">
@@ -180,7 +180,7 @@
                     </div>
 
                 </div>
-            </div>
+            </div> -->
 
 </template>
 
@@ -212,86 +212,69 @@
                 fashion: [
                     {
                         name: 'Man Shirt',
-                        cost: 49.99,
-                        image: 'Images/Shirt/m_s.jpg'
+                        cost: 20.99,
+                        image: 'Images/Clothing/m_s.jpg'
                     },
                     {
-                        name: 'Woman Top',
-                        cost: 59.99,
-                        image: 'Images/Shirt/w_t.jpeg'
+                        name: 'Woman Shirt',
+                        cost: 20.99,
+                        image: 'Images/Clothing/w_t.jpeg'
                     },
                     {
                         name: 'Man Trouser',
-                        cost: 39.99,
-                        image: 'Images/Pant/trouser.jpg'
+                        cost: 25.99,
+                        image: 'Images/Clothing/trouser.jpg'
                     },
                 ],
                 electronic: [
                     {
                         name: 'MacBook Air M2',
-                        cost: 1299.99,
-                        image: 'Images/PC/macair_m2.jpeg'
+                        cost: 1499.99,
+                        image: 'Images/Electronic/macpro16_m1.jpg'
                     },
                     {
-                        name: 'Sony A7',
-                        cost: 359.99,
-                        image: 'Images/Camera/sony_a7.jpg'
+                        name: 'Dji Mini 2',
+                        cost: 899.99,
+                        image: 'Images/Electronic/dji_mini2.jpg'
                     },
                     {
-                        name: 'Wireless Headphone',
-                        cost: 239.99,
-                        image: 'Images/Device/wireless.jpg'
+                        name: 'GoPro Hero 11',
+                        cost: 599.99,
+                        image: 'Images/Electronic/goprohero11.jpg'
                     },
                 ],
                 furniture: [
                     {
-                        name: 'Small Table',
-                        cost: 129.99,
-                        image: 'Images/Table/coffee.jpeg'
+                        name: 'Coffee Table',
+                        cost: 30.99,
+                        image: 'Images/Furniture/coffee.jpeg'
                     },
                     {
                         name: 'Dinner Chair',
-                        cost: 59.99,
-                        image: 'Images/Chair/din_chair.jpg'
+                        cost: 10.99,
+                        image: 'Images/Furniture/din_chair.jpg'
                     },
                     {
-                        name: 'Double People Bed',
-                        cost: 449.99,
-                        image: 'Images/Bed/double.jpg'
+                        name: 'Couple Bed',
+                        cost: 399.99,
+                        image: 'Images/Furniture/double.jpg'
                     },
                 ],
                 tool: [
                     {
-                        name: 'Soccer Shoes',
-                        cost: 269.99,
-                        image: 'Images/Sport/football.jpg'
+                        name: 'Axe',
+                        cost: 30.99,
+                        image: 'Images/Tool and Home Appliance/axe.jpg'
                     },
                     {
                         name: 'Hammer',
-                        cost: 5.99,
-                        image: 'Images/Home/hammer.jpg'
+                        cost: 6.99,
+                        image: 'Images/Tool and Home Appliance/hammer.jpg'
                     },
                     {
-                        name: 'Gskyer Telescope',
-                        cost: 529.99,
-                        image: 'Images/Science/Gskyer.jpg'
-                    },
-                ],
-                other: [
-                    {
-                        name: 'RC Car',
-                        cost: 229.99,
-                        image: 'Images/Toy/rc_car.jpg'
-                    },
-                    {
-                        name: 'Water Gun',
-                        cost: 19.99,
-                        image: 'Images/Toy/watergun.jpg'
-                    },
-                    {
-                        name: 'BLEU DE CHANEL',
-                        cost: 129.99,
-                        image: 'Images/Beauty/chanel.jpg'
+                        name: 'Shovel',
+                        cost: 10.99,
+                        image: 'Images/Tool and Home Appliance/shovel.jpg'
                     },
                 ],
 
