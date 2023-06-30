@@ -10,22 +10,22 @@
     </div>
 
     <template v-else>
-        <div class="px-6 flex justify-end mb-3">
-            <label class="text-xl">Sort By: </label>
-            <select class="rounded-md border-[1px] border-gray-700 pl-2 pr-1 leading-loose mx-1 text-lg">
-                <option value=1>Highest Price</option>
-                <option value=2>Lowest Price</option>
-            </select>
-        </div>
-        <div class="px-4 flex justify-end">
+        <div class="px-4 flex justify-end mb-3">
             <label class="text-xl">Categories: </label>
-            <select class="rounded-md border-[1px] border-gray-700 pl-2 pr-1 leading-loose mx-1 text-lg capitalize" v-model="category_id" @change="changeCategory">
+            <select class="rounded-md border-[1px] border-gray-700 pl-2 pr-1 leading-loose mx-1 text-lg capitalize ml-3" v-model="category_id" @change="changeCategory">
                 <option disabled selected value=0>All Categories</option>
                 <option v-for="category in categories" :value="category.category_id">{{ category.category_name }}</option>
             </select>
         </div>
+        <div class="px-4 flex justify-end">
+            <label class="text-xl">Sort By: </label>
+            <select class="rounded-md border-[1px] border-gray-700 pl-2 pr-1 leading-loose mx-1 text-lg ml-3">
+                <option value=1>Highest Price</option>
+                <option value=2>Lowest Price</option>
+            </select>
+        </div>
 
-        <div class="w-full grid grid-cols-3 gap-y-5 gap-x-3 min-h-[900px] mt-7">
+        <div class="w-full grid grid-cols-3 gap-y-5 gap-x-3 min-h-[900px] mt-7" v-if="products.length > 0">
             <div v-for="product in products" class="border-2 rounded-lg w-[350px] h-[550px] bg-sky-50 text-xl pt-3">
 
                 <div class="flex justify-center my-2">
@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="mx-4 my-3 py-2 h-1/4">
-                    <h2 class="font-bold my-2">{{ product.product_name }}</h2>
+                    <h2 class="font-bold my-2 break-words max-h-[75%] overflow-hidden">{{product.product_name}}</h2>
                     <p class="my-1">${{ toUSCurrency(product.price) }}</p>
                 </div>
 
@@ -46,6 +46,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div v-else class="flex justify-center items-center h-[550px]">
+                <p class="text-3xl font-bold">No Products Found</p>
         </div>
     </template>
 </template>

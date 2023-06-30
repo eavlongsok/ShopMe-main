@@ -1,18 +1,12 @@
 <template>
     <div class="md:flex bg-sky-400 justify-evenly py-2.5 md:items-center">
 
-        <div class="flex mx-3">
+        <div class="flex mx-3 cursor-pointer" @click="goToRoot()">
             <img src="Logo/logo-no-background.svg" alt="logo"/>
         </div>
 
-        <span @click="showMenu = !showMenu" class="absolute md:hidden right-6 top-5 ">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-       </span>
-
-        <div class="w-6/12 mx-2.5 relative">
-            <input tpye="search" placeholder="Search Product" aria-label="Search Product"  :class="showMenu ? 'flex': 'hidden'"
+        <div class="mx-2.5 relative" :class="showNavBar ? 'w-1/2' : 'w-1/2'">
+            <input tpye="search" placeholder="Search Product" aria-label="Search Product"
             class="w-full mx-2.5 mt-4 mb-4 space-y-4 md:mt-0 md:mb-0 md:space-y-0 md:flex flex-col  md:flex-row rounded-md px-3 py-2
             placeholder-gray-500 border-none ring-2 ring-gray-300 focus:ring-gray-500 focus:ring-2 text-black focus:outline-none" v-model="query" @keypress="($event) => {
                 if($event.key === 'Enter') {
@@ -20,13 +14,12 @@
                 }
             }"/>
             <button type="button" class="inline-block absolute right-[-8px] outline-none top-0 h-10 w-10 bg-sky-400 rounded-lg" @click="search"><img src="searchicon.svg" width="25" class="mx-auto"/></button>
-
         </div>
 
 
-        <div class="mx-3 ">
+        <div class="mx-3" v-if="showNavBar">
 
-            <ul :class="showMenu ? 'flex': 'hidden'" class="flex-col mt-1 space-y-4 md:flex md:flex-row md:items-center md:space-y-0 ">
+            <ul class="flex-col mt-1 space-y-4 md:flex md:flex-row md:items-center md:space-y-0 ">
             <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(1)">Home</li>
             <li class="mx-2.5 group">
 
@@ -77,11 +70,8 @@
 
             </li>
 
-            <!-- <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(3)">Sell</li> -->
-
             <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(4)">History</li>
             <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(5)">Watchlist</li>
-            <li class="mx-2.5 cursor-pointer hover:text-white" @click="emitTabEvent(7)">SearchResult</li>
             <!-- list use for link to cart -->
             <li class="mx-3 cursor-pointer" @click="emitTabEvent(6)">
 
@@ -108,15 +98,7 @@
                     </div>
                 </div>
             </li>
-            <!-- list use for link to cart -->
 
-            <!-- login icon -->
-            <!-- <li class="mx-3 cursor-pointer" @click="emitTabEvent(7)">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hover:text-white">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
-                </svg>
-
-            </li> -->
             </ul>
         </div>
     </div>
@@ -129,12 +111,16 @@
             return {
                 query: '',
                 seller: {},
-                showMenu: false,
                 initial: ''
             }
         },
         props: ['active'],
         emits: ['changetab', 'category'],
+        computed: {
+            showNavBar() {
+                return window.location.pathname === '/'
+            }
+        },
         methods:{
             emitTabEvent(tabID){
                 this.$emit('changetab',tabID)
@@ -144,6 +130,9 @@
                     localStorage.removeItem('buyer_token')
                     window.location.href = '/'
                 })
+            },
+            goToRoot() {
+                window.location.href = '/'
             },
             async search() {
                 let params = new URLSearchParams()
