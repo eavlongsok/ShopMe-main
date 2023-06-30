@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <div v-else class="flex justify-center items-center h-[550px]">
+    <div v-else class="flex justify-center items-center h-[550px]">
                 <p class="text-3xl font-bold">No Products Found</p>
         </div>
     </template>

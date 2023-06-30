@@ -15,6 +15,7 @@
             <BuyerProfile v-else-if="active === 8" @changetab="changeTab"/>
             <EditBuyerProfile v-else-if="active === 9" @changetab="changeTab"/>
             <Category v-else-if="active === 2" :category="category"/>
+            <ProductDetails v-else-if="active === 12"/>
             <!-- <Sell v-else-if="active === 3"/> -->
             <!-- <Login v-else-if="active === 7"/> -->
 
@@ -38,6 +39,7 @@
     import EditBuyerProfile from './components/EditBuyerProfile.vue'
     import BuyerProfile from './components/BuyerProfile.vue'
     import Category from './components/Category.vue'
+    import ProductDetails from './components/ProductDetails.vue'
 
 
 export default {
@@ -50,21 +52,34 @@ export default {
         }
     },
     components:{
-    NavBuyer,Home,Cart,Watchlist,
-    Foot,SearchResult,Category,
-
-    Payment,Transaction,History,Sell,
-    BuyerProfile,EditBuyerProfile
+    NavBuyer,
+    Home,
+    Cart,
+    Watchlist,
+    Foot,
+    SearchResult,
+    Category,
+    Payment,
+    Transaction,
+    History,
+    Sell,
+    BuyerProfile,
+    EditBuyerProfile,
+    ProductDetails
 },
     methods:{
         changeTab(tabID){
             this.active = tabID
-            // if (window.location.pathname === '/search') 
+            // if (window.location.pathname === '/search')
         },
     },
     mounted() {
-        console.log(window.location)
-        if (window.location.pathname === '/search') this.active = 7
+        const pathname = window.location.pathname
+        if (pathname === '/search') this.active = 7
+        else if (pathname.startsWith('/product/')) {
+            const regex = /\/product\/(\d+)/
+            if (regex.exec(pathname) !== null) this.active = 12
+        }
     }
 
 }

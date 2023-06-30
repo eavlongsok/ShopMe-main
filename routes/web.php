@@ -17,6 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AuthController::class, 'home'])->middleware('homepage');
 Route::get('/search', [SearchController::class, 'searchPage'])->middleware('homepage');
+Route::get('/product/{id}', function($id) {
+    // check if id is a positive integer
+    if (intval($id) !== 0 && $id > 0) {
+        return view('buyer');
+    }
+    else {
+        return redirect('/');
+    }
+})->middleware('homepage');
 
 Route::get('/signup', function() {
     return view('signup');
