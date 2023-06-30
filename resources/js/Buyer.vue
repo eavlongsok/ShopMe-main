@@ -59,6 +59,7 @@ export default {
     methods:{
         changeTab(tabID){
             this.active = tabID
+            // if (window.location.pathname === '/search') 
         },
     },
     mounted() {

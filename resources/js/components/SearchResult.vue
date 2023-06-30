@@ -1,127 +1,91 @@
 <template>
-    <div class="w-full mx-2 my-4 pt-1 flex justify-between">
+    <div class="w-full mx-2 my-4 pt-1">
         <div>
-            <p class="text-2xl font-bold">Search Result for #</p>
+            <p class="text-3xl font-bold">Search Result for: "{{ query }}"</p>
         </div>
+    </div>
 
-        <div class="px-6">
-            <label class="text-lg">Sort By: </label>
+    <div v-if="!loaded" class="flex justify-center items-center h-[700px]">
+        <Loader :size="6" :thickness="0.5"/>
+    </div>
+
+    <template v-else>
+        <div class="px-6 flex justify-end mb-3">
+            <label class="text-xl">Sort By: </label>
             <select class="rounded-md border-[1px] border-gray-700 pl-2 pr-1 leading-loose mx-1 text-lg">
                 <option value=1>Highest Price</option>
                 <option value=2>Lowest Price</option>
             </select>
         </div>
-    </div>
-    <div class="px-4 flex justify-end">
-        <label class="text-lg">Categories: </label>
-        <select class="rounded-md border-[1px] border-gray-700 pl-2 pr-1 leading-loose mx-1 text-lg">
-            <option value=1>Highest Price</option>
-            <option value=2>Lowest Price</option>
-        </select>
+        <div class="px-4 flex justify-end">
+            <label class="text-xl">Categories: </label>
+            <select class="rounded-md border-[1px] border-gray-700 pl-2 pr-1 leading-loose mx-1 text-lg capitalize" v-model="category_id" @change="changeCategory">
+                <option disabled selected value=0>All Categories</option>
+                <option v-for="category in categories" :value="category.category_id">{{ category.category_name }}</option>
+            </select>
         </div>
-    <div  class="w-full grid grid-cols-3 my-3">
 
-        <div v-for="promo in fashion" class="border-2 rounded-lg w-[350px] h-[450px] mx-2 my-5 bg-sky-50">
+        <div class="w-full grid grid-cols-3 gap-y-5 gap-x-3 min-h-[900px] mt-7">
+            <div v-for="product in products" class="border-2 rounded-lg w-[350px] h-[550px] bg-sky-50 text-xl pt-3">
 
-            <div class="flex justify-center my-2">
-                <img :src="promo.image" class="object-cover w-[300px] h-[290px]" />
-            </div>
-
-            <div class="mx-4 my-3 py-2">
-                <h2 class="font-bold my-2">{{ promo.name }}</h2>
-                <p class="my-1">$ {{ promo.cost }}</p>
-            </div>
-
-            <div class="mx-3 my-2 flex justify-between">
-                <div>
-                    <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-3 text-white">Watchlist</button>
+                <div class="flex justify-center my-2">
+                    <img :src="product.img_url" class="aspect-square w-[300px] " />
                 </div>
-                <div>
-                    <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white">Cart</button>
+
+                <div class="mx-4 my-3 py-2 h-1/4">
+                    <h2 class="font-bold my-2">{{ product.product_name }}</h2>
+                    <p class="my-1">${{ toUSCurrency(product.price) }}</p>
+                </div>
+
+                <div class="mx-3 my-2 flex justify-between items-end">
+                    <div>
+                        <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-3 text-white">Watchlist</button>
+                    </div>
+                    <div>
+                        <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white">Cart</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </template>
 </template>
 
 <script>
+    import Loader from './Loader.vue'
     export default {
         name: 'Search Result',
         data(){
-            return{
+            return {
                 query: '',
                 category_id: 0,
                 page: 1,
                 limit: 9,
-                fashion: [
-                    {
-                        name: 'Man Shirt',
-                        cost: 49.99,
-                        image: 'Images/Shirt/m_s.jpg'
-                    },
-                    {
-                        name: 'Woman Top',
-                        cost: 59.99,
-                        image: 'Images/Shirt/w_t.jpeg'
-                    },
-                    {
-                        name: 'Man Trouser',
-                        cost: 39.99,
-                        image: 'Images/Pant/trouser.jpg'
-                    },
-                    {
-                        name: 'MacBook Air M2',
-                        cost: 1299.99,
-                        image: 'Images/PC/macair_m2.jpeg'
-                    },
-                    {
-                        name: 'Sony A7',
-                        cost: 359.99,
-                        image: 'Images/Camera/sony_a7.jpg'
-                    },
-                    {
-                        name: 'Wireless Headphone',
-                        cost: 239.99,
-                        image: 'Images/Device/wireless.jpg'
-                    },
-                    {
-                        name: 'Small Table',
-                        cost: 129.99,
-                        image: 'Images/Table/coffee.jpeg'
-                    },
-                    {
-                        name: 'Dinner Chair',
-                        cost: 59.99,
-                        image: 'Images/Chair/din_chair.jpg'
-                    },
-                    {
-                        name: 'Double People Bed',
-                        cost: 449.99,
-                        image: 'Images/Bed/double.jpg'
-                    },
-                    {
-                        name: 'Soccer Shoes',
-                        cost: 269.99,
-                        image: 'Images/Sport/football.jpg'
-                    },
-                    {
-                        name: 'Hammer',
-                        cost: 5.99,
-                        image: 'Images/Home/hammer.jpg'
-                    },
-                    {
-                        name: 'Gskyer Telescope',
-                        cost: 529.99,
-                        image: 'Images/Science/Gskyer.jpg'
-                    },
-                ]
+                products: [],
+                loaded: false,
+                categories: [],
             }
         },
+        components: {
+            Loader
+        },
         methods: {
+            toUSCurrency(num) {
+                return num.toLocaleString("en-US", {style:"currency", currency:"USD"});
+            },
+            changeCategory() {
+                let params = new URLSearchParams()
+                params.set('q', this.query)
+                params.set('cate', this.category_id)
+                params.set('page', this.page)
+                window.location.href = "/search?" + params.toString()
+
+            },
             async search() {
-                let params = new URLSeearchParams()
+                this.products = []
+                this.loaded = false
+                let params = new URLSearchParams()
                 params.append('q', this.query)
-                params.apend('category_id', this.category_id)
+                params.append('category_id', this.category_id)
                 params.append('page', this.page)
                 params.append('limit', this.limit)
 
@@ -132,20 +96,43 @@
                             'Authorization': 'Bearer ' + localStorage.getItem('buyer_token')
                         }
                     })
-                    console.log(response)
+                    console.log(response.data)
+                    this.products = response.data.products
 
                 } catch(err) {
-                    console.log(err.reponse.data)
+                    console.log(err.response.data)
                 }
-            }
+
+                this.loaded = true
+            },
+            async getCategories() {
+                try {
+                    const response = await axios.get('/api/categories', {
+                        headers: {
+                            "Authorization": "Bearer " + localStorage.getItem("buyer_token")
+                        }
+                    })
+                    this.categories = response.data.categories
+                }
+                catch(err) {
+                    console.log(err.response.data)
+                }
+            },
         },
-        mounted() {
+        async mounted() {
             // add if exists
             const params = window.location.search
             const searchParams = new URLSearchParams(params.substring(params.indexOf('?')))
-            console.log(searchParams.get('q'))
             this.query = searchParams.get('q')
-            this.category_id = searchParams.get('cate')
+            if (searchParams.has('cate')) {
+                this.category_id = searchParams.get('cate')
+            }
+            if (searchParams.has('page')) {
+                this.page = searchParams.get('page')
+            }
+
+            await this.getCategories();
+            await this.search()
         }
 
     }
