@@ -64,14 +64,14 @@
 
                 </div>
 
-                <div class="flex justify-center">
+                <!-- <div class="flex justify-center">
                     <p class="mt-4">or</p>
-                </div>
-                <div class="mb-3">
+                </div> -->
+                <!-- <div class="mb-3">
                     <button type="submit" class="border-2 border-gray-500 w-full rounded-md block bg-red-600 text-white leading-loose text-xl mt-5 hover:bg-red-700 ">Continue with Google</button>
-                </div>
+                </div> -->
 
-                <p class="text-center text-[0.95rem] mb-7">Already have an account? <a href="/login"><span class="font-bold hover:underline hover:cursor-pointer">Log in</span></a> here!</p>
+                <p class="text-center text-[0.95rem] mb-7 mt-3">Already have an account? <a href="/login"><span class="font-bold hover:underline hover:cursor-pointer">Log in</span></a> here!</p>
 
             </div>
         </div>

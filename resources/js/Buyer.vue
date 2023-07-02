@@ -7,7 +7,7 @@
         <div class="w-[1100px]">
             <Home v-if="active === 1" />
             <Watchlist v-else-if="active === 5"/>
-            <Cart v-else-if="active === 6" @changetab="changeTab"/>
+            <Cart v-else-if="active === 6" @changetab="changeTab" :takeID="pass_id"/>
             <Payment v-else-if="active === 30" @changetab="changeTab"/>
             <Transaction v-else-if="active === 31" @changetab="changeTab"/>
             <History v-else-if="active === 4" @changetab="changeTab"/>

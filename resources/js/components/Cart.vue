@@ -39,7 +39,6 @@
                 <div>
                     <button class="border-2 bg-red-500 hover:bg-red-600 rounded-lg border-inherit py-1 px-4 text-white">Remove</button>
                 </div>
-                
                 <div>
                     <p>Quantity: {{ promotions.length }}</p>
                 </div>
@@ -75,7 +74,7 @@
 
     export default{
         name: 'Cart',
-        props: ['active'],
+        props: ['takeID'],
         
         mounted(){
             console.log('hello')
