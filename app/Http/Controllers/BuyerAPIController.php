@@ -30,7 +30,7 @@ class BuyerAPIController extends Controller
 
     public function getProducts(Request $request){
         $category_id = $request->category;
-        $product = DB::table('product')->join('product_img','product_img.product_id',"=",'product.product_id')->where('product.category_id', $category_id)->get();
+        $product = DB::table('product')->join('product_img','product_img.product_id',"=",'product.product_id')->where('product.category_id', $category_id)->where('product.is_approved', 1)->get();
         $category_name = DB::table('category')->where('category_id', $category_id)->first()->category_name;
         // $category_name = $category_name[0];
 
@@ -52,12 +52,8 @@ class BuyerAPIController extends Controller
 
         foreach($cartObject as $item) {
             $product = DB::table('product')->join('product_img','product_img.product_id',"=",'product.product_id')->where('product.product_id', $item->id)->where('product.is_approved', 1)->whereNull('product.banned_at')->first();
-            if (isset($product))
-                $product->quantity = $item->qty;
-                $product->total = $item->qty * $product->price;
 
             $index = -1;
-
             foreach($cart as $key => $value) {
                 if ($value['id'] == $item->id) {
                     $index = $key;
@@ -65,17 +61,17 @@ class BuyerAPIController extends Controller
                 }
             }
 
-            if (isset($product)) {
+            if (isset($product)){
+                $product->quantity = $item->qty;
+                $product->total = $item->qty * $product->price;
                 array_push($products, $product);
-                $item->price = $product->price;
-                $cartObject[$index] = $item;
             }
             else {
                 unset($cartObject[$index]);
             }
         }
 
-        return response()->json(['products' => $products, 'cart' => $cartObject], 200);
+        return response()->json(['products' => $products, 'cart' => (array)$cartObject], 200);
     }
 
     public function editAccount(Request $request) {
