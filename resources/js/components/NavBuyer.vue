@@ -127,6 +127,7 @@
             logout() {
                 axios.post('/logout').then(() => {
                     localStorage.removeItem('buyer_token')
+                    localStorage.removeCart('cart')
                     window.location.href = '/'
                 })
             },

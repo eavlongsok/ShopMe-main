@@ -41,9 +41,12 @@ class AuthController extends Controller
             $buyer->password = Hash::make($password);
             $buyer->date_of_birth = $dateOfBirth;
             $buyer->save();
-            $this->logIn($request);
+            $token = $buyer->createToken(time())->plainTextToken;
+            $buyer->api_token = $token;
+            $buyer->save();
+            Auth::guard('buyer')->login($buyer);
 
-            return response()->json(['success' => ['message' => 'Sign up successfully']], 200);
+            return response()->json(['success' => ['message' => 'Sign up successfully', 'token' => $token]], 200);
         }
         else if ($userType == 2) {
             $validation = Validator::make($request->all(), [
@@ -64,9 +67,13 @@ class AuthController extends Controller
             $seller->password = Hash::make($password);
             $seller->date_of_birth = $dateOfBirth;
             $seller->save();
-            $this->logIn($request);
+            $token = $seller->createToken(time())->plainTextToken;
+            $seller->api_token = $token;
+            $seller->save();
+            Auth::guard('seller')->login($seller);
+            $request->session()->regenerate();
 
-            return response()->json(['success' => ['message' => 'Sign up successfully']], 200);
+            return response()->json(['success' => ['message' => 'Sign up successfully'], 'token' => $token], 200);
         }
 
     }
@@ -111,13 +118,14 @@ class AuthController extends Controller
 
         if ($userType == 2) {
             $seller = Seller::where('email', $email)->first();
-            if ($seller->status == 0) {
-                return response()->json(['errors' => ['message' => 'Your account is banned']], 403); // 403: Forbidden
-            }
             if (!isset($seller)) {
                 return response()->json(['errors' => ['message' => 'User Not Found']], 404);
             }
+
             if (Auth::guard('seller') -> attempt(['email' => $email, 'password' => $password], $remember)) {
+                if ($seller->status == 0) {
+                    return response()->json(['errors' => ['message' => 'Your account is banned']], 403); // 403: Forbidden
+                }
                 $seller = Seller::where('email', $email)->first();
                 $token = $seller->createToken(time())->plainTextToken;
                 $seller->api_token = $token;

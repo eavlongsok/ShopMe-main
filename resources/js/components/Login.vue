@@ -20,7 +20,7 @@
                     <span>{{ errors.unmatched }}</span>
                 </div>
 
-                <label for="password" class="block my-1 mt-4" >Password:</label>
+                <label for="password" class="block my-1 mt-4">Password:</label>
 
                 <input ref="password" v-model="password" name="password" type="password" class="input-box"/>
 
@@ -84,6 +84,7 @@
                     formData.append('password', this.password)
                     formData.append('remember', this.remember)
                    const req = await axios.post('/log-in', formData)
+                   console.log(req)
 
                    if (req.data?.success) {
                         if (this.userType === 1)

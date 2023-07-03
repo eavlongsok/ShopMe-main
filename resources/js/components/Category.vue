@@ -10,7 +10,7 @@
             <div class="flex justify-center my-2">
                 <img :src="product.img_url" class="object-cover w-[300px] h-[290px]" />
             </div>
-    
+
             <div class="mx-4 my-3 py-2">
                 <h2 class="font-bold my-2">{{ product.product_name }}</h2>
                 <p class="my-1">${{ toUSCurrency(product.price) }}</p>
@@ -21,7 +21,7 @@
                     <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-3 text-white">Watchlist</button>
                 </div>
                 <div>
-                    <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white" @click="addToCart(product.product_id)">Cart</button>
+                    <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white active:opacity-0" @click="addToCart(product.product_id)">Cart</button>
                 </div>
             </div>
         </div>
@@ -55,7 +55,6 @@
 
                 let params = new URLSearchParams()
                 params.append('category', this.category)
-                console.log(this.category)
                 try{
                     const response = await axios.get('/api/buyer/products/', {
                             params,
@@ -63,7 +62,6 @@
                                 "Authorization": "Bearer " + localStorage.getItem("buyer_token")
                             }
                         })
-                        console.log(response.data)
                     this.products = response.data.products
                     this.category_name = response.data.category_name
                     this.loaded = true
@@ -73,38 +71,34 @@
                 }
             },
             addToCart(id){
-                // var itemm = findByID(this.cart, item.product_id)
-                // this.cartadd.id = item.id
-                // this.cartadd.name = item.name
-                // this.cartadd.price = item.price
-                // this.cartadd.img = item.img
-                // this.cart.push(this.cartadd);
-                // this.cartadd = {};
-                console.log(id)
                 let cart = localStorage.getItem('cart')
-                if(cart === null){
+                if(cart === null || cart == undefined){
                     localStorage.setItem('cart',JSON.stringify([{
                         id: id,
                         qty: 1
                     }]))
                 }
                 else{
-                    
                     cart = JSON.parse(cart)
                     let duplicate = false
                     cart.forEach(item => {
-                    if (item.id === id)
-                    duplicate = true
+                    if (item.id == id)
+                        duplicate = true
+                        return
                     })
 
-                    if (duplicate) return;
+                    if (duplicate) {
+                        alert('Item already in cart')
+                        return;
+                    }
+
                     cart.push({
                         id: id,
                         qty: 1
                     })
                     localStorage.setItem('cart',JSON.stringify(cart))
                 }
-               
+
 
             }
         },
@@ -114,8 +108,6 @@
             }
         },
        async mounted(){
-            console.log(this.productID)
-            console.log('from category')
             this.getProducts()
        },
 

@@ -42,6 +42,42 @@ class BuyerAPIController extends Controller
         }
     }
 
+    public function getProductInCart(Request $request) {
+        $cart = $request->input('cart');
+        $products = [];
+        $cartObject = [];
+        foreach($cart as $item) {
+            array_push($cartObject, (object)$item);
+        }
+
+        foreach($cartObject as $item) {
+            $product = DB::table('product')->join('product_img','product_img.product_id',"=",'product.product_id')->where('product.product_id', $item->id)->where('product.is_approved', 1)->whereNull('product.banned_at')->first();
+            if (isset($product))
+                $product->quantity = $item->qty;
+                $product->total = $item->qty * $product->price;
+
+            $index = -1;
+
+            foreach($cart as $key => $value) {
+                if ($value['id'] == $item->id) {
+                    $index = $key;
+                    break;
+                }
+            }
+
+            if (isset($product)) {
+                array_push($products, $product);
+                $item->price = $product->price;
+                $cartObject[$index] = $item;
+            }
+            else {
+                unset($cartObject[$index]);
+            }
+        }
+
+        return response()->json(['products' => $products, 'cart' => $cartObject], 200);
+    }
+
     public function editAccount(Request $request) {
         $buyer = $request->user();
         $email = $request->input('email');
