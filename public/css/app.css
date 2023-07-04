@@ -482,9 +482,6 @@ video {
 .invisible {
   visibility: hidden;
 }
-.static {
-  position: static;
-}
 .fixed {
   position: fixed;
 }
@@ -523,9 +520,6 @@ video {
 }
 .top-9 {
   top: 2.25rem;
-}
-.top-full {
-  top: 100%;
 }
 .z-10 {
   z-index: 10;
@@ -751,9 +745,6 @@ video {
 .h-full {
   height: 100%;
 }
-.max-h-36 {
-  max-height: 9rem;
-}
 .max-h-\[300px\] {
   max-height: 300px;
 }
@@ -795,6 +786,9 @@ video {
 }
 .w-24 {
   width: 6rem;
+}
+.w-3\/4 {
+  width: 75%;
 }
 .w-3\/5 {
   width: 60%;
@@ -859,9 +853,6 @@ video {
 .w-full {
   width: 100%;
 }
-.w-3\/4 {
-  width: 75%;
-}
 .min-w-\[25rem\] {
   min-width: 25rem;
 }
@@ -870,9 +861,6 @@ video {
 }
 .min-w-\[700px\] {
   min-width: 700px;
-}
-.min-w-full {
-  min-width: 100%;
 }
 .max-w-\[400px\] {
   max-width: 400px;
@@ -996,9 +984,6 @@ video {
 }
 .justify-self-end {
   justify-self: end;
-}
-.overflow-auto {
-  overflow: auto;
 }
 .overflow-hidden {
   overflow: hidden;
@@ -1239,9 +1224,6 @@ video {
 }
 .pt-7 {
   padding-top: 1.75rem;
-}
-.text-left {
-  text-align: left;
 }
 .text-center {
   text-align: center;
@@ -1548,9 +1530,6 @@ video {
 }
 .group:hover .group-hover\:opacity-100 {
   opacity: 1;
-}
-.group:focus .group-focus\:block {
-  display: block;
 }
 @media (min-width: 768px) {
 

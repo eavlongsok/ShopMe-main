@@ -34,6 +34,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::post('/buyer/cart', [BuyerAPIController::class, 'getProductInCart']);
 
+    Route::post('/buyer/watchlist', [BuyerAPIController::class, 'getProductInWatchlist']);
+
     // seller
     Route::post('/registerProduct', [SellerAPIController::class, 'registerProduct']);
 

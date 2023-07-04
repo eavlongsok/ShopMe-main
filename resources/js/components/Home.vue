@@ -1,7 +1,7 @@
 <template>
 
             <!-- Promotion -->
-            <div class="w-full mx-2 my-3">
+            <!-- <div class="w-full mx-2 my-3">
                 <h1 class="text-2xl">Promotion</h1>
             </div>
             <div  class="w-full grid grid-cols-3 my-3">
@@ -30,7 +30,7 @@
                     </div>
 
                 </div>
-            </div>
+            </div> -->
 
             <!-- Fashion -->
             <div class="w-full mx-2 my-3">
@@ -54,7 +54,7 @@
                             <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-3 text-white">Watchlist</button>
                         </div>
                         <div>
-                            <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white">Cart</button>
+                            <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white" @click="addToCart(promo.id)">Cart</button>
                         </div>
                     </div>
                 </div>
@@ -189,38 +189,42 @@
         name: 'Home',
         data(){
             return{
-                promotions: [
-                    {
-                        name: 'Black T-Shirt',
-                        cost: 10.99,
-                        discount: 5.99,
-                        image: 'Images/Shirt/t-s-b.jpg'
-                    },
-                    {
-                        name: 'Canono AE-1',
-                        cost: 299.99,
-                        discount: 249.99,
-                        image: 'Images/Camera/canon-ae1.jpg'
-                    },
-                    {
-                        name: 'Devoko Gaming Chair',
-                        cost: 279.99,
-                        discount: 239.99,
-                        image: 'Images/Chair/devoko.jpg'
-                    }
-                ],
+                // promotions: [
+                //     {
+
+                //         name: 'Black T-Shirt',
+                //         cost: 10.99,
+                //         discount: 5.99,
+                //         image: 'Images/Shirt/t-s-b.jpg'
+                //     },
+                //     {
+                //         name: 'Canono AE-1',
+                //         cost: 299.99,
+                //         discount: 249.99,
+                //         image: 'Images/Camera/canon-ae1.jpg'
+                //     },
+                //     {
+                //         name: 'Devoko Gaming Chair',
+                //         cost: 279.99,
+                //         discount: 239.99,
+                //         image: 'Images/Chair/devoko.jpg'
+                //     }
+                // ],
                 fashion: [
                     {
+                        id: 29,
                         name: 'Man Shirt',
                         cost: 20.99,
                         image: 'Images/Clothing/m_s.jpg'
                     },
                     {
+                        id: 36,
                         name: 'Woman Shirt',
                         cost: 20.99,
                         image: 'Images/Clothing/w_t.jpeg'
                     },
                     {
+                        id: 32,
                         name: 'Man Trouser',
                         cost: 25.99,
                         image: 'Images/Clothing/trouser.jpg'
@@ -280,5 +284,38 @@
 
             };
         },
+        methods: {
+            addToCart(id){
+                let cart = localStorage.getItem('cart')
+                if(cart === null || cart == undefined){
+                    localStorage.setItem('cart',JSON.stringify([{
+                        id: id,
+                        qty: 1
+                    }]))
+                }
+                else{
+                    cart = JSON.parse(cart)
+                    let duplicate = false
+                    cart.forEach(item => {
+                    if (item.id == id)
+                        duplicate = true
+                        return
+                    })
+
+                    if (duplicate) {
+                        alert('Item already in cart')
+                        return;
+                    }
+
+                    cart.push({
+                        id: id,
+                        qty: 1
+                    })
+                    localStorage.setItem('cart',JSON.stringify(cart))
+                }
+
+
+            }
+        }
     }
 </script>

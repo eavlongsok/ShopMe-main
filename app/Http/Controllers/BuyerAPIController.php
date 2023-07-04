@@ -51,7 +51,8 @@ class BuyerAPIController extends Controller
         }
 
         foreach($cartObject as $item) {
-            $product = DB::table('product')->join('product_img','product_img.product_id',"=",'product.product_id')->where('product.product_id', $item->id)->where('product.is_approved', 1)->whereNull('product.banned_at')->first();
+            $product = DB::table('product')->join('product_img','product_img.product_id',"=",'product.product_id')
+            ->where('product.product_id', $item->id)->where('product.is_approved', 1)->whereNull('product.banned_at')->first();
 
             $index = -1;
             foreach($cart as $key => $value) {
@@ -72,6 +73,39 @@ class BuyerAPIController extends Controller
         }
 
         return response()->json(['products' => $products, 'cart' => (array)$cartObject], 200);
+    }
+
+    public function getProductInWatchlist(Request $request) {
+        $watchlist = $request->input('watchlist');
+        $products = [];
+        $watchlistObject = [];
+        foreach($watchlist as $item) {
+            array_push($watchlistObject, (object)$item);
+        }
+
+        foreach($watchlistObject as $item) {
+            $product = DB::table('product')->join('product_img','product_img.product_id',"=",'product.product_id')
+            ->where('product.product_id', $item->id)->where('product.is_approved', 1)->whereNull('product.banned_at')->first();
+
+            $index = -1;
+            foreach($watchlist as $key => $value) {
+                if ($value['id'] == $item->id) {
+                    $index = $key;
+                    break;
+                }
+            }
+
+            if (isset($product)){
+                $product->quantity = $item->qty;
+                // $product->total = $item->qty * $product->price;
+                array_push($products, $product);
+            }
+            else {
+                unset($cartObject[$index]);
+            }
+        }
+
+        return response()->json(['products' => $products, 'watchlist' => (array)$watchlistObject], 200);
     }
 
     public function editAccount(Request $request) {

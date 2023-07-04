@@ -18,7 +18,7 @@
 
             <div class="mx-3 my-2 flex justify-between">
                 <div>
-                    <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-3 text-white">Watchlist</button>
+                    <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-3 text-white" @click="addToWatchlist(product.product_id)">Watchlist</button>
                 </div>
                 <div>
                     <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white active:opacity-0" @click="addToCart(product.product_id)">Cart</button>
@@ -100,6 +100,35 @@
                 }
 
 
+            },
+            addToWatchlist(id){
+                let watchlist = localStorage.getItem('watchlist')
+                if(watchlist === null || watchlist == undefined){
+                    localStorage.setItem('watchlist',JSON.stringify([{
+                        id: id,
+                        qty: 1
+                    }]))
+                }
+                else{
+                    watchlist = JSON.parse(watchlist)
+                    let duplicate = false
+                    watchlist.forEach(item => {
+                    if (item.id == id)
+                        duplicate = true
+                        return
+                    })
+
+                    if (duplicate) {
+                        alert('Item already in Watchlist')
+                        return;
+                    }
+
+                    watchlist.push({
+                        id: id,
+                        qty: 1
+                    })
+                    localStorage.setItem('watchlist',JSON.stringify(watchlist))
+                }
             }
         },
         watch: {
