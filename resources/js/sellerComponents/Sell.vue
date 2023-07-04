@@ -56,41 +56,12 @@
                 </div>
 
                 <div class="flex justify-end">
-                    <!-- <div>
-                    <button class="relative flex justify-center items-center border rounded group">
-                        <p class="px-3">Category</p>
-                        <span class="p-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-                            </svg>
-                        </span>
-                        <div class="absolute hidden group-focus:block mt-1 bg-white min-w-full top-full ">
-                            <ul class="text-left border rounded overflow-auto max-h-36">
-                                <li class="px-3 py-1 border-b">Shirt</li>
-                                <li class="px-3 py-1 border-b">Pant</li>
-                                <li class="px-3 py-1 border-b">Shoes</li>
-                                <li class="px-3 py-1 border-b">PC</li>
-                                <li class="px-3 py-1 border-b">Camera</li>
-                                <li class="px-3 py-1 border-b">Devices</li>
-                                <li class="px-3 py-1 border-b">Table</li>
-                                <li class="px-3 py-1 border-b">Chair</li>
-                                <li class="px-3 py-1 border-b">Bed</li>
-                                <li class="px-3 py-1 border-b">Toy</li>
-                                <li class="px-3 py-1 border-b">Beauty</li>
-                            </ul>
-                        </div>
-                    </button>
-                    </div> -->
-
                     <div>
                         <button class="border-2 bg-sky-400 hover:bg-sky-500 hover:text-white
                         rounded-md border-inherit py-1 px-6 text-white
                         " @click="submit">Submit</button>
                     </div>
                 </div>
-
-
-
 
             </div>
         </div>
@@ -115,27 +86,9 @@
             }
         },
         methods: {
-            handleFileInput() {
-                if (window.File && window.FileReader && window.FileList && window.Blob) {
-                    const image = this.$refs.image
-                    // console.log(files.files)
-                    this.image = image.files
-                }
-                else alert('Your window doesn\'t support file uploading')
-            },
             async submit() {
                 console.log(this.image)
                 try {
-                    // const response = await axios.post('api/test', {
-                    //     name: this.name,
-                    //     category: this.category,
-                    //     condition: this.condition,
-                    //     price: this.price,
-                    //     quantity: this.quantity,
-                    //     description: this.description,
-                    //     image: this.image,
-                    // }, )
-                    // console.log(response.data)
                     let formData = new FormData();
                     formData.append("name", this.name)
                     formData.append("category", this.category)

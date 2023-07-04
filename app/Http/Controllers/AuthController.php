@@ -46,7 +46,7 @@ class AuthController extends Controller
             $buyer->save();
             Auth::guard('buyer')->login($buyer);
 
-            return response()->json(['success' => ['message' => 'Sign up successfully', 'token' => $token]], 200);
+            return response()->json(['success' => 'Sign up successfully', 'token' => $token], 200);
         }
         else if ($userType == 2) {
             $validation = Validator::make($request->all(), [

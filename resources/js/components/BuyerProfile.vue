@@ -5,7 +5,7 @@
     <div v-else-if="!loading" class="w-full h-[90vh] grid grid-cols-2 gap-x-24 justify-center">
         <div class="h-full flex flex-col gap-y-8 justify-center items-center">
             <div class="w-3/5 relative wrapper">
-                <img :src="buyer.img_url !== null ? buyer.img_url : 'user.png'" class="w-full rounded-[50%] aspect-square inline-block border-[1px] border-black shadow-lg"/>
+                <img :src="buyer.img_url !== null ? buyer.img_url : '/user.png'" class="w-full rounded-[50%] aspect-square inline-block border-[1px] border-black shadow-lg"/>
                 <label for="logo">
                     <div class="profile-hover text-lg" >
                         Change Profile Picture

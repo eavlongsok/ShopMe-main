@@ -4,32 +4,56 @@
         <div class="border-2 rounded-md md max-w-[450px]">
             <div class="m-3">
                 <label>Business Name</label>
+                <div v-if="errors !== null && errors.hasOwnProperty('business_name')" class="text-red-600 font-bold text-sm">
+                    <span>{{ errors.business_name[0] }}</span>
+                </div>
                 <input name="business_name" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="businessName">
 
                 <label>Building Number</label>
+                <div v-if="errors !== null && errors.hasOwnProperty('building_number')" class="text-red-600 font-bold text-sm">
+                    <span>{{ errors.building_number[0] }}</span>
+                </div>
                 <input name="building_number" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="buildingNumber">
 
                 <label>Street Number</label>
+                <div v-if="errors !== null && errors.hasOwnProperty('street_number')" class="text-red-600 font-bold text-sm">
+                    <span>{{ errors.street_number[0] }}</span>
+                </div>
                 <input name="street_number" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="streetNumber">
 
 
                 <label>Province</label>
+                <div v-if="errors !== null && errors.hasOwnProperty('province')" class="text-red-600 font-bold text-sm">
+                    <span>{{ errors.province[0] }}</span>
+                </div>
                 <select name="province" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="chosenProvince">
                     <option disabled selected>--Choose Province--</option>
                     <option v-for="pro in province" :value="pro.region_id">{{ pro.region_name }}</option>
                 </select>
 
                 <label>City</label>
+                <div v-if="errors !== null && errors.hasOwnProperty('city')" class="text-red-600 font-bold text-sm">
+                    <span>{{ errors.city[0] }}</span>
+                </div>
                 <input name="city" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="city">
                 <!-- <input name="province" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="province"> -->
 
                 <label>ZIP Code</label>
+                <div v-if="errors !== null && errors.hasOwnProperty('zip_code')" class="text-red-600 font-bold text-sm">
+                    <span>{{ errors.zip_code[0] }}</span>
+                </div>
                 <input name="zip_code" type="text" class="border-2 pl-2 rounded-md py-1 my-2 focus:outline w-full" v-model="zipCode" @keyup="limitStringLength($event, 6)">
 
                 <label class="block my-2 mt-4">Business Description</label>
+                <div v-if="errors !== null && errors.hasOwnProperty('business_info')" class="text-red-600 font-bold text-sm">
+                    <span>{{ errors.business_info[0] }}</span>
+                </div>
                 <textarea name="business_info" class="border-2 pl-2 rounded-md py-1 focus:outline w-full h-[8rem]" v-model="businessInfo"></textarea>
 
                 <label class="block my-2 mt-4 font-bold">Logo</label>
+                <div v-if="errors !== null && errors.hasOwnProperty('logo')" class="text-red-600 font-bold text-sm">
+                    <span>{{ errors.logo[0] }}</span>
+                </div>
                 <input type="file" name="logo" ref="logo" @change="addLogo()" accept="image/png, image/jpeg" />
 
                 <div class="flex justify-end">
@@ -59,6 +83,7 @@
                 businessInfo: '',
                 chosenProvince: null,
                 logo: null,
+                errors: null
             }
         },
         methods: {
@@ -88,6 +113,9 @@
                     window.location.href = '/'
                 }
                 catch(err){
+                    if (err.response.status === 422) {
+                        this.errors = err.response.data.errors
+                    }
                     console.log(err.response.data)
                 }
             },

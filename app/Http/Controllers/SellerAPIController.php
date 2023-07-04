@@ -146,8 +146,8 @@ class SellerAPIController extends Controller
             'building_number' => 'required',
             'street_number' => 'required',
             'city' => 'required',
-            // 'province' => 'required',
-            'zip_code' => 'required|integer|digits:6',
+            'province' => 'required',
+            'zip_code' => 'required|integer|digits_between:5,6',
             'business_info' => 'required',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120'
 
@@ -367,7 +367,6 @@ class SellerAPIController extends Controller
 
         return response()->json(['products' => $products], 200);
 
-        return response()->json(['products' => $products], 200);
     }
 
     public function uploadImage(Request $request, $name) {

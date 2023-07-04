@@ -5,7 +5,7 @@
     <div v-else-if="!loading" class="w-full h-[90vh] grid grid-cols-2 gap-x-24 justify-center">
         <div class="h-full flex flex-col gap-y-8 justify-center items-center">
             <div class="w-3/5 relative wrapper">
-                <img :src="seller.img_url" class="w-full rounded-[50%] aspect-square inline-block border-[1px] border-black shadow-lg"/>
+                <img :src="seller.img_url !== null ? seller.img_url : '/user.png'" class="w-full rounded-[50%] aspect-square inline-block border-[1px] border-black shadow-lg"/>
                 <label for="logo">
                     <div class="profile-hover text-lg" >
                         Change Profile Picture
@@ -15,7 +15,7 @@
             </div>
 
             <p class="text-2xl font-bold">{{seller.first_name}} {{ seller.last_name }}</p>
-            <button class="bg-white w-4/5 p-3 mt-5 text-center rounded-lg border-2 border-gray-500 ml-5 text-xl hover:bg-blue-100" @click="$emit('changetab', 9)">Edit Account Information</button>
+            <button class="bg-white w-4/5 p-3 mt-5 text-center rounded-lg border-2 border-gray-500 ml-5 text-xl hover:bg-blue-100" @click="$emit('changetab', -1)">Edit Account Information</button>
         </div>
         <div class="h-full flex flex-col indent-10 min-w-[25rem] justify-center text-xl gap-y-5">
             <p><span class="font-bold capitalize">Name: </span>{{ seller.first_name }} {{ seller.last_name }}</p>
