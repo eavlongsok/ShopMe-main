@@ -218,10 +218,10 @@
                         image: 'Images/Clothing/m_s.jpg'
                     },
                     {
-                        id: 36,
-                        name: 'Woman Shirt',
-                        cost: 20.99,
-                        image: 'Images/Clothing/w_t.jpeg'
+                        id: 28,
+                        name: 'Air Jordan 1',
+                        cost: 599.99,
+                        image: 'https://i.imgur.com/VZgmlu4.jpg'
                     },
                     {
                         id: 32,

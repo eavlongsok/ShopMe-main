@@ -36,7 +36,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::post('/buyer/watchlist', [BuyerAPIController::class, 'getProductInWatchlist']);
 
-    Route::post('/buyer/payment', [BuyerAPIController::class, 'payment']);
+    Route::post('/buyer/checkout', [BuyerAPIController::class, 'checkout']);
 
     // seller
     Route::post('/registerProduct', [SellerAPIController::class, 'registerProduct']);

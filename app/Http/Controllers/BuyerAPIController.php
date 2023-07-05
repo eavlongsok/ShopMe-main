@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,7 +48,7 @@ class BuyerAPIController extends Controller
         $cart = $request->input('cart');
         $products = [];
         $cartObject = [];
-        $new_cart = [];
+
         foreach($cart as $item) {
             array_push($cartObject, (object)$item);
         }
@@ -57,8 +58,8 @@ class BuyerAPIController extends Controller
             ->where('product.product_id', $item->id)->where('product.is_approved', 1)->whereNull('product.banned_at')->first();
 
             $index = -1;
-            foreach($cart as $key => $value) {
-                if ($value['id'] == $item->id) {
+            foreach($cartObject as $key => $value) {
+                if ($value->id == $item->id) {
                     $index = $key;
                     break;
                 }
@@ -77,48 +78,81 @@ class BuyerAPIController extends Controller
         return response()->json(['products' => $products, 'cart' => (array)$cartObject], 200);
     }
 
-    // public function payment(Request $request){
-    //     $cart = $request->input('cart');
-    //     $buyer_id = $request->user()->buyer_id;
+    public function checkout(Request $request){
+        $cart = $request->input('cart');
+        $buyer_id = $request->user()->buyer_id;
+        $new_cart = (object)[];
 
-    //      $products = [];
-    //     $cartObject = [];
-    //     foreach($cart as $item) {
-    //         array_push($cartObject, (object)$item);
-    //     }
+        $cartObject = [];
+        foreach($cart as $item) {
+            array_push($cartObject, (object)$item);
+        }
 
-    //     foreach($cartObject as $item) {
-    //         $product = DB::table('product')->join('product_img','product_img.product_id',"=",'product.product_id')
-    //         ->where('product.product_id', $item->id)->where('product.is_approved', 1)->whereNull('product.banned_at')->first();
+        foreach($cartObject as $item) {
+            $product = DB::table('product')->join('product_img','product_img.product_id',"=",'product.product_id')
+            ->where('product.product_id', $item->id)->where('product.is_approved', 1)->whereNull('product.banned_at')->first();
 
-           
-           
+            $index = -1;
+            foreach($cartObject as $key => $value) {
+                if ($value->id == $item->id) {
+                    $index = $key;
+                    break;
+                }
+            }
 
-    //         $index = -1;
-    //         foreach($cart as $key => $value) {
-    //             if ($value['id'] == $item->id) {
-    //                 $index = $key;
-    //                 break;
-    //             }
-    //         }
+            if (isset($product)){
+                $seller_id = $product->seller_id;
+                if(property_exists($new_cart, $seller_id)){
+                    array_push($new_cart->$seller_id, $item);
+                }
 
-    //         if (isset($product)){
-               
-    //             $seller_id = $product->seller_id;
-    //             if(array_key_exists($seller_id, $new_cart)){
-    //                 array_push($new_cart[$seller_id], $item);
-    //             }else{
-    //                 $new_cart[$seller_id] = array($item);
-    //             }
-    //         }
-    //         else {
-    //             unset($cartObject[$index]);
-    //         }
-    //     }
-    //     $order = DB::table('order')->insertGetId([])
+                else{
+                    $new_cart->$seller_id = array($item);
+                }
+            }
+            else {
+                unset($cartObject[$index]);
+            }
+        }
 
-    //    return response()->json(['message' => $cart], 200);
-    // }
+        foreach ($new_cart as $seller_id => $cart) {
+            // to find total price
+            $total = 0;
+            foreach ($cart as $item) {
+                $product = DB::table('product')->where('product_id', $item->id)->first();
+                $total += $product->price * $item->qty;
+            }
+
+            $order_id = DB::table('order')->insertGetId([
+                'buyer_id' => $buyer_id,
+                'seller_id' => $seller_id,
+                'total_price' => $total,
+                'created_at' => Carbon::now(),
+            ]);
+
+            foreach ($cart as $item) {
+                // if seller has enough products left
+                $product = DB::table('product')->where('product_id', $item->id)->first();
+                if ($product->quantity < $item->qty) {
+                    $item->qty = $product->quantity;
+                    DB::table('product')->where('product_id', $item->id)->update(['quantity' => 0, 'product_sold' => $product->product_sold + $item->qty]);
+                }
+                else {
+                    DB::table('product')->where('product_id', $item->id)->decrement('quantity', $item->qty);
+                    DB::table('product')->where('product_id', $item->id)->increment('product_sold', $item->qty);
+                }
+
+                DB::table('order_detail')->insert([
+                    'order_id' => $order_id,
+                    'product_id' => $item->id,
+                    'quantity' => $item->qty,
+                    'created_at' => Carbon::now(),
+                ]);
+            }
+        }
+
+       return response()->json(['success' => 'Successfully checked out'], 200);
+    }
 
     public function getProductInWatchlist(Request $request) {
         $watchlist = $request->input('watchlist');

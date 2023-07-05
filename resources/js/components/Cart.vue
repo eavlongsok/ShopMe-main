@@ -12,7 +12,7 @@
                     <div>
                         <h2 class="font-bold my-2">{{ product.product_name }}</h2>
                         <!-- <p class="line-through text-red-500 my-1">$ {{ product.price }}</p> -->
-                        <p class="my-1">${{product.price}}</p>
+                        <p class="my-1">{{toUSCurrency(product.price)}}</p>
                     </div>
                 </div>
 
@@ -47,7 +47,7 @@
                             <!-- overrode total quantity for quantity in cart -->
                     </div>
                     <div>
-                        <p>Total: $ {{ product.total }}</p>
+                        <p>Total: {{ toUSCurrency(product.total) }}</p>
                     </div>
 
                 </div>
@@ -58,7 +58,7 @@
         <template v-if="loaded && products.length != 0">
             <div class="w-full border-2 rounded-md flex justify-center my-2">
                 <div class="py-8">
-                    <h1 class="text-3xl">Total: $ {{ total }} </h1>
+                <h1 class="text-3xl">Total: {{ toUSCurrency(total) }} </h1>
                 </div>
             </div>
 
@@ -66,7 +66,7 @@
                 <div>
                     <button class="border-2 bg-yellow-300 hover:bg-yellow-400 hover:text-white
                     rounded-lg border-inherit px-4 text-gray-600
-                    text-lg py-2 px-18" @click="payment">Payment</button>
+                    text-lg py-2 px-18" @click="checkout">Payment</button>
                 </div>
 
             </div>
@@ -90,12 +90,23 @@
         components: {Loader},
 
         methods: {
+            toUSCurrency(num) {
+                const formatter = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+
+                    // These options are needed to round to whole numbers if that's what you want.
+                    //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+                    //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+                });
+
+                return formatter.format(num);
+            },
+
             passID(tabID){
                 this.$emit('changetab',tabID)
             },
             calculateTotal() {
-                console.log('hi')
-                console.log(this.products)
                 let total = 0
                 this.products.forEach(product => {
                     total += product.total
@@ -168,17 +179,27 @@
                 localStorage.setItem('cart', JSON.stringify(cart))
                 this.calculateTotal()
             },
-            async payment(){
-            
-                try {
-                let cart = JSON.parse(localStorage.getItem('cart'))
-                const response = await axios.post('/api/buyer/payment', {cart}, {headers: {
-                    'Authorization': 'Bearer ' + localStorage.getItem('buyer_token'),
-                }})
-                
-                console.log(response)
+            async checkout(){
 
-                } catch(err) {
+                try {
+                    let cart = JSON.parse(localStorage.getItem('cart'))
+                    const response = await axios.post('/api/buyer/checkout', {cart}, {
+                        headers: {
+                            'Authorization': 'Bearer ' + localStorage.getItem('buyer_token'),
+                    }})
+
+                    console.log(response.data)
+
+                    if (response.data?.success) {
+                        localStorage.removeItem('cart')
+                        this.products = []
+                        this.total = 0
+                        alert('Payment successful')
+                        window.location.href = '/'
+                    }
+
+                }
+                 catch(err) {
                     console.log(err.response)
                 }
             }
@@ -197,7 +218,6 @@
                     }
                 })
 
-                console.log(response.data)
                 this.products = response.data.products
                 this.calculateTotal()
                 localStorage.setItem('cart', JSON.stringify(response.data.cart))

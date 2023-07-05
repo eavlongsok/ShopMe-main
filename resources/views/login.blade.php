@@ -12,6 +12,7 @@
         <link href="{{mix("css/app.css")}}" rel="stylesheet" />
         <script src="{{mix("js/login.js")}}" defer></script>
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="referrer" content="no-referrer">
 
         <style>
             body {
