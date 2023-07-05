@@ -51,7 +51,7 @@
 
                     <div class="mx-3 my-2 flex justify-between">
                         <div>
-                            <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-3 text-white">Watchlist</button>
+                            <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-3 text-white" @click="addToWatchlist(promo.id)">Watchlist</button>
                         </div>
                         <div>
                             <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white" @click="addToCart(promo.id)">Cart</button>
@@ -79,10 +79,10 @@
 
                     <div class="mx-3 my-2 flex justify-between">
                         <div>
-                            <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-3 text-white">Watchlist</button>
+                            <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-3 text-white" @click="addToWatchlist(promo.id)">Watchlist</button>
                         </div>
                         <div>
-                            <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white">Cart</button>
+                            <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white" @click="addToCart(promo.id)">Cart</button>
                         </div>
 
 
@@ -110,10 +110,10 @@
 
                     <div class="mx-3 my-2 flex justify-between">
                         <div>
-                            <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-3 text-white">Watchlist</button>
+                            <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-3 text-white" @click="addToWatchlist(promo.id)">Watchlist</button>
                         </div>
                         <div>
-                            <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white">Cart</button>
+                            <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white" @click="addToCart(promo.id)">Cart</button>
                         </div>
 
 
@@ -140,10 +140,10 @@
 
                     <div class="mx-3 my-2 flex justify-between">
                         <div>
-                            <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-3 text-white">Watchlist</button>
+                            <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-3 text-white" @click="addToWatchlist(promo.id)">Watchlist</button>
                         </div>
                         <div>
-                            <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white">Cart</button>
+                            <button class="border-2 bg-green-500 hover:bg-green-400 rounded-lg border-inherit py-1 px-5 text-white" @click="addToCart(promo.id)">Cart</button>
                         </div>
 
 
@@ -232,16 +232,19 @@
                 ],
                 electronic: [
                     {
-                        name: 'MacBook Air M2',
+                        id:43,
+                        name: 'MacBook Pro 16 M1',
                         cost: 1499.99,
                         image: 'Images/Electronic/macpro16_m1.jpg'
                     },
                     {
+                        id:39,
                         name: 'Dji Mini 2',
                         cost: 899.99,
                         image: 'Images/Electronic/dji_mini2.jpg'
                     },
                     {
+                        id:41,
                         name: 'GoPro Hero 11',
                         cost: 599.99,
                         image: 'Images/Electronic/goprohero11.jpg'
@@ -249,16 +252,19 @@
                 ],
                 furniture: [
                     {
+                        id:44,
                         name: 'Coffee Table',
                         cost: 30.99,
                         image: 'Images/Furniture/coffee.jpeg'
                     },
                     {
+                        id:46,
                         name: 'Dinner Chair',
                         cost: 10.99,
                         image: 'Images/Furniture/din_chair.jpg'
                     },
                     {
+                        id:47,
                         name: 'Couple Bed',
                         cost: 399.99,
                         image: 'Images/Furniture/double.jpg'
@@ -266,16 +272,19 @@
                 ],
                 tool: [
                     {
+                        id:71,
                         name: 'Axe',
                         cost: 30.99,
                         image: 'Images/Tool and Home Appliance/axe.jpg'
                     },
                     {
+                        id:74,
                         name: 'Hammer',
                         cost: 6.99,
                         image: 'Images/Tool and Home Appliance/hammer.jpg'
                     },
                     {
+                        id:76,
                         name: 'Shovel',
                         cost: 10.99,
                         image: 'Images/Tool and Home Appliance/shovel.jpg'
@@ -315,6 +324,35 @@
                 }
 
 
+            },
+            addToWatchlist(id){
+                let watchlist = localStorage.getItem('watchlist')
+                if(watchlist === null || watchlist == undefined){
+                    localStorage.setItem('watchlist',JSON.stringify([{
+                        id: id,
+                        qty: 1
+                    }]))
+                }
+                else{
+                    watchlist = JSON.parse(watchlist)
+                    let duplicate = false
+                    watchlist.forEach(item => {
+                    if (item.id == id)
+                        duplicate = true
+                        return
+                    })
+
+                    if (duplicate) {
+                        alert('Item already in Watchlist')
+                        return;
+                    }
+
+                    watchlist.push({
+                        id: id,
+                        qty: 1
+                    })
+                    localStorage.setItem('watchlist',JSON.stringify(watchlist))
+                }
             }
         }
     }

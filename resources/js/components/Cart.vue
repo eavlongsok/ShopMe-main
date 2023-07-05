@@ -66,7 +66,7 @@
                 <div>
                     <button class="border-2 bg-yellow-300 hover:bg-yellow-400 hover:text-white
                     rounded-lg border-inherit px-4 text-gray-600
-                    text-lg py-2 px-18">Payment</button>
+                    text-lg py-2 px-18" @click="payment">Payment</button>
                 </div>
 
             </div>
@@ -167,6 +167,20 @@
                 }
                 localStorage.setItem('cart', JSON.stringify(cart))
                 this.calculateTotal()
+            },
+            async payment(){
+            
+                try {
+                let cart = JSON.parse(localStorage.getItem('cart'))
+                const response = await axios.post('/api/buyer/payment', {cart}, {headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('buyer_token'),
+                }})
+                
+                console.log(response)
+
+                } catch(err) {
+                    console.log(err.response)
+                }
             }
         },
         async mounted() {

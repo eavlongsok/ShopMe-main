@@ -13,14 +13,14 @@
                     <h1>002454</h1>
                 </div>
             </div>
-            <div class="flex justify-between">
+            <!-- <div class="flex justify-between">
                 <div class="mx-2">
                     <h1>Method:</h1>
                 </div>
                 <div class="mx-2">
                     <h1>bank or card</h1>
                 </div>
-            </div>
+            </div> -->
 
             <div class="flex justify-between">
                 <div class="mx-2">
@@ -48,7 +48,7 @@
                     <h1>2023-5-15</h1>
                 </div>
             </div>
-            <div class="flex justify-between">
+            <!-- <div class="flex justify-between">
                 <div class="mx-2">
                     <h1>Zip or Postal Code:</h1>
                 </div>
@@ -71,7 +71,7 @@
                 <div class="mx-2">
                     <h1>st,34</h1>
                 </div>
-            </div>
+            </div> -->
 
             <div class="flex justify-between border-2 my-2 p-1">
                 <table class="border-separate border-spacing-x-1">

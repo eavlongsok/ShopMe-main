@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -46,6 +47,7 @@ class BuyerAPIController extends Controller
         $cart = $request->input('cart');
         $products = [];
         $cartObject = [];
+        $new_cart = [];
         foreach($cart as $item) {
             array_push($cartObject, (object)$item);
         }
@@ -74,6 +76,49 @@ class BuyerAPIController extends Controller
 
         return response()->json(['products' => $products, 'cart' => (array)$cartObject], 200);
     }
+
+    // public function payment(Request $request){
+    //     $cart = $request->input('cart');
+    //     $buyer_id = $request->user()->buyer_id;
+
+    //      $products = [];
+    //     $cartObject = [];
+    //     foreach($cart as $item) {
+    //         array_push($cartObject, (object)$item);
+    //     }
+
+    //     foreach($cartObject as $item) {
+    //         $product = DB::table('product')->join('product_img','product_img.product_id',"=",'product.product_id')
+    //         ->where('product.product_id', $item->id)->where('product.is_approved', 1)->whereNull('product.banned_at')->first();
+
+           
+           
+
+    //         $index = -1;
+    //         foreach($cart as $key => $value) {
+    //             if ($value['id'] == $item->id) {
+    //                 $index = $key;
+    //                 break;
+    //             }
+    //         }
+
+    //         if (isset($product)){
+               
+    //             $seller_id = $product->seller_id;
+    //             if(array_key_exists($seller_id, $new_cart)){
+    //                 array_push($new_cart[$seller_id], $item);
+    //             }else{
+    //                 $new_cart[$seller_id] = array($item);
+    //             }
+    //         }
+    //         else {
+    //             unset($cartObject[$index]);
+    //         }
+    //     }
+    //     $order = DB::table('order')->insertGetId([])
+
+    //    return response()->json(['message' => $cart], 200);
+    // }
 
     public function getProductInWatchlist(Request $request) {
         $watchlist = $request->input('watchlist');
