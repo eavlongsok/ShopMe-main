@@ -51,7 +51,7 @@
                         <p class="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
                             Attach an image</p>
                     </div>
-                    <input type="file" ref="image" @change="handleFileInput()" accept="image/jpeg, image/jpg, image/png" class="opacity-0" :disabled="!isVerified"/>
+                    <input type="file" ref="image" accept="image/jpeg, image/jpg, image/png" class="opacity-0" :disabled="!isVerified" @change="addImage()" />
                     </label>
                 </div>
 
@@ -86,8 +86,11 @@
             }
         },
         methods: {
+            addImage() {
+                this.image = this.$refs.image.files[0]
+
+            },
             async submit() {
-                console.log(this.image)
                 try {
                     let formData = new FormData();
                     formData.append("name", this.name)
@@ -96,7 +99,7 @@
                     formData.append("price", this.price)
                     formData.append("quantity", this.quantity)
                     formData.append("description", this.description)
-                    formData.append("image", this.image[0]);
+                    formData.append("image", this.image);
                     const response = await axios.post('/api/registerProduct', formData, {
                         headers: {
                             "Authorization": "Bearer " + localStorage.getItem("seller_token")
