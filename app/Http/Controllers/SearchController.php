@@ -55,5 +55,7 @@ class SearchController extends Controller
 
     public function getProductInfo(Request $request, $id) {
         $product = DB::table('product')->join('product_img', 'product_img.product_id', 'product.product_id')->where('product.product_id', $id)->where('product.is_approved', 1)->whereNull('product.banned_by')->select('product.*', 'product_img.img_url')->first();
+
+        return response()->json(['product' => $product]);
     }
 }
